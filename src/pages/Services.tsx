@@ -1,5 +1,7 @@
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
+import { AnimateIn, StaggerContainer, StaggerItem, MagneticButton } from "@/components/animations";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import gasPipelineImg from "@/assets/gas-pipeline.jpg";
@@ -74,74 +76,107 @@ const Services = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-industrial-gradient py-20 md:py-28">
-        <div className="container-wide">
-          <div className="max-w-2xl">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent text-sm font-semibold mb-4">Our Services</span>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
-              Comprehensive Industrial Services
+      <section className="bg-industrial-gradient py-24 md:py-36 relative overflow-hidden grain-overlay">
+        <div className="absolute inset-0 hero-mesh" />
+        <div className="absolute top-20 right-20 w-64 h-64 rounded-full border border-primary-foreground/5 animate-float" />
+        <div className="container-wide relative z-10">
+          <motion.div
+            className="max-w-2xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 text-accent text-sm font-semibold mb-6 border border-accent/20">
+              Our Services
+            </span>
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground mb-5 leading-tight">
+              Comprehensive Industrial{" "}
+              <span className="text-accent">Services</span>
             </h1>
-            <p className="text-primary-foreground/80 text-lg">
+            <p className="text-primary-foreground/70 text-lg leading-relaxed">
               From gas pipeline installation to material handling — we deliver end-to-end industrial solutions with precision and reliability.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Service Sections */}
       {servicesList.map((s, i) => (
-        <section key={s.id} id={s.id} className={`section-padding ${i % 2 === 0 ? "bg-background" : "bg-muted"}`}>
-          <div className="container-narrow">
-            <div className={`grid md:grid-cols-2 gap-12 items-center ${i % 2 !== 0 ? "md:[direction:rtl] md:[&>*]:dir-ltr" : ""}`}>
-              <div className="rounded-xl overflow-hidden">
-                <img src={s.img} alt={s.title} className="w-full h-auto object-cover rounded-xl" />
-              </div>
-              <div style={{ direction: "ltr" }}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                    <s.icon className="h-5 w-5 text-accent" />
+        <section key={s.id} id={s.id} className={`section-padding ${i % 2 === 0 ? "bg-background" : "bg-muted"} relative overflow-hidden`}>
+          {i % 2 === 0 && <div className="absolute inset-0 mesh-gradient opacity-30" />}
+          <div className="container-narrow relative z-10">
+            <div className={`grid md:grid-cols-2 gap-14 items-center ${i % 2 !== 0 ? "md:[direction:rtl]" : ""}`}>
+              <AnimateIn direction={i % 2 === 0 ? "left" : "right"}>
+                <motion.div
+                  className="rounded-2xl overflow-hidden relative group"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <img src={s.img} alt={s.title} className="w-full h-auto object-cover rounded-2xl" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                </motion.div>
+              </AnimateIn>
+              <AnimateIn direction={i % 2 === 0 ? "right" : "left"}>
+                <div style={{ direction: "ltr" }}>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                      <s.icon className="h-6 w-6 text-accent" />
+                    </div>
+                    <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">{s.title}</h2>
                   </div>
-                  <h2 className="font-display text-2xl font-bold text-foreground">{s.title}</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-6">{s.desc}</p>
+                  <StaggerContainer className="space-y-2.5 mb-8" staggerDelay={0.05}>
+                    {s.benefits.map((b) => (
+                      <StaggerItem key={b}>
+                        <div className="flex items-center gap-3 text-sm text-foreground">
+                          <CheckCircle className="h-4 w-4 text-accent shrink-0" />
+                          <span>{b}</span>
+                        </div>
+                      </StaggerItem>
+                    ))}
+                  </StaggerContainer>
+                  <MagneticButton>
+                    <Link to="/request-quote">
+                      <Button className="bg-industrial-gradient-accent text-accent-foreground hover:opacity-90 font-semibold rounded-full px-8 h-12 shadow-lg shadow-accent/20">
+                        Get a Quote <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                  </MagneticButton>
                 </div>
-                <p className="text-muted-foreground leading-relaxed mb-6">{s.desc}</p>
-                <ul className="space-y-2 mb-6">
-                  {s.benefits.map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-sm text-foreground">
-                      <CheckCircle className="h-4 w-4 text-accent shrink-0" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <Link to="/request-quote">
-                  <Button className="bg-industrial-gradient-accent text-accent-foreground hover:opacity-90 font-semibold">
-                    Get a Quote <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
+              </AnimateIn>
             </div>
           </div>
         </section>
       ))}
 
       {/* CTA */}
-      <section className="section-padding bg-industrial-gradient">
-        <div className="container-narrow text-center">
-          <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">Need a Custom Solution?</h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Our engineering team can design and deliver tailored solutions for your specific industrial requirements.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/request-quote">
-              <Button size="lg" className="bg-industrial-gradient-accent text-accent-foreground hover:opacity-90 font-semibold px-8 h-12">
-                Request Quote <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-8 h-12">
-                Contact Us
-              </Button>
-            </Link>
-          </div>
+      <section className="section-padding bg-industrial-gradient relative overflow-hidden grain-overlay">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent/5 blur-3xl" />
+        <div className="container-narrow text-center relative z-10">
+          <AnimateIn>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-5">Need a Custom Solution?</h2>
+            <p className="text-primary-foreground/70 mb-10 max-w-xl mx-auto text-lg">
+              Our engineering team can design and deliver tailored solutions for your specific industrial requirements.
+            </p>
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
+            <div className="flex flex-wrap justify-center gap-4">
+              <MagneticButton>
+                <Link to="/request-quote">
+                  <Button size="lg" className="bg-industrial-gradient-accent text-accent-foreground hover:opacity-90 font-semibold px-10 h-14 rounded-full shadow-xl shadow-accent/25">
+                    Request Quote <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </MagneticButton>
+              <MagneticButton>
+                <Link to="/contact">
+                  <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-10 h-14 rounded-full">
+                    Contact Us
+                  </Button>
+                </Link>
+              </MagneticButton>
+            </div>
+          </AnimateIn>
         </div>
       </section>
     </Layout>

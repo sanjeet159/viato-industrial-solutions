@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -52,6 +52,7 @@
     --industrial-dark: 215 90% 12%;
     --steel: 210 10% 55%;
     --steel-light: 210 10% 85%;
+    --glow: 28 100% 60%;
   }
 
   .dark {
@@ -103,7 +104,7 @@
 @layer utilities {
   .text-gradient-industrial {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(215 80% 22%), hsl(28 90% 52%));
+    background-image: linear-gradient(135deg, hsl(215 80% 35%), hsl(28 90% 52%));
   }
 
   .bg-industrial-gradient {
@@ -115,7 +116,7 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-28;
   }
 
   .container-narrow {
@@ -125,8 +126,96 @@
   .container-wide {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50 shadow-lg;
+  }
+
+  .industrial-glow {
+    box-shadow: 0 0 60px -15px hsl(28 90% 52% / 0.3);
+  }
+
+  .mesh-gradient {
+    background:
+      radial-gradient(ellipse at 20% 50%, hsl(215 80% 22% / 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, hsl(28 90% 52% / 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, hsl(215 60% 35% / 0.1) 0%, transparent 50%);
+  }
+
+  .hero-mesh {
+    background:
+      radial-gradient(ellipse at 20% 80%, hsl(28 90% 52% / 0.2) 0%, transparent 40%),
+      radial-gradient(ellipse at 80% 20%, hsl(215 80% 40% / 0.3) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 50%, hsl(215 90% 15% / 0.5) 0%, transparent 60%);
+  }
 }
 
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(210 15% 95%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(215 80% 22% / 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(215 80% 22% / 0.5);
+}
+
+/* Animated underline for nav links */
+.nav-link-animated {
+  position: relative;
+}
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: hsl(28 90% 52%);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.nav-link-animated:hover::after,
+.nav-link-animated.active::after {
+  width: 100%;
+}
+
+/* Floating particles effect */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(28 90% 52% / 0.2); }
+  50% { box-shadow: 0 0 40px hsl(28 90% 52% / 0.4); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Grain texture overlay */
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
 }
