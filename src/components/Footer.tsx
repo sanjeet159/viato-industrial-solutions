@@ -1,28 +1,31 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { AnimateIn, StaggerContainer, StaggerItem } from "@/components/animations";
 
 const Footer = () => {
   return (
-    <footer className="bg-industrial-gradient text-primary-foreground">
-      <div className="container-wide section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="h-9 w-9 rounded-lg bg-accent flex items-center justify-center">
-                <span className="font-display font-bold text-accent-foreground text-lg">V</span>
+    <footer className="bg-industrial-gradient text-primary-foreground relative overflow-hidden grain-overlay">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-accent/5 blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-industrial-light/10 blur-3xl translate-x-1/2 translate-y-1/2" />
+
+      <div className="container-wide section-padding relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <AnimateIn>
+            <div className="flex items-center gap-2.5 mb-5">
+              <div className="h-10 w-10 rounded-xl bg-accent flex items-center justify-center">
+                <span className="font-display font-bold text-accent-foreground text-xl">V</span>
               </div>
-              <span className="font-display font-bold text-lg">Viato Industries</span>
+              <span className="font-display font-bold text-xl">Viato Industries</span>
             </div>
-            <p className="text-sm opacity-80 leading-relaxed">
+            <p className="text-sm opacity-70 leading-relaxed">
               Complete Material Handling & Packaging Solution. Your trusted partner for industrial gas pipeline systems, material handling equipment, and engineering services.
             </p>
-          </div>
+          </AnimateIn>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-display font-semibold text-base mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm opacity-80">
+          <AnimateIn delay={0.1}>
+            <h4 className="font-display font-semibold text-sm uppercase tracking-wider mb-5 text-accent">Quick Links</h4>
+            <ul className="space-y-3 text-sm">
               {[
                 { label: "About Us", path: "/about" },
                 { label: "Services", path: "/services" },
@@ -32,18 +35,18 @@ const Footer = () => {
                 { label: "Request Quote", path: "/request-quote" },
               ].map((l) => (
                 <li key={l.path}>
-                  <Link to={l.path} className="hover:text-accent transition-colors">
+                  <Link to={l.path} className="opacity-70 hover:opacity-100 hover:text-accent transition-all flex items-center gap-1 group">
                     {l.label}
+                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </AnimateIn>
 
-          {/* Services */}
-          <div>
-            <h4 className="font-display font-semibold text-base mb-4">Our Services</h4>
-            <ul className="space-y-2 text-sm opacity-80">
+          <AnimateIn delay={0.2}>
+            <h4 className="font-display font-semibold text-sm uppercase tracking-wider mb-5 text-accent">Our Services</h4>
+            <ul className="space-y-3 text-sm opacity-70">
               <li>Gas Pipeline Systems</li>
               <li>Material Handling Equipment</li>
               <li>Packaging Solutions</li>
@@ -51,29 +54,34 @@ const Footer = () => {
               <li>Maintenance & AMC</li>
               <li>Safety Inspection</li>
             </ul>
-          </div>
+          </AnimateIn>
 
-          {/* Contact */}
-          <div>
-            <h4 className="font-display font-semibold text-base mb-4">Contact Us</h4>
-            <ul className="space-y-3 text-sm opacity-80">
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
+          <AnimateIn delay={0.3}>
+            <h4 className="font-display font-semibold text-sm uppercase tracking-wider mb-5 text-accent">Contact Us</h4>
+            <ul className="space-y-4 text-sm opacity-70">
+              <li className="flex items-start gap-3">
+                <div className="h-8 w-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="h-4 w-4" />
+                </div>
                 <span>Waluj MIDC, Aurangabad, Maharashtra, India</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 shrink-0" />
+              <li className="flex items-center gap-3">
+                <div className="h-8 w-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center shrink-0">
+                  <Phone className="h-4 w-4" />
+                </div>
                 <span>+91 XXXXX XXXXX</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0" />
+              <li className="flex items-center gap-3">
+                <div className="h-8 w-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center shrink-0">
+                  <Mail className="h-4 w-4" />
+                </div>
                 <span>info@viatoindustries.com</span>
               </li>
             </ul>
-          </div>
+          </AnimateIn>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm opacity-60">
+        <div className="border-t border-primary-foreground/10 mt-14 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs opacity-50">
           <p>© {new Date().getFullYear()} Viato Industries. All rights reserved.</p>
           <p>Complete Material Handling & Packaging Solution</p>
         </div>
