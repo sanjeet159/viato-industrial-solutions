@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Products from "./pages/Products";
+import ProductCategory from "./pages/ProductCategory";
+import ProductDetail from "./pages/ProductDetail";
 import Industries from "./pages/Industries";
 import Contact from "./pages/Contact";
 import RequestQuote from "./pages/RequestQuote";
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:categorySlug" element={<ProductCategory />} />
+          <Route path="/products/:categorySlug/:productSlug" element={<ProductDetail />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/request-quote" element={<RequestQuote />} />
