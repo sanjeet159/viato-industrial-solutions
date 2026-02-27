@@ -8,11 +8,11 @@ export const productCategories: ProductCategory[] = [
     desc: "Complete industrial gas pipeline installation & manifold systems for uninterrupted gas supply with maximum safety.",
     icon: Flame,
     subProducts: [
-      { name: "Industrial Gas Pipeline Systems", slug: "industrial-gas-pipeline" },
+      { name: "Gas Pipeline Systems", slug: "gas-pipeline-systems" },
       { name: "Gas Manifold Systems", slug: "gas-manifold-systems" },
       { name: "Cryogenic Tank Pipeline", slug: "cryogenic-tank-pipeline" },
       { name: "Cylinder Filling Manifold", slug: "cylinder-filling-manifold" },
-      { name: "Copper / SS / MS / GI Pipeline", slug: "copper-ss-ms-gi-pipeline" },
+      { name: "Industrial Gas Installation", slug: "industrial-gas-installation" },
     ],
   },
   {
@@ -46,9 +46,9 @@ export const productCategories: ProductCategory[] = [
     icon: Wrench,
     subProducts: [
       { name: "Welding Anti Spatter Solution", slug: "welding-anti-spatter" },
-      { name: "Nozzle Protection Gel", slug: "nozzle-protection-gel" },
-      { name: "Industrial Cleaning Chemicals", slug: "industrial-cleaning" },
-      { name: "Rust Protection Solutions", slug: "rust-protection" },
+      { name: "Nozzle Gel", slug: "nozzle-gel" },
+      { name: "Industrial Chemicals", slug: "industrial-chemicals" },
+      { name: "Cleaning Solutions", slug: "cleaning-solutions" },
     ],
   },
 ];
