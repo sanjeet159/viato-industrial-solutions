@@ -2,15 +2,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronDown, ArrowRight } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import type { ProductCategory } from "@/data/products";
 
-export interface ProductCategory {
-  title: string;
-  slug: string;
-  desc: string;
-  icon: LucideIcon;
-  subProducts: { name: string; slug: string }[];
-}
+export type { ProductCategory };
 
 const ProductCard = ({
   category,
