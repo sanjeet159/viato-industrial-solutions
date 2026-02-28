@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
-import { AnimateIn, StaggerContainer, StaggerItem, AnimatedCounter, MagneticButton, Parallax } from "@/components/animations";
-import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-industrial.jpg";
+import { AnimateIn, StaggerContainer, StaggerItem, AnimatedCounter, MagneticButton } from "@/components/animations";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import heroImg from "@/assets/hero-industrial-new.jpg";
 import gasPipelineImg from "@/assets/gas-pipeline.jpg";
 import materialHandlingImg from "@/assets/material-handling.jpg";
 import packagingImg from "@/assets/packaging.jpg";
@@ -18,7 +19,6 @@ import {
   ShieldCheck,
   Users,
   Award,
-  CheckCircle,
   Zap,
   Car,
   Pill,
@@ -28,9 +28,12 @@ import {
   Shield,
   Building,
   HardHat,
-  ChevronRight,
+  CheckCircle,
+  Star,
+  Quote,
 } from "lucide-react";
 
+/* ── data ── */
 const industries = [
   { name: "Automotive", icon: Car },
   { name: "Pharma", icon: Pill },
@@ -43,38 +46,10 @@ const industries = [
 ];
 
 const services = [
-  {
-    title: "Gas Pipeline Systems",
-    desc: "Complete industrial gas pipeline installation including Oxygen, Nitrogen, Argon, CO2, LPG & compressed air systems.",
-    icon: Flame,
-    img: gasPipelineImg,
-    link: "/services",
-    tag: "Most Popular",
-  },
-  {
-    title: "Material Handling",
-    desc: "Forklifts, pallet trucks, stackers, reach trucks with maintenance, repair and AMC services.",
-    icon: Wrench,
-    img: materialHandlingImg,
-    link: "/services",
-    tag: "Full Range",
-  },
-  {
-    title: "Packaging Solutions",
-    desc: "PP boxes, corrugated packaging, returnable solutions and industrial packaging materials.",
-    icon: Package,
-    img: packagingImg,
-    link: "/products",
-    tag: "Sustainable",
-  },
-  {
-    title: "Engineering Services",
-    desc: "Installation, commissioning, maintenance, safety inspection, certification and industrial consultancy.",
-    icon: HardHat,
-    img: engineeringImg,
-    link: "/services",
-    tag: "End-to-End",
-  },
+  { title: "Gas Pipeline Systems", desc: "Complete industrial gas pipeline installation including Oxygen, Nitrogen, Argon, CO2, LPG & compressed air systems.", icon: Flame, img: gasPipelineImg, link: "/services", tag: "Most Popular" },
+  { title: "Material Handling", desc: "Forklifts, pallet trucks, stackers, reach trucks with maintenance, repair and AMC services.", icon: Wrench, img: materialHandlingImg, link: "/services", tag: "Full Range" },
+  { title: "Packaging Solutions", desc: "PP boxes, corrugated packaging, returnable solutions and industrial packaging materials.", icon: Package, img: packagingImg, link: "/products", tag: "Sustainable" },
+  { title: "Engineering Services", desc: "Installation, commissioning, maintenance, safety inspection, certification and industrial consultancy.", icon: HardHat, img: engineeringImg, link: "/services", tag: "End-to-End" },
 ];
 
 const whyUs = [
@@ -84,110 +59,198 @@ const whyUs = [
   { title: "Trusted Partner", desc: "Serving leading industrial clients across India.", icon: ShieldCheck, number: "04" },
 ];
 
+const testimonials = [
+  { name: "Rajesh Kumar", role: "Plant Manager, Tata Motors", text: "Viato Industries delivered our gas pipeline project ahead of schedule with exceptional quality. Highly recommended." },
+  { name: "Sunil Patil", role: "Operations Head, Bajaj Auto", text: "Their material handling solutions have dramatically improved our warehouse efficiency. Truly a reliable partner." },
+  { name: "Amita Deshmukh", role: "Purchase Manager, Thermax Ltd", text: "Outstanding packaging solutions that reduced our logistics costs by 30%. The returnable packaging was a game changer." },
+];
+
+const processSteps = [
+  { step: "01", title: "Consultation", desc: "We understand your requirements and site conditions." },
+  { step: "02", title: "Design & Plan", desc: "Custom-engineered solutions with detailed project plans." },
+  { step: "03", title: "Installation", desc: "Expert team executes the project with precision." },
+  { step: "04", title: "Support & AMC", desc: "Ongoing maintenance and support for peak performance." },
+];
+
+/* ── Hero word-by-word animation ── */
+const wordVariants = {
+  hidden: { opacity: 0, y: 30, rotateX: -40 },
+  visible: (i: number) => ({
+    opacity: 1, y: 0, rotateX: 0,
+    transition: { delay: 0.6 + i * 0.08, duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] as const },
+  }),
+};
+
 const Index = () => {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroImageY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const heroOverlayOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 0.95]);
+
+  const headlineWords = ["Complete", "Industrial", "Solutions", "for", "Modern", "Manufacturing"];
+
   return (
     <Layout>
-      {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <motion.img
-            src={heroImg}
-            alt="Industrial facility"
-            className="w-full h-full object-cover"
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          />
-          <div className="absolute inset-0 bg-industrial-gradient opacity-80" />
-          <div className="absolute inset-0 hero-mesh" />
+      {/* ══════════ HERO ══════════ */}
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Parallax background */}
+        <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
+          <img src={heroImg} alt="Industrial facility" className="w-full h-[120%] object-cover" />
+        </motion.div>
+        <motion.div className="absolute inset-0 bg-industrial-gradient" style={{ opacity: heroOverlayOpacity }} />
+        <div className="absolute inset-0 hero-mesh" />
+
+        {/* Animated grid lines */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute h-px bg-primary-foreground/5"
+              style={{ top: `${15 + i * 15}%`, left: 0, right: 0 }}
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.3 + i * 0.15, duration: 1.5, ease: "easeOut" }}
+            />
+          ))}
+          {[...Array(4)].map((_, i) => (
+            <motion.div
+              key={`v-${i}`}
+              className="absolute w-px bg-primary-foreground/5"
+              style={{ left: `${20 + i * 20}%`, top: 0, bottom: 0 }}
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ delay: 0.5 + i * 0.2, duration: 1.5, ease: "easeOut" }}
+            />
+          ))}
         </div>
 
-        {/* Floating decorative elements */}
-        <div className="absolute top-1/4 right-1/4 w-72 h-72 rounded-full border border-primary-foreground/5 animate-float" />
-        <div className="absolute bottom-1/3 right-1/3 w-48 h-48 rounded-full border border-accent/10 animate-float" style={{ animationDelay: "2s" }} />
+        {/* Floating geometric shapes */}
+        <motion.div
+          className="absolute top-[15%] right-[10%] w-32 h-32 border border-accent/20 rounded-3xl"
+          animate={{ rotate: 360, y: [0, -20, 0] }}
+          transition={{ rotate: { duration: 30, repeat: Infinity, ease: "linear" }, y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
+        />
+        <motion.div
+          className="absolute bottom-[20%] right-[25%] w-20 h-20 border border-primary-foreground/10 rounded-full"
+          animate={{ scale: [1, 1.2, 1], y: [0, 15, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-[40%] right-[5%] w-3 h-3 bg-accent rounded-full"
+          animate={{ opacity: [0.3, 1, 0.3], scale: [1, 1.5, 1] }}
+          transition={{ duration: 3, repeat: Infinity }}
+        />
 
-        <div className="relative container-wide py-20">
-          <div className="max-w-3xl">
-            <motion.span
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 text-accent text-sm font-semibold mb-8 border border-accent/20 backdrop-blur-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="h-2 w-2 rounded-full bg-accent animate-pulse-glow" />
-              Complete Material Handling & Packaging Solution
-            </motion.span>
+        {/* Content */}
+        <div className="relative container-wide py-32 lg:py-0">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen lg:min-h-[90vh]">
+            {/* Left column - Text */}
+            <div>
+              <motion.div
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 text-accent text-sm font-semibold mb-8 border border-accent/20 backdrop-blur-sm"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="h-2 w-2 rounded-full bg-accent animate-pulse-glow" />
+                Trusted by 100+ Industries Across India
+              </motion.div>
 
-            <motion.h1
-              className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-foreground leading-[1.1] mb-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Complete Industrial{" "}
-              <span className="relative inline-block">
-                <span className="text-accent">Material Handling</span>
-                <motion.span
-                  className="absolute -bottom-2 left-0 h-1 bg-accent rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                />
-              </span>{" "}
-              & Gas Pipeline Solutions
-            </motion.h1>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-foreground leading-[1.05] mb-8" style={{ perspective: "800px" }}>
+                {headlineWords.map((word, i) => (
+                  <motion.span
+                    key={i}
+                    className={`inline-block mr-[0.3em] ${word === "Solutions" ? "text-accent" : ""}`}
+                    custom={i}
+                    initial="hidden"
+                    animate="visible"
+                    variants={wordVariants}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </h1>
 
-            <motion.p
-              className="text-lg md:text-xl text-primary-foreground/70 mb-10 max-w-xl leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              Viato Industries delivers turnkey industrial solutions — from gas pipeline installation to material handling equipment — trusted by leading manufacturers across India.
-            </motion.p>
+              <motion.p
+                className="text-lg md:text-xl text-primary-foreground/60 mb-10 max-w-lg leading-relaxed"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.4, duration: 0.6 }}
+              >
+                From gas pipeline systems to packaging solutions — Viato Industries delivers turnkey industrial excellence trusted by leading manufacturers.
+              </motion.p>
 
-            <motion.div
-              className="flex flex-wrap gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <MagneticButton>
-                <Link to="/request-quote">
-                  <Button size="lg" className="bg-industrial-gradient-accent text-accent-foreground hover:opacity-90 font-semibold text-base px-8 h-14 rounded-full shadow-xl shadow-accent/25">
-                    Request Quote <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-              </MagneticButton>
-              <MagneticButton>
-                <Link to="/contact">
-                  <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-base px-8 h-14 rounded-full backdrop-blur-sm">
-                    Contact Us
-                  </Button>
-                </Link>
-              </MagneticButton>
-            </motion.div>
+              <motion.div
+                className="flex flex-wrap gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.6, duration: 0.6 }}
+              >
+                <MagneticButton>
+                  <Link to="/request-quote">
+                    <Button size="lg" className="bg-industrial-gradient-accent text-accent-foreground hover:opacity-90 font-semibold text-base px-8 h-14 rounded-full shadow-xl shadow-accent/25">
+                      Request Quote <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                </MagneticButton>
+                <MagneticButton>
+                  <Link to="/products">
+                    <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-base px-8 h-14 rounded-full backdrop-blur-sm">
+                      Explore Products
+                    </Button>
+                  </Link>
+                </MagneticButton>
+              </motion.div>
+            </div>
 
-            {/* Mini stats */}
-            <motion.div
-              className="flex gap-8 mt-14 pt-8 border-t border-primary-foreground/10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-            >
+            {/* Right column — Floating stat cards */}
+            <div className="hidden lg:flex items-center justify-center relative">
+              {/* Large accent ring */}
+              <motion.div
+                className="absolute w-[380px] h-[380px] rounded-full border-2 border-accent/10"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="absolute w-[280px] h-[280px] rounded-full border border-primary-foreground/5"
+                animate={{ rotate: -360 }}
+                transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+              />
+
+              {/* Stat cards orbiting */}
               {[
-                { value: 500, suffix: "+", label: "Projects" },
-                { value: 100, suffix: "+", label: "Clients" },
-                { value: 15, suffix: "+", label: "Years" },
-              ].map((s) => (
-                <div key={s.label}>
-                  <div className="font-display text-2xl md:text-3xl font-bold text-primary-foreground">
-                    <AnimatedCounter value={s.value} suffix={s.suffix} />
-                  </div>
-                  <p className="text-primary-foreground/50 text-sm">{s.label}</p>
-                </div>
-              ))}
-            </motion.div>
+                { value: "500+", label: "Projects", angle: -30, delay: 0.8 },
+                { value: "100+", label: "Clients", angle: 90, delay: 1.0 },
+                { value: "15+", label: "Years", angle: 210, delay: 1.2 },
+              ].map((stat) => {
+                const rad = (stat.angle * Math.PI) / 180;
+                const r = 160;
+                return (
+                  <motion.div
+                    key={stat.label}
+                    className="absolute"
+                    style={{ left: `calc(50% + ${Math.cos(rad) * r}px - 56px)`, top: `calc(50% + ${Math.sin(rad) * r}px - 40px)` }}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
+                    transition={{ opacity: { delay: stat.delay, duration: 0.5 }, scale: { delay: stat.delay, duration: 0.5 }, y: { delay: stat.delay + 0.5, duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+                  >
+                    <div className="w-28 h-20 rounded-2xl bg-primary-foreground/10 backdrop-blur-xl border border-primary-foreground/10 flex flex-col items-center justify-center">
+                      <span className="font-display text-2xl font-bold text-accent">{stat.value}</span>
+                      <span className="text-xs text-primary-foreground/60">{stat.label}</span>
+                    </div>
+                  </motion.div>
+                );
+              })}
+
+              {/* Center logo glow */}
+              <motion.div
+                className="relative h-24 w-24 rounded-3xl bg-accent/20 backdrop-blur-xl border border-accent/30 flex items-center justify-center"
+                animate={{ boxShadow: ["0 0 30px hsl(28 90% 52% / 0.2)", "0 0 60px hsl(28 90% 52% / 0.4)", "0 0 30px hsl(28 90% 52% / 0.2)"] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <span className="font-display text-4xl font-bold text-accent">V</span>
+              </motion.div>
+            </div>
           </div>
         </div>
 
@@ -198,12 +261,12 @@ const Index = () => {
           transition={{ repeat: Infinity, duration: 2 }}
         >
           <div className="w-6 h-10 rounded-full border-2 border-primary-foreground/20 flex justify-center pt-2">
-            <div className="w-1.5 h-3 rounded-full bg-accent" />
+            <motion.div className="w-1.5 h-3 rounded-full bg-accent" />
           </div>
         </motion.div>
       </section>
 
-      {/* Industries Served Marquee */}
+      {/* ══════════ INDUSTRIES MARQUEE ══════════ */}
       <section className="bg-card border-b border-border relative overflow-hidden">
         <div className="container-wide py-10">
           <AnimateIn>
@@ -227,7 +290,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services */}
+      {/* ══════════ SERVICES ══════════ */}
       <section className="section-padding bg-background relative overflow-hidden mesh-gradient">
         <div className="container-wide relative z-10">
           <SectionHeading
@@ -238,22 +301,11 @@ const Index = () => {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" staggerDelay={0.15}>
             {services.map((s) => (
               <StaggerItem key={s.title}>
-                <Link
-                  to={s.link}
-                  className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card hover:shadow-2xl hover:shadow-accent/5 transition-all duration-500 block"
-                >
+                <Link to={s.link} className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card hover:shadow-2xl hover:shadow-accent/5 transition-all duration-500 block">
                   <div className="aspect-[16/9] overflow-hidden relative">
-                    <motion.img
-                      src={s.img}
-                      alt={s.title}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.6 }}
-                    />
+                    <motion.img src={s.img} alt={s.title} className="w-full h-full object-cover" whileHover={{ scale: 1.08 }} transition={{ duration: 0.6 }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-accent/90 text-accent-foreground text-xs font-semibold">
-                      {s.tag}
-                    </span>
+                    <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-accent/90 text-accent-foreground text-xs font-semibold">{s.tag}</span>
                   </div>
                   <div className="p-7">
                     <div className="flex items-center gap-3 mb-3">
@@ -274,19 +326,40 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Us - Horizontal scroll cards */}
+      {/* ══════════ HOW WE WORK ══════════ */}
+      <section className="section-padding bg-card border-y border-border relative overflow-hidden">
+        <div className="container-wide relative z-10">
+          <SectionHeading badge="Our Process" title="How We Deliver Excellence" description="A streamlined 4-step approach to every project." />
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.12}>
+            {processSteps.map((p, i) => (
+              <StaggerItem key={p.step}>
+                <div className="relative text-center group">
+                  {/* Connector line */}
+                  {i < processSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-border" />
+                  )}
+                  <motion.div
+                    className="h-16 w-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-5 relative z-10 group-hover:bg-accent/20 transition-colors"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
+                    <span className="font-display text-2xl font-bold text-accent">{p.step}</span>
+                  </motion.div>
+                  <h3 className="font-display font-bold text-foreground text-lg mb-2">{p.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ══════════ WHY CHOOSE US ══════════ */}
       <section className="section-padding bg-industrial-gradient relative overflow-hidden grain-overlay">
-        {/* Decorative circles */}
         <div className="absolute top-20 right-20 w-64 h-64 rounded-full border border-primary-foreground/5" />
         <div className="absolute bottom-20 left-20 w-40 h-40 rounded-full border border-accent/10" />
 
         <div className="container-wide relative z-10">
-          <SectionHeading
-            badge="Why Viato"
-            title="Why Choose Viato Industries?"
-            description="We bring decades of industrial expertise, delivering reliable and cost-effective solutions."
-            light
-          />
+          <SectionHeading badge="Why Viato" title="Why Choose Viato Industries?" description="We bring decades of industrial expertise, delivering reliable and cost-effective solutions." light />
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.1}>
             {whyUs.map((item) => (
               <StaggerItem key={item.title}>
@@ -295,9 +368,7 @@ const Index = () => {
                   whileHover={{ y: -5, borderColor: "hsl(28 90% 52% / 0.3)" }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span className="absolute top-4 right-4 font-display text-5xl font-bold text-primary-foreground/5 group-hover:text-accent/10 transition-colors">
-                    {item.number}
-                  </span>
+                  <span className="absolute top-4 right-4 font-display text-5xl font-bold text-primary-foreground/5 group-hover:text-accent/10 transition-colors">{item.number}</span>
                   <div className="h-12 w-12 rounded-xl bg-accent/15 flex items-center justify-center mb-5 group-hover:bg-accent/25 transition-colors">
                     <item.icon className="h-6 w-6 text-accent" />
                   </div>
@@ -310,7 +381,41 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* ══════════ TESTIMONIALS ══════════ */}
+      <section className="section-padding bg-background relative overflow-hidden mesh-gradient">
+        <div className="container-wide relative z-10">
+          <SectionHeading badge="Testimonials" title="What Our Clients Say" description="Hear from the industry leaders who trust Viato Industries." />
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
+            {testimonials.map((t) => (
+              <StaggerItem key={t.name}>
+                <motion.div
+                  className="p-8 rounded-2xl bg-card border border-border/50 relative group hover:shadow-xl hover:shadow-accent/5 transition-all duration-500"
+                  whileHover={{ y: -4 }}
+                >
+                  <Quote className="h-8 w-8 text-accent/20 mb-4" />
+                  <p className="text-foreground/80 text-sm leading-relaxed mb-6">"{t.text}"</p>
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
+                      <span className="font-display font-bold text-accent text-sm">{t.name[0]}</span>
+                    </div>
+                    <div>
+                      <p className="font-display font-semibold text-sm text-foreground">{t.name}</p>
+                      <p className="text-xs text-muted-foreground">{t.role}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-1 mt-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
+                    ))}
+                  </div>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ══════════ STATS ══════════ */}
       <section className="bg-card border-y border-border relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient opacity-50" />
         <div className="container-wide py-20 relative z-10">
@@ -334,15 +439,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ══════════ CTA ══════════ */}
       <section className="section-padding bg-background relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="container-narrow text-center relative z-10">
-          <SectionHeading
-            badge="Get Started"
-            title="Ready to Optimize Your Industrial Operations?"
-            description="Contact us today for a free consultation and discover how Viato Industries can transform your facility."
-          />
+          <SectionHeading badge="Get Started" title="Ready to Optimize Your Industrial Operations?" description="Contact us today for a free consultation and discover how Viato Industries can transform your facility." />
           <AnimateIn delay={0.3}>
             <div className="flex flex-wrap justify-center gap-4">
               <MagneticButton>
