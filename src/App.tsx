@@ -13,6 +13,7 @@ import Industries from "./pages/Industries";
 import Contact from "./pages/Contact";
 import RequestQuote from "./pages/RequestQuote";
 import NotFound from "./pages/NotFound";
+import Store from "./pages/Store";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/products" element={<Products />} />
           <Route path="/products/:categorySlug" element={<ProductCategory />} />
           <Route path="/products/:categorySlug/:productSlug" element={<ProductDetail />} />
+          <Route path="/store" element={<Store />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/request-quote" element={<RequestQuote />} />

@@ -9,6 +9,7 @@ const navItems = [
   { label: "Home", path: "/" },
   { label: "About Us", path: "/about" },
   { label: "Products", path: "/products", hasMega: true },
+  { label: "Store", path: "/store" },
   { label: "Services", path: "/services" },
   { label: "Industries Served", path: "/industries" },
   { label: "Contact Us", path: "/contact" },
