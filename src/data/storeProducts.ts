@@ -3,6 +3,13 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import weldingImg from "@/assets/store/welding.jpg";
+import cuttingImg from "@/assets/store/cutting-grinding.jpg";
+import glovesImg from "@/assets/store/gloves.jpg";
+import ppeImg from "@/assets/store/ppe.jpg";
+import generalImg from "@/assets/store/general.jpg";
+import toolsImg from "@/assets/store/tools.jpg";
+
 export interface StoreProduct {
   name: string;
 }
@@ -12,6 +19,7 @@ export interface StoreCategory {
   slug: string;
   icon: LucideIcon;
   color: string;
+  image: string;
   products: StoreProduct[];
 }
 
@@ -21,6 +29,7 @@ export const storeCategories: StoreCategory[] = [
     slug: "welding",
     icon: Flame,
     color: "hsl(0 70% 50%)",
+    image: weldingImg,
     products: [
       { name: "MIG Wire" },
       { name: "Cut Wires" },
@@ -65,6 +74,7 @@ export const storeCategories: StoreCategory[] = [
     slug: "cutting-grinding",
     icon: CircleDot,
     color: "hsl(45 90% 50%)",
+    image: cuttingImg,
     products: [
       { name: "Cutting Wheel (Green)" },
       { name: "Cutting Wheel (Black)" },
@@ -89,6 +99,7 @@ export const storeCategories: StoreCategory[] = [
     slug: "gloves",
     icon: Shield,
     color: "hsl(210 70% 50%)",
+    image: glovesImg,
     products: [
       { name: "Jeans Gloves" },
       { name: "Knitted Cotton Gloves" },
@@ -111,6 +122,7 @@ export const storeCategories: StoreCategory[] = [
     slug: "ppe",
     icon: HardHat,
     color: "hsl(28 90% 52%)",
+    image: ppeImg,
     products: [
       { name: "Safety Shoes" },
       { name: "Welding Goggles" },
@@ -136,6 +148,7 @@ export const storeCategories: StoreCategory[] = [
     slug: "general",
     icon: Package,
     color: "hsl(140 60% 40%)",
+    image: generalImg,
     products: [
       { name: "Machine Screws" },
       { name: "Self Drilling Screws" },
@@ -178,6 +191,7 @@ export const storeCategories: StoreCategory[] = [
     slug: "tools",
     icon: Wrench,
     color: "hsl(270 50% 50%)",
+    image: toolsImg,
     products: [
       { name: "Hacksaw" },
       { name: "C-Spanner" },

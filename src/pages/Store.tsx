@@ -127,13 +127,19 @@ const Store = () => {
             {filteredCategories.map((cat) => (
               <div key={cat.slug}>
                 <AnimateIn>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="h-10 w-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                      <cat.icon className="h-5 w-5 text-accent" />
-                    </div>
-                    <div>
-                      <h2 className="font-display text-2xl font-bold text-foreground">{cat.name}</h2>
-                      <p className="text-sm text-muted-foreground">{cat.products.length} products</p>
+                  <div className="relative overflow-hidden rounded-2xl mb-6">
+                    <img src={cat.image} alt={cat.name} className="w-full h-48 md:h-56 object-cover" />
+                    <div className="absolute inset-0 bg-foreground/50" />
+                    <div className="absolute inset-0 flex items-end p-6">
+                      <div className="flex items-center gap-3">
+                        <div className="h-12 w-12 rounded-xl bg-primary-foreground/15 backdrop-blur-sm flex items-center justify-center border border-primary-foreground/20">
+                          <cat.icon className="h-6 w-6 text-primary-foreground" />
+                        </div>
+                        <div>
+                          <h2 className="font-display text-2xl font-bold text-primary-foreground">{cat.name}</h2>
+                          <p className="text-sm text-primary-foreground/70">{cat.products.length} products available</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </AnimateIn>
