@@ -242,26 +242,74 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ══════════ HOW WE WORK ══════════ */}
-      <section className="section-padding bg-card border-y border-border">
+      {/* ══════════ END-TO-END EPC PROCESS ══════════ */}
+      <section className="section-padding bg-card border-y border-border overflow-hidden">
         <div className="container-wide">
-          <SectionHeading badge="Our Process" title="How We Deliver Excellence" description="A streamlined 4-step approach to every project." />
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.12}>
-            {processSteps.map((p, i) => (
-              <StaggerItem key={p.step}>
-                <div className="relative text-center">
-                  {i < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-border" />
-                  )}
-                  <div className="h-16 w-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-5 relative z-10">
-                    <span className="font-display text-2xl font-bold text-accent">{p.step}</span>
+          <SectionHeading
+            badge="End-to-End EPC"
+            title="Our EPC Project Lifecycle"
+            description="From initial survey to lifecycle support — we handle every phase of your industrial project under one roof."
+          />
+
+          {/* Desktop: horizontal timeline */}
+          <div className="hidden lg:block relative mt-12">
+            {/* Connector line */}
+            <div className="absolute top-[52px] left-[10%] right-[10%] h-0.5 bg-border z-0" />
+
+            <StaggerContainer className="grid grid-cols-5 gap-4 relative z-10" staggerDelay={0.12}>
+              {processSteps.map((p, i) => (
+                <StaggerItem key={p.step}>
+                  <motion.div
+                    className="flex flex-col items-center text-center group"
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    {/* Step circle */}
+                    <div
+                      className="h-[104px] w-[104px] rounded-full flex flex-col items-center justify-center mb-6 border-2 bg-card relative"
+                      style={{ borderColor: `hsl(${p.accent})` }}
+                    >
+                      <div
+                        className="absolute inset-0 rounded-full opacity-10"
+                        style={{ backgroundColor: `hsl(${p.accent})` }}
+                      />
+                      <p.icon className="h-6 w-6 mb-1 relative z-10" style={{ color: `hsl(${p.accent})` }} />
+                      <span className="text-xs font-bold text-muted-foreground relative z-10">STEP {p.step}</span>
+                    </div>
+                    <h3 className="font-display font-bold text-foreground text-base mb-2 leading-tight">{p.title}</h3>
+                    <p className="text-muted-foreground text-xs leading-relaxed max-w-[200px]">{p.desc}</p>
+                  </motion.div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+
+          {/* Mobile: vertical timeline */}
+          <div className="lg:hidden mt-8">
+            <StaggerContainer className="relative pl-8" staggerDelay={0.1}>
+              {/* Vertical line */}
+              <div className="absolute left-[19px] top-0 bottom-0 w-0.5 bg-border" />
+
+              {processSteps.map((p, i) => (
+                <StaggerItem key={p.step}>
+                  <div className="relative flex gap-5 mb-8 last:mb-0">
+                    {/* Circle on timeline */}
+                    <div
+                      className="absolute -left-8 top-0 h-10 w-10 rounded-full flex items-center justify-center border-2 bg-card shrink-0 z-10"
+                      style={{ borderColor: `hsl(${p.accent})` }}
+                    >
+                      <p.icon className="h-4 w-4" style={{ color: `hsl(${p.accent})` }} />
+                    </div>
+                    <div className="ml-6 pt-0.5">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Step {p.step}</span>
+                      <h3 className="font-display font-bold text-foreground text-lg mt-0.5 mb-1">{p.title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
+                    </div>
                   </div>
-                  <h3 className="font-display font-bold text-foreground text-lg mb-2">{p.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
         </div>
       </section>
 
