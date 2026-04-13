@@ -34,7 +34,6 @@ import {
   Quote,
 } from "lucide-react";
 
-/* ── data ── */
 const industries = [
   { name: "Automotive", icon: Car },
   { name: "Pharma", icon: Pill },
@@ -81,18 +80,17 @@ const Index = () => {
 
   return (
     <Layout>
+
       {/* ══════════ HERO ══════════ */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background image with parallax */}
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img src={heroImg} alt="Industrial facility" className="w-full h-[120%] object-cover" />
         </motion.div>
-        {/* Simple dark overlay */}
         <div className="absolute inset-0 bg-foreground/70" />
 
-        {/* Content */}
         <div className="relative container-wide py-32 lg:py-0">
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen lg:min-h-[90vh]">
+
             {/* Left column */}
             <div>
               <motion.div
@@ -137,43 +135,47 @@ const Index = () => {
                   </Button>
                 </Link>
                 <Link to="/products">
-                  <Button size="lg" variant="outline" className="bg-primary-foreground text-foreground border-primary-foreground border-primary-foreground hover:bg-primary-foreground/10 font-semibold text-base px-8 h-14 rounded-full transition-none ">
+                  <Button size="lg" variant="outline" className="bg-primary-foreground text-foreground border-primary-foreground hover:bg-primary-foreground/10 font-semibold text-base px-8 h-14 rounded-full transition-none">
                     Explore Products
                   </Button>
                 </Link>
               </motion.div>
             </div>
 
-            {/* Right column — Clean stat cards */}
-<div className="hidden lg:flex items-center justify-center">
-  <motion.div
-    className="grid grid-cols-2 gap-5"
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.7, duration: 0.6 }}
-  >
-    {[
-      { value: 90, suffix: "+", label: "Projects Completed" },
-      { value: 50, suffix: "+", label: "Happy Clients" },
-      { value: 8, suffix: "+", label: "Years Experience" },
-      { value: 7, suffix: "+", label: "Industries Served" },
-    ].map((stat, i) => (
-      <motion.div
-        key={stat.label}
-        className="w-44 h-36 rounded-2xl bg-primary-foreground/8 backdrop-blur-sm border border-primary-foreground/10 flex flex-col items-center justify-center text-center p-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
-        whileHover={{ y: -4, borderColor: "hsl(28 90% 52% / 0.3)" }}
-      >
-        <span className="font-display text-3xl font-bold text-accent mb-1">
-          {stat.value}{stat.suffix}
-        </span>
-        <span className="text-xs text-primary-foreground/50 font-medium">{stat.label}</span>
-      </motion.div>
-    ))}
-  </motion.div>
-</div>
+            {/* Right column — stat cards */}
+            <div className="hidden lg:flex items-center justify-center">
+              <motion.div
+                className="grid grid-cols-2 gap-5"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+              >
+                {[
+                  { value: 90, suffix: "+", label: "Projects Completed" },
+                  { value: 50, suffix: "+", label: "Happy Clients" },
+                  { value: 8,  suffix: "+", label: "Years Experience" },
+                  { value: 7,  suffix: "+", label: "Industries Served" },
+                ].map((stat, i) => (
+                  <motion.div
+                    key={stat.label}
+                    className="w-44 h-36 rounded-2xl bg-primary-foreground/8 backdrop-blur-sm border border-primary-foreground/10 flex flex-col items-center justify-center text-center p-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
+                    whileHover={{ y: -4, borderColor: "hsl(28 90% 52% / 0.3)" }}
+                  >
+                    <span className="font-display text-3xl font-bold text-accent mb-1">
+                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                    </span>
+                    <span className="text-xs text-primary-foreground/50 font-medium">{stat.label}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+          </div>
+        </div>
+
         {/* Scroll indicator */}
         <motion.div
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
@@ -243,7 +245,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ══════════ END-TO-END EPC PROCESS ══════════ */}
+      {/* ══════════ EPC PROCESS ══════════ */}
       <section className="section-padding bg-card border-y border-border overflow-hidden">
         <div className="container-wide">
           <SectionHeading
@@ -252,62 +254,49 @@ const Index = () => {
             description="From initial survey to lifecycle support — we handle every phase of your industrial project under one roof."
           />
 
-          {/* EPC Full Form */}
           <TooltipProvider delayDuration={200}>
-          <motion.div
-            className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mt-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            {[
-              { letter: "E", word: "Engineering", tip: "Site surveys, feasibility studies & detailed engineering design" },
-              { letter: "P", word: "Procurement", tip: "Quality material sourcing, vendor management & in-house fabrication" },
-              { letter: "C", word: "Construction", tip: "On-site installation, commissioning & safety certification" },
-            ].map((item, i) => (
-              <Tooltip key={item.letter}>
-                <TooltipTrigger asChild>
-                  <motion.div
-                    className="flex items-center gap-2 cursor-default"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + i * 0.15, duration: 0.4 }}
-                  >
-                    <span className="h-9 w-9 rounded-lg bg-accent/10 flex items-center justify-center font-display font-bold text-accent text-lg">{item.letter}</span>
-                    <span className="text-sm font-medium text-foreground/70">{item.word}</span>
-                    {i < 2 && <span className="text-muted-foreground/40 ml-2 text-lg hidden sm:inline">•</span>}
-                  </motion.div>
-                </TooltipTrigger>
-                <TooltipContent side="bottom" className="max-w-[220px] text-center text-xs">
-                  {item.tip}
-                </TooltipContent>
-              </Tooltip>
-            ))}
-          </motion.div>
+            <motion.div
+              className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mt-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              {[
+                { letter: "E", word: "Engineering", tip: "Site surveys, feasibility studies & detailed engineering design" },
+                { letter: "P", word: "Procurement", tip: "Quality material sourcing, vendor management & in-house fabrication" },
+                { letter: "C", word: "Construction", tip: "On-site installation, commissioning & safety certification" },
+              ].map((item, i) => (
+                <Tooltip key={item.letter}>
+                  <TooltipTrigger asChild>
+                    <motion.div
+                      className="flex items-center gap-2 cursor-default"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + i * 0.15, duration: 0.4 }}
+                    >
+                      <span className="h-9 w-9 rounded-lg bg-accent/10 flex items-center justify-center font-display font-bold text-accent text-lg">{item.letter}</span>
+                      <span className="text-sm font-medium text-foreground/70">{item.word}</span>
+                      {i < 2 && <span className="text-muted-foreground/40 ml-2 text-lg hidden sm:inline">•</span>}
+                    </motion.div>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" className="max-w-[220px] text-center text-xs">
+                    {item.tip}
+                  </TooltipContent>
+                </Tooltip>
+              ))}
+            </motion.div>
           </TooltipProvider>
 
+          {/* Desktop */}
           <div className="hidden lg:block relative mt-12">
-            {/* Connector line */}
             <div className="absolute top-[52px] left-[10%] right-[10%] h-0.5 bg-border z-0" />
-
             <StaggerContainer className="grid grid-cols-5 gap-4 relative z-10" staggerDelay={0.12}>
-              {processSteps.map((p, i) => (
+              {processSteps.map((p) => (
                 <StaggerItem key={p.step}>
-                  <motion.div
-                    className="flex flex-col items-center text-center group"
-                    whileHover={{ y: -6 }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    {/* Step circle */}
-                    <div
-                      className="h-[104px] w-[104px] rounded-full flex flex-col items-center justify-center mb-6 border-2 bg-card relative"
-                      style={{ borderColor: `hsl(${p.accent})` }}
-                    >
-                      <div
-                        className="absolute inset-0 rounded-full opacity-10"
-                        style={{ backgroundColor: `hsl(${p.accent})` }}
-                      />
+                  <motion.div className="flex flex-col items-center text-center group" whileHover={{ y: -6 }} transition={{ duration: 0.25 }}>
+                    <div className="h-[104px] w-[104px] rounded-full flex flex-col items-center justify-center mb-6 border-2 bg-card relative" style={{ borderColor: `hsl(${p.accent})` }}>
+                      <div className="absolute inset-0 rounded-full opacity-10" style={{ backgroundColor: `hsl(${p.accent})` }} />
                       <p.icon className="h-6 w-6 mb-1 relative z-10" style={{ color: `hsl(${p.accent})` }} />
                       <span className="text-xs font-bold text-muted-foreground relative z-10">STEP {p.step}</span>
                     </div>
@@ -319,20 +308,14 @@ const Index = () => {
             </StaggerContainer>
           </div>
 
-          {/* Mobile: vertical timeline */}
+          {/* Mobile */}
           <div className="lg:hidden mt-8">
             <StaggerContainer className="relative pl-8" staggerDelay={0.1}>
-              {/* Vertical line */}
               <div className="absolute left-[19px] top-0 bottom-0 w-0.5 bg-border" />
-
-              {processSteps.map((p, i) => (
+              {processSteps.map((p) => (
                 <StaggerItem key={p.step}>
                   <div className="relative flex gap-5 mb-8 last:mb-0">
-                    {/* Circle on timeline */}
-                    <div
-                      className="absolute -left-8 top-0 h-10 w-10 rounded-full flex items-center justify-center border-2 bg-card shrink-0 z-10"
-                      style={{ borderColor: `hsl(${p.accent})` }}
-                    >
+                    <div className="absolute -left-8 top-0 h-10 w-10 rounded-full flex items-center justify-center border-2 bg-card shrink-0 z-10" style={{ borderColor: `hsl(${p.accent})` }}>
                       <p.icon className="h-4 w-4" style={{ color: `hsl(${p.accent})` }} />
                     </div>
                     <div className="ml-6 pt-0.5">
@@ -413,9 +396,9 @@ const Index = () => {
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" staggerDelay={0.1}>
             {[
               { value: 500, suffix: "+", label: "Projects Completed" },
-              { value: 8, suffix: "+", label: "Industries Served" },
+              { value: 8,   suffix: "+", label: "Industries Served" },
               { value: 100, suffix: "+", label: "Happy Clients" },
-              { value: 15, suffix: "+", label: "Years Experience" },
+              { value: 15,  suffix: "+", label: "Years Experience" },
             ].map((stat) => (
               <StaggerItem key={stat.label}>
                 <div className="p-6">
@@ -433,7 +416,11 @@ const Index = () => {
       {/* ══════════ CTA ══════════ */}
       <section className="section-padding bg-background">
         <div className="container-narrow text-center">
-          <SectionHeading badge="Get Started" title="Ready to Optimize Your Industrial Operations?" description="Contact us today for a free consultation and discover how Viato Industries can transform your facility." />
+          <SectionHeading
+            badge="Get Started"
+            title="Ready to Optimize Your Industrial Operations?"
+            description="Contact us today for a free consultation and discover how Viato Industries can transform your facility."
+          />
           <AnimateIn delay={0.3}>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/request-quote">
@@ -450,6 +437,7 @@ const Index = () => {
           </AnimateIn>
         </div>
       </section>
+
     </Layout>
   );
 };
