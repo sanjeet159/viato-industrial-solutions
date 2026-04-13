@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { AnimateIn, StaggerContainer, StaggerItem, AnimatedCounter, MagneticButton } from "@/components/animations";
@@ -252,6 +254,7 @@ const Index = () => {
           />
 
           {/* EPC Full Form */}
+          <TooltipProvider delayDuration={200}>
           <motion.div
             className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mt-6"
             initial={{ opacity: 0 }}
@@ -259,24 +262,31 @@ const Index = () => {
             viewport={{ once: true }}
           >
             {[
-              { letter: "E", word: "Engineering" },
-              { letter: "P", word: "Procurement" },
-              { letter: "C", word: "Construction" },
+              { letter: "E", word: "Engineering", tip: "Site surveys, feasibility studies & detailed engineering design" },
+              { letter: "P", word: "Procurement", tip: "Quality material sourcing, vendor management & in-house fabrication" },
+              { letter: "C", word: "Construction", tip: "On-site installation, commissioning & safety certification" },
             ].map((item, i) => (
-              <motion.div
-                key={item.letter}
-                className="flex items-center gap-2"
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 + i * 0.15, duration: 0.4 }}
-              >
-                <span className="h-9 w-9 rounded-lg bg-accent/10 flex items-center justify-center font-display font-bold text-accent text-lg">{item.letter}</span>
-                <span className="text-sm font-medium text-foreground/70">{item.word}</span>
-                {i < 2 && <span className="text-muted-foreground/40 ml-2 text-lg hidden sm:inline">•</span>}
-              </motion.div>
+              <Tooltip key={item.letter}>
+                <TooltipTrigger asChild>
+                  <motion.div
+                    className="flex items-center gap-2 cursor-default"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + i * 0.15, duration: 0.4 }}
+                  >
+                    <span className="h-9 w-9 rounded-lg bg-accent/10 flex items-center justify-center font-display font-bold text-accent text-lg">{item.letter}</span>
+                    <span className="text-sm font-medium text-foreground/70">{item.word}</span>
+                    {i < 2 && <span className="text-muted-foreground/40 ml-2 text-lg hidden sm:inline">•</span>}
+                  </motion.div>
+                </TooltipTrigger>
+                <TooltipContent side="bottom" className="max-w-[220px] text-center text-xs">
+                  {item.tip}
+                </TooltipContent>
+              </Tooltip>
             ))}
           </motion.div>
+          </TooltipProvider>
 
           <div className="hidden lg:block relative mt-12">
             {/* Connector line */}
