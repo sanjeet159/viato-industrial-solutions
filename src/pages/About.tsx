@@ -5,21 +5,27 @@ import { motion } from "framer-motion";
 import aboutTeamImg from "@/assets/about-team.jpg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Target, Eye, Heart, Award, Users, ShieldCheck, ArrowRight, Star } from "lucide-react";
+import { Target, Eye, Heart, Award, Users, ShieldCheck, ArrowRight, Star, CheckCircle } from "lucide-react";
 
 const values = [
-  { icon: Award, title: "Quality Excellence", desc: "We maintain the highest standards in every project we undertake." },
-  { icon: Users, title: "Customer Focus", desc: "Your success is our priority. We build lasting partnerships." },
-  { icon: ShieldCheck, title: "Safety First", desc: "Rigorous safety protocols and compliance across all operations." },
-  { icon: Heart, title: "Integrity", desc: "Transparent, honest, and ethical in all business dealings." },
+  { icon: Award, title: "Quality Excellence", desc: "ISO 9001:2015 certified company maintaining highest standards in every project." },
+  { icon: Users, title: "Customer First", desc: "Our core value — becoming a complete solution provider with customer priority." },
+  { icon: ShieldCheck, title: "Safety First", desc: "Rigorous safety protocols including pneumatic testing at 1.5x working pressure." },
+  { icon: Heart, title: "Integrity", desc: "Transparent, honest and ethical in all business dealings across western India." },
 ];
 
-const milestones = [
-  { year: "2009", event: "Company Founded" },
-  { year: "2012", event: "100th Project Delivered" },
-  { year: "2016", event: "Expanded to 6+ Industries" },
-  { year: "2020", event: "500+ Projects Milestone" },
-  { year: "2024", event: "Serving 100+ Active Clients" },
+const industries = [
+  "Automotive",
+  "EPC",
+  "Pharmaceutical",
+  "Chemical",
+  "Construction",
+  "Earthmoving Equipment",
+  "Consumer Durables",
+  "Additive Manufacturing",
+  "Steel",
+  "Railways",
+  "Defence",
 ];
 
 const About = () => {
@@ -30,7 +36,7 @@ const About = () => {
         <div className="absolute inset-0">
           <motion.img
             src={aboutTeamImg}
-            alt="Our team"
+            alt="Viato Industries Team"
             className="w-full h-full object-cover"
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
@@ -50,11 +56,11 @@ const About = () => {
               <Star className="h-3.5 w-3.5" /> About Us
             </span>
             <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground mb-5 leading-tight">
-              Building India's Industrial{" "}
-              <span className="text-accent">Future</span>
+              Just Best,{" "}
+              <span className="text-accent">Just Legendary</span>
             </h1>
             <p className="text-primary-foreground/70 text-lg leading-relaxed">
-              Viato Industries is a leading provider of turnkey industrial solutions based in Aurangabad, Maharashtra — delivering excellence since 2009.
+              Viato Industries is a complete material handling, gas pipeline and packaging solution provider based in Aurangabad, Maharashtra — serving industries across western India since 2013.
             </p>
           </motion.div>
         </div>
@@ -67,10 +73,13 @@ const About = () => {
             <AnimateIn direction="left">
               <SectionHeading badge="Who We Are" title="Your Trusted Industrial Partner" centered={false} />
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Viato Industries provides comprehensive industrial solutions including gas pipeline systems, material handling equipment, packaging solutions, and engineering services to diverse industries across India.
+                Shri Balaji Group was established in 2013 and has grown and diversified into multi-products and services with presence across western India. We value integrity, trust, service and respect for individuals and for the environment.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                The core value of Viato Industries is <strong className="text-foreground">customer first</strong> — to become a complete solution provider with priority. We offer the best product for every required application, winning the trust of prestigious customers across western India.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                With over 15 years of experience and a team of skilled engineers, we have successfully delivered 500+ projects for leading companies in automotive, pharmaceutical, steel, chemical, and manufacturing sectors.
+                The company has core competency in providing solutions to the industry in secondary packaging with its own manufacturing facility. For material handling and warehousing solutions, we offer our own Viato-branded products.
               </p>
               <MagneticButton>
                 <Link to="/services">
@@ -82,10 +91,10 @@ const About = () => {
             </AnimateIn>
             <StaggerContainer className="grid grid-cols-2 gap-4" staggerDelay={0.1}>
               {[
-                { value: 15, suffix: "+", label: "Years Experience" },
-                { value: 500, suffix: "+", label: "Projects Done" },
+                { value: 11, suffix: "+", label: "Years Experience" },
+                { value: 500, suffix: "+", label: "Projects Delivered" },
                 { value: 100, suffix: "+", label: "Happy Clients" },
-                { value: 8, suffix: "+", label: "Industries" },
+                { value: 11, suffix: "+", label: "Industries Served" },
               ].map((s) => (
                 <StaggerItem key={s.label}>
                   <motion.div
@@ -104,47 +113,114 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* What We Do */}
       <section className="section-padding bg-muted">
         <div className="container-narrow">
-          <SectionHeading badge="Our Journey" title="Milestones That Define Us" />
-          <div className="relative">
-            {/* Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border hidden md:block" />
-            <div className="space-y-8 md:space-y-0">
-              {milestones.map((m, i) => (
-                <AnimateIn key={m.year} delay={i * 0.1} direction={i % 2 === 0 ? "left" : "right"}>
-                  <div className={`md:flex items-center gap-8 mb-8 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-                    <div className={`flex-1 ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                      <div className="p-6 rounded-2xl bg-card border border-border inline-block">
-                        <span className="font-display text-2xl font-bold text-accent">{m.year}</span>
-                        <p className="text-foreground font-medium mt-1">{m.event}</p>
-                      </div>
-                    </div>
-                    <div className="hidden md:flex h-4 w-4 rounded-full bg-accent border-4 border-background shrink-0 relative z-10" />
-                    <div className="flex-1" />
+          <SectionHeading
+            badge="What We Do"
+            title="Complete Industrial Solutions"
+            description="From gas pipeline installation to material handling equipment and packaging — we deliver end-to-end solutions."
+          />
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
+            {[
+              {
+                title: "Gas Manifold & Pipeline",
+                desc: "Turnkey installation of industrial and medical gas manifold systems and pipelines for Oxygen, Nitrogen, Argon, CO2, LPG and compressed air applications.",
+              },
+              {
+                title: "Material Handling Equipment",
+                desc: "Complete range of Viato-branded pallet trucks, stackers, dock levelers, EOT cranes, hoists and storage racking systems.",
+              },
+              {
+                title: "Packaging Solutions",
+                desc: "Polypropylene (PP) corrugated boxes, returnable crates, corrugated cardboard boxes and wooden pallets manufactured at our own facility.",
+              },
+              {
+                title: "Industrial Chemicals",
+                desc: "ISO 9001:2015 certified water-based anti spatter, nozzle gel, rust convertor and degreasing chemicals for the welding and manufacturing industry.",
+              },
+              {
+                title: "Industrial Consumables",
+                desc: "Complete supply of welding consumables, cutting & grinding wheels, safety PPE, gloves and general hardware for manufacturing industries.",
+              },
+              {
+                title: "After-Sales Services",
+                desc: "Breakdown repairs, preventive maintenance, AMC/CMC contracts, equipment refurbishing and spare parts for forklifts, stackers and reach trucks.",
+              },
+            ].map((item) => (
+              <StaggerItem key={item.title}>
+                <motion.div
+                  className="p-7 rounded-2xl bg-card border border-border/50 relative group h-full"
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-industrial-gradient-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-t-2xl" />
+                  <h4 className="font-display font-bold text-foreground mb-3 text-lg">{item.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* Industries Served */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <AnimateIn direction="left">
+              <SectionHeading badge="Industries We Serve" title="Across All Major Sectors" centered={false} />
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                We serve all major industrial segments, providing complete solutions that bring peace of mind and help customers focus on their core activity.
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                {industries.map((ind) => (
+                  <div key={ind} className="flex items-center gap-2.5 text-sm text-foreground/80">
+                    <CheckCircle className="h-4 w-4 text-accent shrink-0" />
+                    {ind}
                   </div>
-                </AnimateIn>
-              ))}
-            </div>
+                ))}
+              </div>
+            </AnimateIn>
+            <AnimateIn direction="right">
+              <div className="p-8 rounded-2xl bg-card border border-border/50">
+                <h3 className="font-display text-xl font-bold text-foreground mb-6">Our Offices</h3>
+                <div className="space-y-6">
+                  <div>
+                    <span className="text-xs uppercase tracking-widest text-accent font-semibold">Registered Office</span>
+                    <p className="text-foreground font-medium mt-1">K-217, Waluj MIDC</p>
+                    <p className="text-muted-foreground text-sm">Aurangabad – 431136, Maharashtra</p>
+                    <p className="text-muted-foreground text-sm mt-1">Tel: +91 7722090400</p>
+                    <p className="text-muted-foreground text-sm">Email: viatoindustries@gmail.com</p>
+                  </div>
+                  <div className="border-t border-border pt-6">
+                    <span className="text-xs uppercase tracking-widest text-accent font-semibold">Pune Branch</span>
+                    <p className="text-foreground font-medium mt-1">Phoenix Properties</p>
+                    <p className="text-muted-foreground text-sm">At. Post – Shikrapur, Pune</p>
+                    <p className="text-muted-foreground text-sm mt-1">GSTIN: 27AATFV0946P1Z6</p>
+                    <p className="text-muted-foreground text-sm">Contact: Mr. Bharat Gundhale</p>
+                    <p className="text-muted-foreground text-sm">Cell: 7722090400 / 9834731352</p>
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
           </div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-muted">
         <div className="container-narrow">
           <StaggerContainer className="grid md:grid-cols-2 gap-8" staggerDelay={0.15}>
             {[
               {
                 icon: Target,
                 title: "Our Mission",
-                desc: "To provide world-class industrial solutions that enhance operational efficiency, safety, and productivity for our clients. We strive to be the most reliable turnkey solutions provider in India.",
+                desc: "To provide complete industrial solutions to customer needs which bring peace of mind and help customers focus on their core activity. We strive to be the most trusted turnkey solution provider across western India.",
               },
               {
                 icon: Eye,
                 title: "Our Vision",
-                desc: "To become India's leading integrated industrial solutions company, recognized for innovation, quality, and customer satisfaction across all sectors we serve.",
+                desc: "To become the most legendary industrial solutions brand in India — recognized for quality, reliability and customer-first approach in material handling, gas pipeline and packaging solutions.",
               },
             ].map((item) => (
               <StaggerItem key={item.title}>
@@ -166,7 +242,7 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="section-padding bg-muted">
+      <section className="section-padding bg-background">
         <div className="container-narrow">
           <SectionHeading badge="Our Values" title="What Drives Us" description="Our core values shape every project we deliver and every relationship we build." />
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.1}>
@@ -193,9 +269,11 @@ const About = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent/5 blur-3xl" />
         <div className="container-narrow text-center relative z-10">
           <AnimateIn>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-5">Partner With Viato Industries</h2>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-5">
+              Partner With Viato Industries
+            </h2>
             <p className="text-primary-foreground/70 mb-10 max-w-xl mx-auto text-lg">
-              Let us help you optimize your industrial operations with our comprehensive solutions.
+              Complete solutions to your industrial needs — bringing peace of mind so you can focus on your core activity.
             </p>
           </AnimateIn>
           <AnimateIn delay={0.2}>
