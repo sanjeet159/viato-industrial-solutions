@@ -286,6 +286,7 @@ const Index = () => {
               </Tooltip>
             ))}
           </motion.div>
+          </TooltipProvider>
 
           <div className="hidden lg:block relative mt-12">
             {/* Connector line */}
