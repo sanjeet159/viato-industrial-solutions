@@ -153,24 +153,25 @@ const Index = () => {
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
                 {[
-                  { value: "90+", label: "Projects Completed" },
-                  { value: "50+", label: "Happy Clients" },
-                  { value: "8+", label: "Years Experience" },
-                  { value: "7+", label: "Industries Served" },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={stat.label}
-                    className="w-44 h-36 rounded-2xl bg-primary-foreground/8 backdrop-blur-sm border border-primary-foreground/10 flex flex-col items-center justify-center text-center p-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
-                    whileHover={{ y: -4, borderColor: "hsl(28 90% 52% / 0.3)" }}
-                  >
-                    <span className="font-display text-3xl font-bold text-accent mb-1">{stat.value}</span>
-                    <span className="text-xs text-primary-foreground/50 font-medium">{stat.label}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
+  { value: 90, suffix: "+", label: "Projects Completed" },
+  { value: 50, suffix: "+", label: "Happy Clients" },
+  { value: 8, suffix: "+", label: "Years Experience" },
+  { value: 7, suffix: "+", label: "Industries Served" },
+].map((stat, i) => (
+  <motion.div
+    key={stat.label}
+    className="w-44 h-36 rounded-2xl bg-primary-foreground/8 backdrop-blur-sm border border-primary-foreground/10 flex flex-col items-center justify-center text-center p-4"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
+    whileHover={{ y: -4, borderColor: "hsl(28 90% 52% / 0.3)" }}
+  >
+    <span className="font-display text-3xl font-bold text-accent mb-1">
+      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+    </span>
+    <span className="text-xs text-primary-foreground/50 font-medium">{stat.label}</span>
+  </motion.div>
+))}
             </div>
           </div>
         </div>
