@@ -65,10 +65,11 @@ const testimonials = [
 ];
 
 const processSteps = [
-  { step: "01", title: "Consultation", desc: "We understand your requirements and site conditions." },
-  { step: "02", title: "Design & Plan", desc: "Custom-engineered solutions with detailed project plans." },
-  { step: "03", title: "Installation", desc: "Expert team executes the project with precision." },
-  { step: "04", title: "Support & AMC", desc: "Ongoing maintenance and support for peak performance." },
+  { step: "01", title: "Survey & Consultation", desc: "Site assessment, requirement analysis and feasibility study tailored to your facility.", icon: Users, accent: "210 80% 55%" },
+  { step: "02", title: "Engineering & Design", desc: "Detailed engineering drawings, BOQ preparation and project planning by certified engineers.", icon: Cog, accent: "28 90% 52%" },
+  { step: "03", title: "Procurement & Fabrication", desc: "Sourcing quality materials and precision fabrication at our in-house workshop.", icon: Factory, accent: "150 60% 45%" },
+  { step: "04", title: "Installation & Commissioning", desc: "On-site installation, testing, safety certification and seamless project handover.", icon: Wrench, accent: "270 60% 55%" },
+  { step: "05", title: "AMC & Lifecycle Support", desc: "Annual maintenance contracts, spare parts supply and 24/7 breakdown support.", icon: ShieldCheck, accent: "0 70% 55%" },
 ];
 
 const Index = () => {
