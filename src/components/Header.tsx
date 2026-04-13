@@ -99,12 +99,11 @@ const Header = () => {
       <div className="container mx-auto max-w-7xl px-4 flex items-center justify-between h-16 md:h-[72px]">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="h-10 w-10 rounded-xl bg-primary flex items-center justify-center">
-            <span className="font-bold text-primary-foreground text-xl">V</span>
-          </div>
-          <span className="font-bold text-lg text-foreground leading-none">
-            Viato Industries
-          </span>
+        <img
+        src="/logo.png"
+        alt="Viato Industries Logo"
+        className="h-10 w-auto object-contain"
+        />
         </Link>
 
         {/* Desktop nav */}
