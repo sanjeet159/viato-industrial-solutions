@@ -102,7 +102,7 @@ const Header = () => {
         <img
         src="/logo.png"
         alt="Viato Industries Logo"
-        className="h-10 w-auto object-contain"
+        className="h-14 w-auto object-contain"
         />
         </Link>
 
