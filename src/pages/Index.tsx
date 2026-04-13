@@ -102,7 +102,7 @@ const Index = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <span className="h-2 w-2 rounded-full bg-accent" />
-                Trusted by 100+ Industries Across India
+                Trusted by 50+ Clients Across India
               </motion.div>
 
               <motion.h1
@@ -153,10 +153,10 @@ const Index = () => {
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
                 {[
-                  { value: "500+", label: "Projects Completed" },
-                  { value: "100+", label: "Happy Clients" },
-                  { value: "15+", label: "Years Experience" },
-                  { value: "8+", label: "Industries Served" },
+                  { value: "90+", label: "Projects Completed" },
+                  { value: "50+", label: "Happy Clients" },
+                  { value: "8+", label: "Years Experience" },
+                  { value: "7+", label: "Industries Served" },
                 ].map((stat, i) => (
                   <motion.div
                     key={stat.label}
