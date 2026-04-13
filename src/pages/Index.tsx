@@ -254,6 +254,7 @@ const Index = () => {
           />
 
           {/* EPC Full Form */}
+          <TooltipProvider delayDuration={200}>
           <motion.div
             className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mt-6"
             initial={{ opacity: 0 }}
