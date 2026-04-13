@@ -251,7 +251,33 @@ const Index = () => {
             description="From initial survey to lifecycle support — we handle every phase of your industrial project under one roof."
           />
 
-          {/* Desktop: horizontal timeline */}
+          {/* EPC Full Form */}
+          <motion.div
+            className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mt-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            {[
+              { letter: "E", word: "Engineering" },
+              { letter: "P", word: "Procurement" },
+              { letter: "C", word: "Construction" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.letter}
+                className="flex items-center gap-2"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 + i * 0.15, duration: 0.4 }}
+              >
+                <span className="h-9 w-9 rounded-lg bg-accent/10 flex items-center justify-center font-display font-bold text-accent text-lg">{item.letter}</span>
+                <span className="text-sm font-medium text-foreground/70">{item.word}</span>
+                {i < 2 && <span className="text-muted-foreground/40 ml-2 text-lg hidden sm:inline">•</span>}
+              </motion.div>
+            ))}
+          </motion.div>
+
           <div className="hidden lg:block relative mt-12">
             {/* Connector line */}
             <div className="absolute top-[52px] left-[10%] right-[10%] h-0.5 bg-border z-0" />
