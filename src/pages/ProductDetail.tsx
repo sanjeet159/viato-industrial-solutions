@@ -48,7 +48,7 @@ const ProductDetail = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,80%,10%)] via-[hsl(215,80%,12%/0.95)] to-[hsl(215,80%,14%/0.8)]" />
           <div className="absolute inset-0 bg-[hsl(215,80%,10%/0.4)]" />
         </div>
-        <div className="container-wide relative z-10 py-20 md:py-28">
+        <div className="container-wide relative z-10 py-20 md:py-28" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
           <div className="flex items-center gap-2 text-primary-foreground/50 text-sm mb-6">
             <Link to="/products" className="hover:text-accent transition-colors">Products</Link>
             <span>/</span>
