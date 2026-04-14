@@ -1,6 +1,11 @@
 import { Flame, FlaskConical, Package, Wrench, PipetteIcon, Droplets, ShieldCheck, SprayCan, Box, Layers, RotateCcw, Warehouse, Zap, CircleDot, Beaker, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import gasPipelineImg from "@/assets/products/gas-pipeline.jpg";
+import chemicalImg from "@/assets/products/chemical-products.jpg";
+import packagingImg from "@/assets/products/packaging-solutions.jpg";
+import consumablesImg from "@/assets/products/industrial-consumables.jpg";
+
 export interface SubProduct {
   name: string;
   slug: string;
