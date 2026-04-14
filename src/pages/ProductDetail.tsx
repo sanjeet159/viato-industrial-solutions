@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import { productCategories } from "@/data/products";
 import { AnimateIn, MagneticButton } from "@/components/animations";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft, CheckCircle, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ProductDetail = () => {
@@ -23,6 +23,7 @@ const ProductDetail = () => {
   }
 
   const Icon = category.icon;
+  const SubIcon = product.icon;
   const benefits = [
     "High-quality industrial grade materials",
     "Tested for safety and compliance",
@@ -34,9 +35,19 @@ const ProductDetail = () => {
 
   return (
     <Layout>
-      <section className="bg-industrial-gradient py-20 md:py-28 relative overflow-hidden grain-overlay">
-        <div className="absolute inset-0 hero-mesh" />
-        <div className="container-wide relative z-10">
+      {/* Hero with image */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={category.image}
+            alt={category.title}
+            className="w-full h-full object-cover"
+            width={800}
+            height={544}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,80%,14%)] via-[hsl(215,80%,14%/0.92)] to-[hsl(215,80%,14%/0.7)]" />
+        </div>
+        <div className="container-wide relative z-10 py-20 md:py-28">
           <div className="flex items-center gap-2 text-primary-foreground/50 text-sm mb-6">
             <Link to="/products" className="hover:text-accent transition-colors">Products</Link>
             <span>/</span>
@@ -44,15 +55,23 @@ const ProductDetail = () => {
             <span>/</span>
             <span className="text-primary-foreground/80">{product.name}</span>
           </div>
-          <motion.div className="flex items-center gap-4 mb-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="h-14 w-14 rounded-xl bg-accent/15 flex items-center justify-center">
-              <Icon className="h-7 w-7 text-accent" />
+          <motion.div className="flex items-center gap-5 mb-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <div className="h-16 w-16 rounded-2xl bg-accent/15 backdrop-blur-md flex items-center justify-center border border-accent/20">
+              <SubIcon className="h-8 w-8 text-accent" />
             </div>
             <div>
               <p className="text-accent text-sm font-semibold mb-1">{category.title}</p>
               <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground">{product.name}</h1>
             </div>
           </motion.div>
+          <motion.p
+            className="text-primary-foreground/60 text-lg max-w-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            {product.description}
+          </motion.p>
         </div>
       </section>
 
@@ -60,14 +79,37 @@ const ProductDetail = () => {
         <div className="container-wide">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Main content */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 space-y-8">
+              {/* Product image card */}
               <AnimateIn>
-                <div className="rounded-2xl border border-border/50 bg-card p-8 md:p-10 mb-8">
+                <div className="rounded-2xl border border-border/50 overflow-hidden bg-card">
+                  <div className="relative h-64 md:h-80">
+                    <img
+                      src={category.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      width={800}
+                      height={544}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+                    <div className="absolute bottom-5 left-6 flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-lg bg-accent/20 backdrop-blur-md flex items-center justify-center">
+                        <SubIcon className="h-5 w-5 text-accent" />
+                      </div>
+                      <span className="text-foreground font-display font-bold text-lg">{product.name}</span>
+                    </div>
+                  </div>
+                </div>
+              </AnimateIn>
+
+              <AnimateIn delay={0.05}>
+                <div className="rounded-2xl border border-border/50 bg-card p-8 md:p-10">
                   <h2 className="font-display text-2xl font-bold text-foreground mb-4">Product Overview</h2>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    {product.name} from Viato Industries is engineered to meet the highest industrial standards. 
-                    As part of our {category.title.toLowerCase()} range, this product delivers reliable performance, 
-                    superior quality, and exceptional value for industrial applications across automotive, pharma, 
+                    {product.name} from Viato Industries is engineered to meet the highest industrial standards.
+                    As part of our {category.title.toLowerCase()} range, this product delivers reliable performance,
+                    superior quality, and exceptional value for industrial applications across automotive, pharma,
                     steel, manufacturing, and chemical sectors.
                   </p>
                   <h3 className="font-display text-lg font-bold text-foreground mb-4">Key Benefits</h3>
@@ -86,8 +128,8 @@ const ProductDetail = () => {
                 <div className="rounded-2xl border border-border/50 bg-card p-8 md:p-10">
                   <h2 className="font-display text-2xl font-bold text-foreground mb-4">Applications</h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    Widely used across manufacturing plants, warehouses, production lines, and industrial facilities. 
-                    Suitable for automotive OEMs, pharmaceutical manufacturing, steel processing, chemical plants, 
+                    Widely used across manufacturing plants, warehouses, production lines, and industrial facilities.
+                    Suitable for automotive OEMs, pharmaceutical manufacturing, steel processing, chemical plants,
                     defence establishments, and railway workshops.
                   </p>
                 </div>
