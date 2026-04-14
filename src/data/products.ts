@@ -1,6 +1,11 @@
 import { Flame, FlaskConical, Package, Wrench, PipetteIcon, Droplets, ShieldCheck, SprayCan, Box, Layers, RotateCcw, Warehouse, Zap, CircleDot, Beaker, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import gasPipelineImg from "@/assets/products/gas-pipeline.jpg";
+import chemicalImg from "@/assets/products/chemical-products.jpg";
+import packagingImg from "@/assets/products/packaging-solutions.jpg";
+import consumablesImg from "@/assets/products/industrial-consumables.jpg";
+
 export interface SubProduct {
   name: string;
   slug: string;
@@ -14,6 +19,7 @@ export interface ProductCategory {
   desc: string;
   description: string;
   icon: LucideIcon;
+  image: string;
   subProducts: SubProduct[];
 }
 
@@ -24,6 +30,7 @@ export const productCategories: ProductCategory[] = [
     desc: "Complete industrial gas pipeline installation & manifold systems for uninterrupted gas supply with maximum safety.",
     description: "End-to-end gas infrastructure solutions for industrial facilities.",
     icon: Flame,
+    image: gasPipelineImg,
     subProducts: [
       { name: "Gas Pipeline Systems", slug: "gas-pipeline-systems", description: "Complete industrial gas pipeline installation", icon: PipetteIcon },
       { name: "Gas Manifold Systems", slug: "gas-manifold-systems", description: "Multi-cylinder manifold configurations", icon: Layers },
@@ -38,6 +45,7 @@ export const productCategories: ProductCategory[] = [
     desc: "High-performance industrial chemicals for welding protection, rust treatment, and equipment maintenance.",
     description: "Specialized chemicals for welding, rust treatment & maintenance.",
     icon: FlaskConical,
+    image: chemicalImg,
     subProducts: [
       { name: "Water Based Anti Spatter V-125", slug: "anti-spatter-v125", description: "Premium anti-spatter for MIG/MAG welding", icon: SprayCan },
       { name: "Water Based Nozzle Gel V-101", slug: "nozzle-gel-v101", description: "Extends nozzle life & reduces downtime", icon: Droplets },
@@ -51,6 +59,7 @@ export const productCategories: ProductCategory[] = [
     desc: "Durable, returnable industrial packaging designed for safe transportation and cost-effective storage.",
     description: "Returnable & durable packaging for industrial logistics.",
     icon: Package,
+    image: packagingImg,
     subProducts: [
       { name: "Polypropylene Boxes", slug: "polypropylene-boxes", description: "Lightweight, durable PP containers", icon: Box },
       { name: "PP Corrugated Crates", slug: "pp-corrugated-crates", description: "Corrugated polypropylene storage crates", icon: Layers },
@@ -64,6 +73,7 @@ export const productCategories: ProductCategory[] = [
     desc: "Essential industrial consumables for welding, rust protection, and facility maintenance operations.",
     description: "Welding, cleaning & maintenance consumables for industry.",
     icon: Wrench,
+    image: consumablesImg,
     subProducts: [
       { name: "Welding Anti Spatter Solution", slug: "welding-anti-spatter", description: "Prevents spatter adhesion during welding", icon: SprayCan },
       { name: "Nozzle Gel", slug: "nozzle-gel", description: "Protective gel for welding nozzles", icon: Droplets },

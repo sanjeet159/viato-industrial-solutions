@@ -44,44 +44,63 @@ const ProductCard = ({
       >
         {/* Top glow line */}
         <motion.div
-          className="absolute top-0 left-0 right-0 h-[2px] bg-industrial-gradient-accent"
+          className="absolute top-0 left-0 right-0 h-[2px] bg-industrial-gradient-accent z-10"
           animate={{ scaleX: isHovered ? 1 : 0 }}
           transition={{ duration: 0.4 }}
           style={{ originX: 0 }}
         />
 
-        {/* Header area */}
+        {/* Image banner */}
+        <div className="relative h-48 md:h-56 overflow-hidden">
+          <motion.img
+            src={category.image}
+            alt={category.title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+            width={800}
+            height={544}
+            animate={{ scale: isHovered ? 1.05 : 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+          <div className="absolute bottom-4 left-5 md:left-7 flex items-center gap-3 z-10">
+            <motion.div
+              className="h-12 w-12 rounded-xl flex items-center justify-center backdrop-blur-md"
+              animate={{
+                backgroundColor: isHovered ? "hsl(28 90% 52% / 0.2)" : "hsl(215 80% 22% / 0.15)",
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <Icon
+                className="h-6 w-6 transition-colors duration-300"
+                style={{ color: isHovered ? "hsl(28 90% 52%)" : "hsl(var(--primary-foreground))" }}
+              />
+            </motion.div>
+            <div>
+              <h3 className="font-display font-bold text-lg md:text-xl text-foreground leading-tight">
+                {category.title}
+              </h3>
+              <p className="text-xs text-muted-foreground mt-0.5">{category.subProducts.length} products</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Content area */}
         <div
-          className="p-6 md:p-8"
+          className="px-5 md:px-7 py-5"
           onClick={() => setMobileOpen((v) => !v)}
         >
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex items-start gap-4">
-              <motion.div
-                className="h-14 w-14 rounded-xl flex items-center justify-center shrink-0"
-                animate={{
-                  backgroundColor: isHovered ? "hsl(28 90% 52% / 0.15)" : "hsl(215 80% 22% / 0.08)",
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <Icon
-                  className="h-7 w-7 transition-colors duration-300"
-                  style={{ color: isHovered ? "hsl(28 90% 52%)" : "hsl(215 80% 22%)" }}
-                />
-              </motion.div>
-              <div>
-                <h3 className="font-display font-bold text-lg md:text-xl text-foreground mb-1.5">
-                  {category.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed hidden md:block">
-                  {category.desc}
-                </p>
-              </div>
-            </div>
+          <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
+            {category.desc}
+          </p>
 
-            {/* Expand arrow */}
+          {/* Expand toggle */}
+          <div className="flex items-center justify-between mt-4">
+            <span className="text-xs uppercase tracking-[0.12em] text-muted-foreground font-semibold">
+              View Products
+            </span>
             <motion.div
-              className="h-9 w-9 rounded-full border border-border/60 flex items-center justify-center shrink-0 mt-1"
+              className="h-8 w-8 rounded-full border border-border/60 flex items-center justify-center shrink-0"
               animate={{
                 rotate: isHovered || mobileOpen ? 180 : 0,
                 borderColor: isHovered ? "hsl(28 90% 52% / 0.4)" : "hsl(214 20% 88% / 0.6)",
@@ -92,11 +111,6 @@ const ProductCard = ({
               <ChevronDown className="h-4 w-4 text-muted-foreground" />
             </motion.div>
           </div>
-
-          {/* Mobile description */}
-          <p className="text-muted-foreground text-sm leading-relaxed mt-3 md:hidden">
-            {category.desc}
-          </p>
         </div>
 
         {/* Sub-products — desktop: hover, mobile: tap */}
@@ -109,17 +123,14 @@ const ProductCard = ({
               transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="overflow-hidden"
             >
-              <div className="px-6 md:px-8 pb-6 md:pb-8 border-t border-border/30 pt-5">
-                <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-semibold mb-4">
-                  Products
-                </p>
-                <ul className="space-y-1">
+              <div className="px-5 md:px-7 pb-6 border-t border-border/30 pt-4">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1">
                   {category.subProducts.map((sub, i) => (
                     <motion.li
                       key={sub.slug}
                       initial={{ opacity: 0, x: -12 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.25, delay: i * 0.05 }}
+                      transition={{ duration: 0.25, delay: i * 0.04 }}
                     >
                       <Link
                         to={`/products/${category.slug}/${sub.slug}`}
@@ -137,7 +148,7 @@ const ProductCard = ({
 
                 <Link
                   to={`/products/${category.slug}`}
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:gap-3 transition-all"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:gap-3 transition-all"
                 >
                   View All {category.title} <ArrowRight className="h-4 w-4" />
                 </Link>
