@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import { productCategories } from "@/data/products";
 import { AnimateIn, StaggerContainer, StaggerItem, MagneticButton } from "@/components/animations";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ProductCategory = () => {
@@ -25,14 +25,24 @@ const ProductCategory = () => {
 
   return (
     <Layout>
-      <section className="bg-industrial-gradient py-24 md:py-32 relative overflow-hidden grain-overlay">
-        <div className="absolute inset-0 hero-mesh" />
-        <div className="container-wide relative z-10">
+      {/* Hero with category image */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={category.image}
+            alt={category.title}
+            className="w-full h-full object-cover"
+            width={800}
+            height={544}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,80%,14%)] via-[hsl(215,80%,14%/0.92)] to-[hsl(215,80%,14%/0.65)]" />
+        </div>
+        <div className="container-wide relative z-10 py-24 md:py-32">
           <Link to="/products" className="inline-flex items-center gap-2 text-primary-foreground/60 hover:text-accent text-sm font-medium mb-6 transition-colors">
             <ArrowLeft className="h-4 w-4" /> Back to Products
           </Link>
           <motion.div className="flex items-center gap-4 mb-5" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="h-16 w-16 rounded-2xl bg-accent/15 flex items-center justify-center">
+            <div className="h-16 w-16 rounded-2xl bg-accent/15 backdrop-blur-md flex items-center justify-center border border-accent/20">
               <Icon className="h-8 w-8 text-accent" />
             </div>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground">{category.title}</h1>
@@ -46,24 +56,46 @@ const ProductCategory = () => {
       <section className="section-padding bg-background mesh-gradient">
         <div className="container-wide">
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
-            {category.subProducts.map((sub) => (
-              <StaggerItem key={sub.slug}>
-                <Link to={`/products/${category.slug}/${sub.slug}`}>
-                  <motion.div
-                    className="p-7 rounded-2xl border border-border/50 bg-card hover:border-accent/30 transition-all group"
-                    whileHover={{ y: -6, boxShadow: "0 20px 50px -12px hsl(28 90% 52% / 0.12)" }}
-                  >
-                    <div className="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
-                      <Icon className="h-6 w-6 text-accent" />
-                    </div>
-                    <h3 className="font-display font-bold text-lg text-foreground mb-2">{sub.name}</h3>
-                    <span className="inline-flex items-center gap-1.5 text-accent text-sm font-semibold group-hover:gap-3 transition-all">
-                      View Details <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </motion.div>
-                </Link>
-              </StaggerItem>
-            ))}
+            {category.subProducts.map((sub) => {
+              const SubIcon = sub.icon;
+              return (
+                <StaggerItem key={sub.slug}>
+                  <Link to={`/products/${category.slug}/${sub.slug}`}>
+                    <motion.div
+                      className="rounded-2xl border border-border/50 bg-card overflow-hidden hover:border-accent/30 transition-all group"
+                      whileHover={{ y: -6, boxShadow: "0 20px 50px -12px hsl(28 90% 52% / 0.12)" }}
+                    >
+                      {/* Product image */}
+                      <div className="relative h-44 overflow-hidden">
+                        <motion.img
+                          src={category.image}
+                          alt={sub.name}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                          width={800}
+                          height={544}
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.5 }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+                        <div className="absolute bottom-3 left-4">
+                          <div className="h-10 w-10 rounded-lg bg-accent/15 backdrop-blur-md flex items-center justify-center border border-accent/20">
+                            <SubIcon className="h-5 w-5 text-accent" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <h3 className="font-display font-bold text-lg text-foreground mb-1.5">{sub.name}</h3>
+                        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{sub.description}</p>
+                        <span className="inline-flex items-center gap-1.5 text-accent text-sm font-semibold group-hover:gap-3 transition-all">
+                          View Details <ArrowRight className="h-4 w-4" />
+                        </span>
+                      </div>
+                    </motion.div>
+                  </Link>
+                </StaggerItem>
+              );
+            })}
           </StaggerContainer>
         </div>
       </section>
