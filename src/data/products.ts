@@ -19,6 +19,7 @@ export interface ProductCategory {
   desc: string;
   description: string;
   icon: LucideIcon;
+  image: string;
   subProducts: SubProduct[];
 }
 
