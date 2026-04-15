@@ -35,10 +35,10 @@ const ProductCategory = () => {
             width={800}
             height={544}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,80%,10%)] via-[hsl(215,80%,12%/0.95)] to-[hsl(215,80%,14%/0.8)]" />
-          <div className="absolute inset-0 bg-[hsl(215,80%,10%/0.4)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(215,80%,10%/0.95)] via-[hsl(215,80%,10%/0.85)] to-[hsl(215,80%,10%/0.7)]" />
+          <div className="absolute inset-0 bg-[hsl(215,80%,10%/0.5)]" />
         </div>
-        <div className="container-wide relative z-10 py-24 md:py-32">
+        <div className="container-wide relative z-10 py-24 md:py-32" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.6)" }}>
           <Link to="/products" className="inline-flex items-center gap-2 text-primary-foreground/60 hover:text-accent text-sm font-medium mb-6 transition-colors">
             <ArrowLeft className="h-4 w-4" /> Back to Products
           </Link>
