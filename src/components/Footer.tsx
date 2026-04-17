@@ -12,15 +12,12 @@ const Footer = () => {
       <div className="container-wide section-padding relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <AnimateIn>
-            <Link to="/" className="flex items-center gap-3 mb-5 group">
-              <div className="h-14 w-14 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/15 flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform">
-                <img
-                  src="/logo.png"
-                  alt="Viato Industries Logo"
-                  className="h-full w-auto object-contain"
-                />
-              </div>
-              <span className="font-display font-bold text-xl tracking-tight">Viato Industries</span>
+            <Link to="/" className="inline-block mb-5 group">
+              <img
+                src="/logo-white.png"
+                alt="Viato Industries"
+                className="h-16 w-auto object-contain group-hover:scale-105 transition-transform"
+              />
             </Link>
             <p className="text-sm opacity-70 leading-relaxed">
               Complete Material Handling & Packaging Solution. Your trusted partner for industrial gas pipeline systems, material handling equipment, and engineering services.
