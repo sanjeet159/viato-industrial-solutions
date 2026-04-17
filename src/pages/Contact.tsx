@@ -25,9 +25,24 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: MapPin, label: "Address", value: "Waluj MIDC, Aurangabad,\nMaharashtra, India" },
-    { icon: Phone, label: "Phone", value: "+91 XXXXX XXXXX" },
-    { icon: Mail, label: "Email", value: "info@viatoindustries.com" },
+    {
+      icon: MapPin,
+      label: "Address",
+      value: "K-217, Waluj MIDC, Aurangabad – 431136,\nMaharashtra, India",
+      href: "https://maps.app.goo.gl/iCD7tSd6Rp9ecY7q6?g_st=aw",
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+91 77220 90400\n+91 98347 31352",
+      href: "tel:+917722090400",
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "viatoindustries@gmail.com",
+      href: "mailto:viatoindustries@gmail.com",
+    },
     { icon: Clock, label: "Working Hours", value: "Mon – Sat: 9:00 AM – 6:00 PM" },
   ];
 
@@ -64,8 +79,8 @@ const Contact = () => {
                 <SectionHeading badge="Reach Us" title="Contact Information" centered={false} />
               </AnimateIn>
               <div className="space-y-5">
-                {contactInfo.map((item, i) => (
-                  <AnimateIn key={item.label} delay={i * 0.1}>
+                {contactInfo.map((item, i) => {
+                  const content = (
                     <motion.div
                       className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors"
                       whileHover={{ x: 5 }}
@@ -78,15 +93,31 @@ const Contact = () => {
                         <p className="text-muted-foreground text-sm whitespace-pre-line">{item.value}</p>
                       </div>
                     </motion.div>
-                  </AnimateIn>
-                ))}
+                  );
+                  return (
+                    <AnimateIn key={item.label} delay={i * 0.1}>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          target={item.href.startsWith("http") ? "_blank" : undefined}
+                          rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="block"
+                        >
+                          {content}
+                        </a>
+                      ) : (
+                        content
+                      )}
+                    </AnimateIn>
+                  );
+                })}
               </div>
 
               <AnimateIn delay={0.4}>
                 <div className="rounded-2xl overflow-hidden border border-border mt-8 aspect-video bg-muted">
                   <iframe
                     title="Viato Industries Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.139!2d75.25!3d19.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDUyJzEyLjAiTiA3NcKwMTUnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                    src="https://maps.google.com/maps?q=Waluj+MIDC+Aurangabad&t=&z=14&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -125,7 +156,7 @@ const Contact = () => {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone" className="text-sm font-semibold">Phone *</Label>
-                      <Input id="phone" type="tel" placeholder="+91 XXXXX XXXXX" required className="h-12 rounded-xl" />
+                      <Input id="phone" type="tel" placeholder="+91 77220 90400" required className="h-12 rounded-xl" />
                     </div>
                   </div>
                   <div className="space-y-2">

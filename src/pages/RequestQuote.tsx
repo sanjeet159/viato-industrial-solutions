@@ -122,7 +122,7 @@ const RequestQuote = () => {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="phone" className="text-sm font-semibold">Phone *</Label>
-                        <Input id="phone" type="tel" placeholder="+91 XXXXX XXXXX" required className="h-12 rounded-xl" />
+                        <Input id="phone" type="tel" placeholder="+91 77220 90400" required className="h-12 rounded-xl" />
                       </div>
                     </div>
                     <div className="space-y-2">

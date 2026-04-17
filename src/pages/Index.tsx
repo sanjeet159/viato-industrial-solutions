@@ -395,10 +395,10 @@ const Index = () => {
         <div className="container-wide py-20">
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" staggerDelay={0.1}>
             {[
-              { value: 500, suffix: "+", label: "Projects Completed" },
-              { value: 8,   suffix: "+", label: "Industries Served" },
-              { value: 100, suffix: "+", label: "Happy Clients" },
-              { value: 15,  suffix: "+", label: "Years Experience" },
+              { value: 90, suffix: "+", label: "Projects Completed" },
+              { value: 50, suffix: "+", label: "Happy Clients" },
+              { value: 8,  suffix: "+", label: "Years Experience" },
+              { value: 7,  suffix: "+", label: "Industries Served" },
             ].map((stat) => (
               <StaggerItem key={stat.label}>
                 <div className="p-6">

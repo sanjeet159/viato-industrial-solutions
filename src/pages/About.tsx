@@ -91,10 +91,10 @@ const About = () => {
             </AnimateIn>
             <StaggerContainer className="grid grid-cols-2 gap-4" staggerDelay={0.1}>
               {[
-                { value: 11, suffix: "+", label: "Years Experience" },
-                { value: 500, suffix: "+", label: "Projects Delivered" },
-                { value: 100, suffix: "+", label: "Happy Clients" },
-                { value: 11, suffix: "+", label: "Industries Served" },
+                { value: 90, suffix: "+", label: "Projects Completed" },
+                { value: 50, suffix: "+", label: "Happy Clients" },
+                { value: 8, suffix: "+", label: "Years Experience" },
+                { value: 7, suffix: "+", label: "Industries Served" },
               ].map((s) => (
                 <StaggerItem key={s.label}>
                   <motion.div
