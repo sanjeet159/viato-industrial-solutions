@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { AnimateIn, MagneticButton } from "@/components/animations";
@@ -9,10 +10,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { CheckCircle, ArrowRight, Shield, Clock, Headphones } from "lucide-react";
+import { CheckCircle, ArrowRight, Shield, Clock, Headphones, Package } from "lucide-react";
 
 const RequestQuote = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const prefilledProduct = searchParams.get("product") ?? "";
+  const prefilledCategory = searchParams.get("category") ?? "";
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
