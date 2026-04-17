@@ -12,12 +12,12 @@ const Footer = () => {
       <div className="container-wide section-padding relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <AnimateIn>
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="h-10 w-10 rounded-xl bg-accent flex items-center justify-center">
+            <Link to="/" className="flex items-center gap-2.5 mb-5 group">
+              <div className="h-10 w-10 rounded-xl bg-accent flex items-center justify-center shadow-lg shadow-accent/20 group-hover:scale-105 transition-transform">
                 <span className="font-display font-bold text-accent-foreground text-xl">V</span>
               </div>
-              <span className="font-display font-bold text-xl">Viato Industries</span>
-            </div>
+              <span className="font-display font-bold text-xl tracking-tight">Viato Industries</span>
+            </Link>
             <p className="text-sm opacity-70 leading-relaxed">
               Complete Material Handling & Packaging Solution. Your trusted partner for industrial gas pipeline systems, material handling equipment, and engineering services.
             </p>
@@ -59,23 +59,34 @@ const Footer = () => {
           <AnimateIn delay={0.3}>
             <h4 className="font-display font-semibold text-sm uppercase tracking-wider mb-5 text-accent">Contact Us</h4>
             <ul className="space-y-4 text-sm opacity-70">
-              <li className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <MapPin className="h-4 w-4" />
-                </div>
-                <span>Waluj MIDC, Aurangabad, Maharashtra, India</span>
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/iCD7tSd6Rp9ecY7q6?g_st=aw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 hover:opacity-100 hover:text-accent transition-all"
+                >
+                  <div className="h-8 w-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <MapPin className="h-4 w-4" />
+                  </div>
+                  <span>K-217, Waluj MIDC, Aurangabad – 431136, Maharashtra, India</span>
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <div className="h-8 w-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center shrink-0">
-                  <Phone className="h-4 w-4" />
-                </div>
-                <span>+91 XXXXX XXXXX</span>
+              <li>
+                <a href="tel:+917722090400" className="flex items-center gap-3 hover:opacity-100 hover:text-accent transition-all">
+                  <div className="h-8 w-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center shrink-0">
+                    <Phone className="h-4 w-4" />
+                  </div>
+                  <span>+91 77220 90400 / +91 98347 31352</span>
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <div className="h-8 w-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center shrink-0">
-                  <Mail className="h-4 w-4" />
-                </div>
-                <span>info@viatoindustries.com</span>
+              <li>
+                <a href="mailto:viatoindustries@gmail.com" className="flex items-center gap-3 hover:opacity-100 hover:text-accent transition-all">
+                  <div className="h-8 w-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center shrink-0">
+                    <Mail className="h-4 w-4" />
+                  </div>
+                  <span>viatoindustries@gmail.com</span>
+                </a>
               </li>
             </ul>
           </AnimateIn>
