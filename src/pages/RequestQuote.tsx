@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { AnimateIn, MagneticButton } from "@/components/animations";
@@ -9,10 +10,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { CheckCircle, ArrowRight, Shield, Clock, Headphones } from "lucide-react";
+import { CheckCircle, ArrowRight, Shield, Clock, Headphones, Package } from "lucide-react";
 
 const RequestQuote = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
+  const prefilledProduct = searchParams.get("product") ?? "";
+  const prefilledCategory = searchParams.get("category") ?? "";
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -104,6 +108,17 @@ const RequestQuote = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <SectionHeading badge="Lead Form" title="Tell Us Your Requirements" centered={false} />
+                  {prefilledProduct && (
+                    <div className="mb-6 flex items-center gap-3 p-4 rounded-xl bg-accent/10 border border-accent/20">
+                      <div className="h-10 w-10 rounded-lg bg-accent/20 flex items-center justify-center shrink-0">
+                        <Package className="h-5 w-5 text-accent" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-xs uppercase tracking-wider text-accent font-semibold">Quoting</p>
+                        <p className="font-display font-bold text-foreground text-base truncate">{prefilledProduct}</p>
+                      </div>
+                    </div>
+                  )}
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div className="space-y-2">
@@ -127,15 +142,16 @@ const RequestQuote = () => {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="service" className="text-sm font-semibold">Service/Product Interest</Label>
-                      <Select>
+                      <Select defaultValue={prefilledCategory || undefined}>
                         <SelectTrigger className="h-12 rounded-xl">
                           <SelectValue placeholder="Select a service or product" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="gas-pipeline">Gas Pipeline Systems</SelectItem>
+                          <SelectItem value="gas-pipeline">Gas Manifold & Pipeline</SelectItem>
+                          <SelectItem value="chemical-products">Chemical Products</SelectItem>
+                          <SelectItem value="packaging-solutions">Packaging Solutions</SelectItem>
+                          <SelectItem value="industrial-consumables">Industrial Consumables</SelectItem>
                           <SelectItem value="material-handling">Material Handling Equipment</SelectItem>
-                          <SelectItem value="packaging">Packaging Solutions</SelectItem>
-                          <SelectItem value="welding">Welding Consumables</SelectItem>
                           <SelectItem value="engineering">Engineering Services</SelectItem>
                           <SelectItem value="maintenance">Maintenance & AMC</SelectItem>
                           <SelectItem value="other">Other</SelectItem>
@@ -146,6 +162,11 @@ const RequestQuote = () => {
                       <Label htmlFor="requirements" className="text-sm font-semibold">Requirements *</Label>
                       <Textarea
                         id="requirements"
+                        defaultValue={
+                          prefilledProduct
+                            ? `I'd like a quote for: ${prefilledProduct}\n\nQuantity: \nSpecifications: \nTimeline: `
+                            : ""
+                        }
                         placeholder="Please describe your requirements in detail — quantity, specifications, timeline, etc."
                         rows={6}
                         required
