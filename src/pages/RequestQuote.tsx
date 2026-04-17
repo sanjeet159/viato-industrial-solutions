@@ -130,11 +130,6 @@ const RequestQuote = () => {
                         <Input id="company" placeholder="Your company" required className="h-12 rounded-xl" />
                       </div>
                     </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="company" className="text-sm font-semibold">Company Name *</Label>
-                        <Input id="company" placeholder="Your company" required className="h-12 rounded-xl" />
-                      </div>
-                    </div>
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <Label htmlFor="email" className="text-sm font-semibold">Email *</Label>
