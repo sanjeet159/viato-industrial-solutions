@@ -108,12 +108,28 @@ const RequestQuote = () => {
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <SectionHeading badge="Lead Form" title="Tell Us Your Requirements" centered={false} />
+                  {prefilledProduct && (
+                    <div className="mb-6 flex items-center gap-3 p-4 rounded-xl bg-accent/10 border border-accent/20">
+                      <div className="h-10 w-10 rounded-lg bg-accent/20 flex items-center justify-center shrink-0">
+                        <Package className="h-5 w-5 text-accent" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-xs uppercase tracking-wider text-accent font-semibold">Quoting</p>
+                        <p className="font-display font-bold text-foreground text-base truncate">{prefilledProduct}</p>
+                      </div>
+                    </div>
+                  )}
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <Label htmlFor="name" className="text-sm font-semibold">Full Name *</Label>
                         <Input id="name" placeholder="Your name" required className="h-12 rounded-xl" />
                       </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="company" className="text-sm font-semibold">Company Name *</Label>
+                        <Input id="company" placeholder="Your company" required className="h-12 rounded-xl" />
+                      </div>
+                    </div>
                       <div className="space-y-2">
                         <Label htmlFor="company" className="text-sm font-semibold">Company Name *</Label>
                         <Input id="company" placeholder="Your company" required className="h-12 rounded-xl" />
