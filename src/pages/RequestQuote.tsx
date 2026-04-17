@@ -142,15 +142,16 @@ const RequestQuote = () => {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="service" className="text-sm font-semibold">Service/Product Interest</Label>
-                      <Select>
+                      <Select defaultValue={prefilledCategory || undefined}>
                         <SelectTrigger className="h-12 rounded-xl">
                           <SelectValue placeholder="Select a service or product" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="gas-pipeline">Gas Pipeline Systems</SelectItem>
+                          <SelectItem value="gas-pipeline">Gas Manifold & Pipeline</SelectItem>
+                          <SelectItem value="chemical-products">Chemical Products</SelectItem>
+                          <SelectItem value="packaging-solutions">Packaging Solutions</SelectItem>
+                          <SelectItem value="industrial-consumables">Industrial Consumables</SelectItem>
                           <SelectItem value="material-handling">Material Handling Equipment</SelectItem>
-                          <SelectItem value="packaging">Packaging Solutions</SelectItem>
-                          <SelectItem value="welding">Welding Consumables</SelectItem>
                           <SelectItem value="engineering">Engineering Services</SelectItem>
                           <SelectItem value="maintenance">Maintenance & AMC</SelectItem>
                           <SelectItem value="other">Other</SelectItem>
