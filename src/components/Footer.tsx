@@ -12,9 +12,13 @@ const Footer = () => {
       <div className="container-wide section-padding relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <AnimateIn>
-            <Link to="/" className="flex items-center gap-2.5 mb-5 group">
-              <div className="h-10 w-10 rounded-xl bg-accent flex items-center justify-center shadow-lg shadow-accent/20 group-hover:scale-105 transition-transform">
-                <span className="font-display font-bold text-accent-foreground text-xl">V</span>
+            <Link to="/" className="flex items-center gap-3 mb-5 group">
+              <div className="h-14 w-14 rounded-xl bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/15 flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform">
+                <img
+                  src="/logo.png"
+                  alt="Viato Industries Logo"
+                  className="h-full w-auto object-contain"
+                />
               </div>
               <span className="font-display font-bold text-xl tracking-tight">Viato Industries</span>
             </Link>
