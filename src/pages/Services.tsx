@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import gasPipelineImg from "@/assets/gas-pipeline.jpg";
+import IndustrialCTA from "@/components/IndustrialCTA";
 import materialHandlingImg from "@/assets/material-handling.jpg";
 import engineeringImg from "@/assets/engineering-services.jpg";
 import { ArrowRight, CheckCircle, Flame, Wrench, HardHat, Settings } from "lucide-react";
@@ -150,35 +151,10 @@ const Services = () => {
       ))}
 
       {/* CTA */}
-      <section className="section-padding bg-industrial-gradient relative overflow-hidden grain-overlay">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent/5 blur-3xl" />
-        <div className="container-narrow text-center relative z-10">
-          <AnimateIn>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-5">Need a Custom Solution?</h2>
-            <p className="text-primary-foreground/70 mb-10 max-w-xl mx-auto text-lg">
-              Our engineering team can design and deliver tailored solutions for your specific industrial requirements.
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.2}>
-            <div className="flex flex-wrap justify-center gap-4">
-              <MagneticButton>
-                <Link to="/request-quote">
-                  <Button size="lg" className="bg-industrial-gradient-accent text-accent-foreground hover:opacity-90 font-semibold px-10 h-14 rounded-full shadow-xl shadow-accent/25">
-                    Request Quote <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-              </MagneticButton>
-              <MagneticButton>
-                <Link to="/contact">
-                  <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-10 h-14 rounded-full">
-                    Contact Us
-                  </Button>
-                </Link>
-              </MagneticButton>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+      <IndustrialCTA
+        title="Need a Custom Solution?"
+        description="Our engineering team can design and deliver tailored solutions for your specific industrial requirements."
+      />
     </Layout>
   );
 };

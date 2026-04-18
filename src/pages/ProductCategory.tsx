@@ -5,6 +5,7 @@ import { AnimateIn, StaggerContainer, StaggerItem, MagneticButton } from "@/comp
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import IndustrialCTA from "@/components/IndustrialCTA";
 
 const ProductCategory = () => {
   const { categorySlug } = useParams();
@@ -101,23 +102,10 @@ const ProductCategory = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-industrial-gradient relative overflow-hidden grain-overlay">
-        <div className="container-narrow text-center relative z-10">
-          <AnimateIn>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-5">Need a Custom Solution?</h2>
-            <p className="text-primary-foreground/70 mb-8 max-w-xl mx-auto">Contact us with your specific requirements and our engineering team will help you find the perfect solution.</p>
-          </AnimateIn>
-          <AnimateIn delay={0.2}>
-            <MagneticButton className="inline-block">
-              <Link to="/request-quote">
-                <Button size="lg" className="bg-industrial-gradient-accent text-accent-foreground hover:opacity-90 font-semibold px-10 h-14 rounded-full shadow-xl shadow-accent/25">
-                  Request Quote <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </MagneticButton>
-          </AnimateIn>
-        </div>
-      </section>
+      <IndustrialCTA
+        title="Need a Custom Solution?"
+        description="Contact us with your specific requirements and our engineering team will help you find the perfect solution."
+      />
     </Layout>
   );
 };

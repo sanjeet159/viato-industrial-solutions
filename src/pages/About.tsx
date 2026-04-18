@@ -6,6 +6,7 @@ import aboutTeamImg from "@/assets/about-team.jpg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Target, Eye, Heart, Award, Users, ShieldCheck, ArrowRight, Star, CheckCircle } from "lucide-react";
+import IndustrialCTA from "@/components/IndustrialCTA";
 
 const values = [
   { icon: Award, title: "Quality Excellence", desc: "ISO 9001:2015 certified company maintaining highest standards in every project." },
@@ -265,28 +266,7 @@ const About = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-industrial-gradient relative overflow-hidden grain-overlay">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent/5 blur-3xl" />
-        <div className="container-narrow text-center relative z-10">
-          <AnimateIn>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-5">
-              Partner With Viato Industries
-            </h2>
-            <p className="text-primary-foreground/70 mb-10 max-w-xl mx-auto text-lg">
-              Complete solutions to your industrial needs — bringing peace of mind so you can focus on your core activity.
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.2}>
-            <MagneticButton className="inline-block">
-              <Link to="/request-quote">
-                <Button size="lg" className="bg-industrial-gradient-accent text-accent-foreground hover:opacity-90 font-semibold text-base px-10 h-14 rounded-full shadow-xl shadow-accent/25">
-                  Request Quote <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </MagneticButton>
-          </AnimateIn>
-        </div>
-      </section>
+      <IndustrialCTA />
     </Layout>
   );
 };
