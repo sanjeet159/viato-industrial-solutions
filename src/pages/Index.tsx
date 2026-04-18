@@ -145,8 +145,8 @@ const Index = () => {
 
             {/* Right column — stat cards */}
             <div className="hidden lg:flex items-center justify-center">
-              <motion.div
-                className="grid grid-cols-2 gap-5"
+            <motion.div
+            className="grid grid-cols-4 gap-5"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
