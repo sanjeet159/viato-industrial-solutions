@@ -38,104 +38,115 @@ const ProductCategory = () => {
   return (
     <Layout>
 
-      {/* ══════════════════════════════════════
-          HERO — Cinematic full-screen
-      ══════════════════════════════════════ */}
-      <section ref={heroRef} className="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden">
+     {/* ══════ HERO — Compact Banner ══════ */}
+<section ref={heroRef} className="relative overflow-hidden">
 
-        {/* Parallax BG */}
-        <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroScale }}>
-          <img src={category.image} alt={category.title} className="w-full h-full object-cover" />
+  {/* BG Image */}
+  <motion.div className="absolute inset-0" style={{ y: heroY }}>
+    <img src={category.image} alt={category.title} className="w-full h-full object-cover" />
+  </motion.div>
+
+  {/* Overlays */}
+  <div className="absolute inset-0 bg-foreground/65" />
+  <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/50 to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+
+  {/* Glow */}
+  <div className="absolute top-0 right-1/3 w-80 h-80 rounded-full bg-accent/8 blur-3xl pointer-events-none" />
+
+  {/* Content */}
+  <motion.div
+    className="relative container-wide z-10 py-12 md:py-16"
+    style={{ opacity: heroOpacity }}
+  >
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 max-w-full">
+
+      {/* Left — text */}
+      <div className="flex-1 min-w-0">
+
+        {/* Breadcrumb */}
+        <motion.div
+          className="flex items-center gap-2 mb-4"
+          initial={{ opacity: 0, x: -15 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <Link
+            to="/products"
+            className="flex items-center gap-1.5 text-xs font-semibold text-primary-foreground/40 hover:text-accent transition-colors"
+          >
+            <ArrowLeft className="h-3 w-3" /> Products
+          </Link>
+          <ChevronRight className="h-3 w-3 text-primary-foreground/20" />
+          <span className="text-xs font-semibold text-accent">{category.title}</span>
         </motion.div>
 
-        {/* Multi-layer overlay for depth */}
-        <div className="absolute inset-0 bg-foreground/55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent" />
-
-        {/* Animated mesh circles */}
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-accent/5 blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-accent/8 blur-2xl" />
-
-        {/* Content */}
-        <motion.div className="relative container-wide z-10" style={{ opacity: heroOpacity }}>
-          <div className="max-w-3xl">
-
-            {/* Breadcrumb */}
-            <motion.div
-              className="flex items-center gap-2 mb-8"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-            >
-              <Link
-                to="/products"
-                className="flex items-center gap-1.5 text-xs font-semibold text-primary-foreground/40 hover:text-accent transition-colors"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" /> Products
-              </Link>
-              <ChevronRight className="h-3 w-3 text-primary-foreground/20" />
-              <span className="text-xs font-semibold text-accent">{category.title}</span>
-            </motion.div>
-
-            {/* Icon pill */}
-            <motion.div
-              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-accent/15 border border-accent/25 backdrop-blur-sm mb-6"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              <div className="h-7 w-7 rounded-lg bg-accent/20 flex items-center justify-center">
-                <Icon className="h-4 w-4 text-accent" />
-              </div>
-              <span className="text-accent text-sm font-bold">{category.subProducts.length} Products Available</span>
-              <Sparkles className="h-3.5 w-3.5 text-accent/60" />
-            </motion.div>
-
-            {/* Title */}
-            <motion.h1
-              className="font-display text-5xl md:text-7xl font-bold text-primary-foreground leading-[1.02] mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-            >
-              {category.title}
-            </motion.h1>
-
-            {/* Desc */}
-            <motion.p
-              className="text-primary-foreground/55 text-lg leading-relaxed max-w-xl mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.55, duration: 0.6 }}
-            >
-              {category.desc}
-            </motion.p>
-
-            {/* CTA row */}
-            <motion.div
-              className="flex flex-wrap gap-3"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-            >
-              <Link to="/request-quote">
-                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold px-7 h-12 rounded-full shadow-xl shadow-accent/30">
-                  Request Quote <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button variant="outline" className="border-white/20 text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 font-semibold px-7 h-12 rounded-full">
-                  <Phone className="mr-2 h-4 w-4" /> Talk to Expert
-                </Button>
-              </Link>
-            </motion.div>
+        {/* Icon + Title row */}
+        <motion.div
+          className="flex items-center gap-4 mb-3"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          <div className="h-12 w-12 rounded-2xl bg-accent/20 backdrop-blur-md border border-accent/30 flex items-center justify-center shrink-0">
+            <Icon className="h-6 w-6 text-accent" />
           </div>
+          <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground leading-tight">
+            {category.title}
+          </h1>
         </motion.div>
 
-        {/* Bottom fade into content */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
-      </section>
+        <motion.p
+          className="text-primary-foreground/55 text-sm md:text-base leading-relaxed max-w-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.45 }}
+        >
+          {category.desc}
+        </motion.p>
+      </div>
+
+      {/* Right — stats + actions */}
+      <motion.div
+        className="flex flex-col gap-3 shrink-0"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.5 }}
+      >
+        {/* Product count card */}
+        <div className="flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-primary-foreground/8 backdrop-blur-md border border-primary-foreground/10">
+          <div className="h-10 w-10 rounded-xl bg-accent/20 flex items-center justify-center">
+            <Sparkles className="h-5 w-5 text-accent" />
+          </div>
+          <div>
+            <p className="font-display text-2xl font-bold text-primary-foreground leading-none">
+              {category.subProducts.length}
+            </p>
+            <p className="text-xs text-primary-foreground/40 mt-0.5">Products Available</p>
+          </div>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex gap-2">
+          <Link to="/request-quote" className="flex-1">
+            <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold h-11 rounded-xl shadow-lg shadow-accent/25 text-sm">
+              Get Quote <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+            </Button>
+          </Link>
+          <Link to="/contact">
+            <Button variant="outline" className="border-white/20 text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 h-11 rounded-xl px-4 text-sm">
+              <Phone className="h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </motion.div>
+
+    </div>
+  </motion.div>
+
+  {/* Bottom fade */}
+  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
+</section>
 
       {/* ══════════════════════════════════════
           PRODUCTS — Extraordinary grid
