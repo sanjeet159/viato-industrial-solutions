@@ -5,6 +5,7 @@ import { AnimateIn, StaggerContainer, StaggerItem, MagneticButton } from "@/comp
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import IndustrialCTA from "@/components/IndustrialCTA";
 
 const ProductCategory = () => {
   const { categorySlug } = useParams();

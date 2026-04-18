@@ -6,6 +6,7 @@ import aboutTeamImg from "@/assets/about-team.jpg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Target, Eye, Heart, Award, Users, ShieldCheck, ArrowRight, Star, CheckCircle } from "lucide-react";
+import IndustrialCTA from "@/components/IndustrialCTA";
 
 const values = [
   { icon: Award, title: "Quality Excellence", desc: "ISO 9001:2015 certified company maintaining highest standards in every project." },
