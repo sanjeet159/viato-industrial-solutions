@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Car, Pill, Cog, Factory, Building, FlaskConical, ArrowRight, ChevronRight } from "lucide-react";
+import IndustrialCTA from "@/components/IndustrialCTA";
 
 const industries = [
   {
@@ -108,26 +109,14 @@ const Industries = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-industrial-gradient relative overflow-hidden grain-overlay">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent/5 blur-3xl" />
-        <div className="container-narrow text-center relative z-10">
-          <AnimateIn>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-5">Your Industry Not Listed?</h2>
-            <p className="text-primary-foreground/70 mb-10 max-w-xl mx-auto text-lg">
-              We serve many more sectors. Contact us to discuss how we can support your specific industrial needs.
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.2}>
-            <MagneticButton className="inline-block">
-              <Link to="/contact">
-                <Button size="lg" className="bg-industrial-gradient-accent text-accent-foreground hover:opacity-90 font-semibold px-10 h-14 rounded-full shadow-xl shadow-accent/25">
-                  Contact Us <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </MagneticButton>
-          </AnimateIn>
-        </div>
-      </section>
+      <IndustrialCTA
+        title="Your Industry Not Listed?"
+        description="We serve many more sectors. Contact us to discuss how we can support your specific industrial needs."
+        primaryLabel="Contact Us"
+        primaryTo="/contact"
+        secondaryLabel="Request Quote"
+        secondaryTo="/request-quote"
+      />
     </Layout>
   );
 };

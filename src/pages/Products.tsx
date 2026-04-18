@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import { productCategories } from "@/data/products";
+import IndustrialCTA from "@/components/IndustrialCTA";
 
 const Products = () => {
   const [activeSlug, setActiveSlug] = useState(productCategories[0].slug);
@@ -244,26 +245,14 @@ const Products = () => {
       </section>
 
       {/* Bottom CTA */}
-      <section className="section-padding bg-industrial-gradient relative overflow-hidden grain-overlay">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent/5 blur-3xl" />
-        <div className="container-narrow text-center relative z-10">
-          <AnimateIn>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-5">Can't Find What You Need?</h2>
-            <p className="text-primary-foreground/70 mb-10 max-w-xl mx-auto text-lg">
-              We source and supply a wide range of industrial products. Contact us with your specific requirements.
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.2}>
-            <MagneticButton className="inline-block">
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-10 h-14 rounded-full">
-                  Contact Us <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </MagneticButton>
-          </AnimateIn>
-        </div>
-      </section>
+      <IndustrialCTA
+        title="Can't Find What You Need?"
+        description="We source and supply a wide range of industrial products. Contact us with your specific requirements and our team will help you find it."
+        primaryLabel="Contact Us"
+        primaryTo="/contact"
+        secondaryLabel="Request Quote"
+        secondaryTo="/request-quote"
+      />
     </Layout>
   );
 };
