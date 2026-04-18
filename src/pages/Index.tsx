@@ -394,7 +394,7 @@ const Index = () => {
       {/* ══════════ STATS ══════════ */}
       <section className="bg-card border-y border-border">
         <div className="container-wide py-20">
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center" staggerDelay={0.1}>
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" staggerDelay={0.1}>
             {[
               { value: 90, suffix: "+", label: "Projects Completed" },
                   { value: 50,  suffix: "+", label: "Happy Clients" },
