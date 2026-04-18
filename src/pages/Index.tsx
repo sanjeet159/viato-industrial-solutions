@@ -152,7 +152,8 @@ const Index = () => {
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
                 {[
-                  { value: 500, suffix: "+", label: "Projects Completed" },
+                  { value: 90, suffix: "+", label: "Projects Completed" },
+                  { value: 50,  suffix: "+", label: "Happy Clients" },
                   { value: 8,  suffix: "+", label: "Years Experience" },
                   { value: 7,  suffix: "+", label: "Industries Served" },
                 ].map((stat, i) => (
