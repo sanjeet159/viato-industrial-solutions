@@ -4,6 +4,7 @@ import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
+import IndustrialCTA from "@/components/IndustrialCTA";
 import { AnimateIn, StaggerContainer, StaggerItem, AnimatedCounter, MagneticButton } from "@/components/animations";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -414,29 +415,10 @@ const Index = () => {
       </section>
 
       {/* ══════════ CTA ══════════ */}
-      <section className="section-padding bg-background">
-        <div className="container-narrow text-center">
-          <SectionHeading
-            badge="Get Started"
-            title="Ready to Optimize Your Industrial Operations?"
-            description="Contact us today for a free consultation and discover how Viato Industries can transform your facility."
-          />
-          <AnimateIn delay={0.3}>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/request-quote">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold text-base px-10 h-14 rounded-full">
-                  Request Quote <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="font-semibold text-base px-10 h-14 rounded-full">
-                  Contact Us
-                </Button>
-              </Link>
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+      <IndustrialCTA
+        title="Ready to Optimize Your Industrial Operations?"
+        description="Contact us today for a free consultation and discover how Viato Industries can transform your facility — across gas, packaging, material handling and engineering."
+      />
 
     </Layout>
   );
