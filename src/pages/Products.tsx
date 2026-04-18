@@ -67,9 +67,6 @@ const Products = () => {
                     Browse Our <span className="text-accent">Product Range</span>
                   </h2>
                 </div>
-                <p className="text-muted-foreground text-sm md:text-base md:max-w-sm md:text-right leading-relaxed">
-                  Pick a category to explore products. Click any card to request a quote.
-                </p>
               </div>
             </div>
           </AnimateIn>
