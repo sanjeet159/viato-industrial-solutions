@@ -49,19 +49,17 @@ const Footer = () => {
           <AnimateIn delay={0.2}>
             <h4 className="font-display font-semibold text-sm uppercase tracking-wider mb-5 text-accent">Our Products</h4>
             <ul className="space-y-3 text-sm">
-              {productCategories.flatMap((cat) =>
-                cat.subProducts.map((sub) => (
-                  <li key={`${cat.slug}-${sub.slug}`}>
-                    <Link
-                      to={`/products/${cat.slug}/${sub.slug}`}
-                      className="opacity-70 hover:opacity-100 hover:text-accent transition-all flex items-center gap-1 group"
-                    >
-                      {sub.name}
-                      <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                  </li>
-                ))
-              )}
+              {productCategories.map((cat) => (
+                <li key={cat.slug}>
+                  <Link
+                    to={`/products/${cat.slug}`}
+                    className="opacity-70 hover:opacity-100 hover:text-accent transition-all flex items-center gap-1 group"
+                  >
+                    {cat.title}
+                    <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </AnimateIn>
 
