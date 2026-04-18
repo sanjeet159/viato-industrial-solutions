@@ -80,7 +80,7 @@ const About = () => {
               </Link>
               <Link to="/contact">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-  <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50 font-semibold px-8 h-12 rounded-full transition-all duration-300 group">
+  <Button size="lg" variant="outline" className="border-white/60 text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 hover:border-white font-semibold px-8 h-12 rounded-full transition-all duration-300 group">
     Get in Touch <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
   </Button>
 </motion.div>
