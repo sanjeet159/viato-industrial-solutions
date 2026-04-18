@@ -16,25 +16,28 @@ const Products = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="bg-industrial-gradient py-24 md:py-36 relative overflow-hidden grain-overlay">
+
+      {/* Hero — compact */}
+      <section className="bg-industrial-gradient py-10 md:py-14 relative overflow-hidden grain-overlay">
         <div className="absolute inset-0 hero-mesh" />
         <div className="container-wide relative z-10">
           <motion.div
-            className="max-w-2xl"
-            initial={{ opacity: 0, y: 30 }}
+            className="w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 text-accent text-sm font-semibold mb-6 border border-accent/20">
-              <span className="h-2 w-2 rounded-full bg-accent animate-pulse-glow" />
-              Our Products
-            </span>
-            <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground mb-5 leading-tight">
-              Industrial Products & <span className="text-accent">Equipment</span>
-            </h1>
-            <p className="text-primary-foreground/70 text-lg leading-relaxed">
-              Complete industrial solutions for Gas Pipeline, Chemical, Packaging, and Material Handling — sourced and supplied to meet the demands of modern manufacturing.
+            <div>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-accent text-xs font-semibold mb-3 border border-accent/20">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-glow" />
+                Our Products
+              </span>
+              <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground leading-tight">
+                Industrial Products & <span className="text-accent">Equipment</span>
+              </h1>
+            </div>
+            <p className="text-primary-foreground/60 text-sm md:text-base leading-relaxed md:max-w-sm">
+              Complete solutions for Gas Pipeline, Packaging & Material Handling.
             </p>
           </motion.div>
         </div>
@@ -46,28 +49,32 @@ const Products = () => {
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
-            backgroundImage:
-              "radial-gradient(hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(hsl(var(--foreground)) 1px, transparent 1px)",
             backgroundSize: "24px 24px",
           }}
         />
         <div className="container-wide relative z-10">
-          {/* Header */}
+
+          {/* Header — full width */}
           <AnimateIn>
-            <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wider mb-4 border border-accent/20">
-                Product Categories
-              </span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight">
-                Browse Our <span className="text-accent">Product Range</span>
-              </h2>
-              <p className="text-muted-foreground mt-4 text-base md:text-lg">
-                Pick a category on the left to explore the full range of products. Click any product card to request a tailored quote.
-              </p>
+            <div className="w-full mb-10">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-2">
+                <div>
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wider mb-3 border border-accent/20">
+                    Product Categories
+                  </span>
+                  <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight">
+                    Browse Our <span className="text-accent">Product Range</span>
+                  </h2>
+                </div>
+                <p className="text-muted-foreground text-sm md:text-base md:max-w-sm md:text-right leading-relaxed">
+                  Pick a category to explore products. Click any card to request a quote.
+                </p>
+              </div>
             </div>
           </AnimateIn>
 
-          {/* Trust strip */}
+          {/* Trust strip marquee */}
           <AnimateIn delay={0.1}>
             <div className="relative overflow-hidden rounded-full border border-border bg-card/60 backdrop-blur-sm mb-10">
               <div className="flex gap-10 py-3 px-6 animate-marquee whitespace-nowrap text-xs md:text-sm text-muted-foreground font-medium">
@@ -94,6 +101,7 @@ const Products = () => {
 
           {/* Tabs + Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 lg:gap-10">
+
             {/* Left vertical tabs */}
             <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0">
               {productCategories.map((cat) => {
@@ -120,18 +128,10 @@ const Products = () => {
                         <Icon className="h-5 w-5" />
                       </div>
                       <div className="min-w-0">
-                        <p
-                          className={`font-display font-bold text-sm leading-tight ${
-                            isActive ? "text-primary-foreground" : "text-foreground"
-                          }`}
-                        >
+                        <p className={`font-display font-bold text-sm leading-tight ${isActive ? "text-primary-foreground" : "text-foreground"}`}>
                           {cat.title}
                         </p>
-                        <p
-                          className={`text-xs mt-0.5 truncate ${
-                            isActive ? "text-primary-foreground/70" : "text-muted-foreground"
-                          }`}
-                        >
+                        <p className={`text-xs mt-0.5 truncate ${isActive ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
                           {cat.subProducts.length} products
                         </p>
                       </div>
@@ -143,6 +143,7 @@ const Products = () => {
 
             {/* Right content */}
             <div className="min-w-0">
+
               {/* Active category banner */}
               <AnimatePresence mode="wait">
                 <motion.div
@@ -160,9 +161,7 @@ const Products = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-display text-2xl font-bold">{active.title}</h3>
-                      <p className="text-primary-foreground/70 text-sm md:text-base mt-1">
-                        {active.desc}
-                      </p>
+                      <p className="text-primary-foreground/70 text-sm md:text-base mt-1">{active.desc}</p>
                     </div>
                     <Link
                       to={`/products/${active.slug}`}
@@ -192,9 +191,7 @@ const Products = () => {
                         key={sub.slug}
                         type="button"
                         onClick={() =>
-                          navigate(
-                            `/request-quote?product=${encodeURIComponent(sub.name)}&category=${active.slug}`,
-                          )
+                          navigate(`/request-quote?product=${encodeURIComponent(sub.name)}&category=${active.slug}`)
                         }
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -220,6 +217,7 @@ const Products = () => {
                   })}
                 </motion.div>
               </AnimatePresence>
+
             </div>
           </div>
 
@@ -241,6 +239,7 @@ const Products = () => {
               </Link>
             </MagneticButton>
           </motion.div>
+
         </div>
       </section>
 
@@ -253,6 +252,7 @@ const Products = () => {
         secondaryLabel="Request Quote"
         secondaryTo="/request-quote"
       />
+
     </Layout>
   );
 };
