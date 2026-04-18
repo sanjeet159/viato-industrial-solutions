@@ -79,9 +79,11 @@ const About = () => {
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/0 font-semibold px-8 h-12 rounded-full">
-                  Get in Touch
-                </Button>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+  <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 hover:border-primary-foreground/50 font-semibold px-8 h-12 rounded-full transition-all duration-300 group">
+    Get in Touch <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+  </Button>
+</motion.div>
               </Link>
             </div>
           </motion.div>
