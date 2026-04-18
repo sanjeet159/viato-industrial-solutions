@@ -193,7 +193,7 @@ const IndustrialCTA = ({
             {/* Stats strip */}
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
               {[
-                { v: "500+", l: "Projects" },
+                { v: "90+", l: "Projects" },
                 { v: "8+", l: "Years" },
                 { v: "7+", l: "Industries" },
               ].map((s, i) => (
