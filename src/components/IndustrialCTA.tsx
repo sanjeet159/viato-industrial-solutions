@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/animations";
+import faviconMark from "@/assets/favicon-mark.png";
 
 interface IndustrialCTAProps {
   title?: string;
@@ -229,19 +230,18 @@ const IndustrialCTA = ({
               />
             ))}
 
-            {/* Center hub */}
+            {/* Center hub — white circle with favicon mark for max visibility */}
             <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute z-20 h-24 w-24 rounded-full bg-industrial-gradient-accent flex items-center justify-center shadow-2xl shadow-accent/40"
+              animate={{ scale: [1, 1.04, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute z-20 h-28 w-28 rounded-full bg-primary-foreground flex items-center justify-center shadow-2xl shadow-accent/40 ring-4 ring-accent/30"
             >
-              <Cog className="h-12 w-12 text-accent-foreground" strokeWidth={1.5} />
+              <img
+                src={faviconMark}
+                alt="Viato"
+                className="h-16 w-16 object-contain"
+              />
             </motion.div>
-            <div className="absolute z-30 h-24 w-24 rounded-full flex items-center justify-center pointer-events-none">
-              <span className="font-display font-bold text-accent-foreground text-[10px] uppercase tracking-widest">
-                Viato
-              </span>
-            </div>
 
             {/* Orbiting industry icons */}
             <motion.div
