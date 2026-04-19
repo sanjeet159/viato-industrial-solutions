@@ -32,11 +32,11 @@ const WhatsAppFloat = () => {
             {/* Header */}
             <div className="bg-[#25D366] px-4 py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-white/10 overflow-hidden flex items-center justify-center">
+                <div className="h-10 w-10 rounded-full bg-white overflow-hidden flex items-center justify-center">
   <img
-    src="/logo.png"
+    src="/favicon-32x32.png"
     alt="Viato Industries"
-    className="h-8 w-8 object-contain"
+    className="h-7 w-7 object-contain"
   />
 </div>
                 <div>
