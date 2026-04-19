@@ -12,7 +12,21 @@ import { useToast } from "@/hooks/use-toast";
 const Contact = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+  name: "",
+  company: "",
+  email: "",
+  phone: "",
+  subject: "",
+  message: "",
+});
 
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+};
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+};
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   setLoading(true);
