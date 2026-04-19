@@ -117,7 +117,7 @@ const Contact = () => {
                 <div className="rounded-2xl overflow-hidden border border-border mt-8 aspect-video bg-muted">
                   <iframe
                     title="Viato Industries Location"
-                    src="https://www.google.com/maps/place/19%C2%B049'48.6%22N+75%C2%B012'21.5%22E/@19.8302234,75.2063552,518m/data=!3m1!1e3!4m4!3m3!8m2!3d19.830155!4d75.205965!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
+                    src="<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2254.807468884801!2d75.20635521867543!3d19.830223395424387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDQ5JzQ4LjYiTiA3NcKwMTInMjEuNSJF!5e1!3m2!1sen!2sin!4v1776582610439!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
