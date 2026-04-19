@@ -14,14 +14,48 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast({ title: "Message Sent!", description: "We'll get back to you within 24 hours." });
-      (e.target as HTMLFormElement).reset();
-    }, 1000);
-  };
+  e.preventDefault();
+  setLoading(true);
+
+  const form = e.target as HTMLFormElement;
+
+  // Get form values
+  const name = (form.querySelector("#name") as HTMLInputElement)?.value || "";
+  const company = (form.querySelector("#company") as HTMLInputElement)?.value || "";
+  const email = (form.querySelector("#email") as HTMLInputElement)?.value || "";
+  const phone = (form.querySelector("#phone") as HTMLInputElement)?.value || "";
+  const subject = (form.querySelector("#subject") as HTMLInputElement)?.value || "";
+  const message = (form.querySelector("#message") as HTMLTextAreaElement)?.value || "";
+
+  // Build WhatsApp message
+  const whatsappMessage = `
+🔔 *New Enquiry from Website*
+
+👤 *Name:* ${name}
+🏢 *Company:* ${company || "N/A"}
+📧 *Email:* ${email}
+📞 *Phone:* ${phone}
+📌 *Subject:* ${subject || "N/A"}
+
+💬 *Message:*
+${message}
+  `.trim();
+
+  // Your WhatsApp number (with country code, no + or spaces)
+  const whatsappNumber = "917743877426";
+
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  setTimeout(() => {
+    setLoading(false);
+    toast({
+      title: "Redirecting to WhatsApp!",
+      description: "Your message is ready to send.",
+    });
+    form.reset();
+    window.open(whatsappURL, "_blank");
+  }, 800);
+};
 
   return (
     <Layout>
