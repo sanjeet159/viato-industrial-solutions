@@ -13,63 +13,47 @@ const Contact = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-  name: "",
-  company: "",
-  email: "",
-  phone: "",
-  subject: "",
-  message: "",
-});
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-};
-const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-};
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setLoading(true);
+    e.preventDefault();
+    setLoading(true);
 
-  const form = e.target as HTMLFormElement;
+    const whatsappMessage =
+`🔔 *New Enquiry from Website*
 
-  // Get form values
-  const name = (form.querySelector("#name") as HTMLInputElement)?.value || "";
-  const company = (form.querySelector("#company") as HTMLInputElement)?.value || "";
-  const email = (form.querySelector("#email") as HTMLInputElement)?.value || "";
-  const phone = (form.querySelector("#phone") as HTMLInputElement)?.value || "";
-  const subject = (form.querySelector("#subject") as HTMLInputElement)?.value || "";
-  const message = (form.querySelector("#message") as HTMLTextAreaElement)?.value || "";
-
-  // Build WhatsApp message
-  const whatsappMessage = `
-🔔 *New Enquiry from Website*
-
-👤 *Name:* ${name}
-🏢 *Company:* ${company || "N/A"}
-📧 *Email:* ${email}
-📞 *Phone:* ${phone}
-📌 *Subject:* ${subject || "N/A"}
+👤 *Name:* ${formData.name}
+🏢 *Company:* ${formData.company || "N/A"}
+📧 *Email:* ${formData.email}
+📞 *Phone:* ${formData.phone}
+📌 *Subject:* ${formData.subject || "N/A"}
 
 💬 *Message:*
-${message}
-  `.trim();
+${formData.message}`;
 
-  // Your WhatsApp number (with country code, no + or spaces)
-  const whatsappNumber = "917743877426";
+    const whatsappNumber = "917743877426";
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-  setTimeout(() => {
-    setLoading(false);
-    toast({
-      title: "Redirecting to WhatsApp!",
-      description: "Your message is ready to send.",
-    });
-    form.reset();
-    window.open(whatsappURL, "_blank");
-  }, 800);
-};
+    setTimeout(() => {
+      setLoading(false);
+      toast({
+        title: "Redirecting to WhatsApp!",
+        description: "Your message is ready — just hit Send on WhatsApp.",
+      });
+      setFormData({ name: "", company: "", email: "", phone: "", subject: "", message: "" });
+      window.open(whatsappURL, "_blank");
+    }, 800);
+  };
 
   return (
     <Layout>
@@ -171,7 +155,7 @@ ${message}
                   className="block p-6 rounded-2xl bg-card border border-border/50 hover:border-accent/30 transition-all group relative overflow-hidden"
                   whileHover={{ y: -3 }}
                 >
-                  <div className="absolute top-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-400" />
+                  <div className="absolute top-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
                   <div className="flex items-start gap-4">
                     <div className="h-11 w-11 rounded-xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center shrink-0 transition-colors">
                       <MapPin className="h-5 w-5 text-accent" />
@@ -194,7 +178,7 @@ ${message}
                   className="p-6 rounded-2xl bg-card border border-border/50 hover:border-accent/30 transition-all group relative overflow-hidden"
                   whileHover={{ y: -3 }}
                 >
-                  <div className="absolute top-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-400" />
+                  <div className="absolute top-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
                   <div className="flex items-start gap-4">
                     <div className="h-11 w-11 rounded-xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center shrink-0 transition-colors">
                       <MapPin className="h-5 w-5 text-accent" />
@@ -233,7 +217,7 @@ ${message}
               {/* WhatsApp CTA */}
               <AnimateIn delay={0.3}>
                 <motion.a
-                  href="https://wa.me/917722090400"
+                  href="https://wa.me/917743877426"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-5 rounded-2xl border border-green-500/20 bg-green-500/5 hover:bg-green-500/10 hover:border-green-500/40 transition-all group"
@@ -267,37 +251,75 @@ ${message}
                     </div>
                     <h3 className="font-display text-2xl font-bold text-foreground">Send a Message</h3>
                   </div>
-                  <p className="text-muted-foreground text-sm ml-12">Fill in the form below and we'll get back to you shortly.</p>
+                  <p className="text-muted-foreground text-sm ml-12">
+                    Fill in the form — we'll reply via WhatsApp instantly.
+                  </p>
                 </div>
 
                 {/* Form body */}
                 <div className="px-8 md:px-10 py-8">
                   <form onSubmit={handleSubmit} className="space-y-5">
+
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <Label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Full Name *</Label>
-                        <Input id="name" placeholder="Your name" required className="h-12 rounded-xl border-border/60 focus:border-accent bg-background" />
+                        <Input
+                          id="name"
+                          placeholder="Your name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="h-12 rounded-xl border-border/60 focus:border-accent bg-background"
+                        />
                       </div>
                       <div className="space-y-1.5">
                         <Label htmlFor="company" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Company</Label>
-                        <Input id="company" placeholder="Company name" className="h-12 rounded-xl border-border/60 focus:border-accent bg-background" />
+                        <Input
+                          id="company"
+                          placeholder="Company name"
+                          value={formData.company}
+                          onChange={handleChange}
+                          className="h-12 rounded-xl border-border/60 focus:border-accent bg-background"
+                        />
                       </div>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <Label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Email *</Label>
-                        <Input id="email" type="email" placeholder="you@company.com" required className="h-12 rounded-xl border-border/60 focus:border-accent bg-background" />
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="you@company.com"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="h-12 rounded-xl border-border/60 focus:border-accent bg-background"
+                        />
                       </div>
                       <div className="space-y-1.5">
                         <Label htmlFor="phone" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Phone *</Label>
-                        <Input id="phone" type="tel" placeholder="+91 77220 90400" required className="h-12 rounded-xl border-border/60 focus:border-accent bg-background" />
+                        <Input
+                          id="phone"
+                          type="tel"
+                          placeholder="+91 77220 90400"
+                          required
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="h-12 rounded-xl border-border/60 focus:border-accent bg-background"
+                        />
                       </div>
                     </div>
 
                     <div className="space-y-1.5">
                       <Label htmlFor="subject" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Subject</Label>
-                      <Input id="subject" placeholder="How can we help?" className="h-12 rounded-xl border-border/60 focus:border-accent bg-background" />
+                      <Input
+                        id="subject"
+                        placeholder="How can we help?"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="h-12 rounded-xl border-border/60 focus:border-accent bg-background"
+                      />
                     </div>
 
                     <div className="space-y-1.5">
@@ -307,6 +329,8 @@ ${message}
                         placeholder="Tell us about your requirements..."
                         rows={5}
                         required
+                        value={formData.message}
+                        onChange={handleChange}
                         className="rounded-xl border-border/60 focus:border-accent resize-none bg-background"
                       />
                     </div>
@@ -317,7 +341,7 @@ ${message}
                         <Button
                           type="submit"
                           disabled={loading}
-                          className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-bold h-13 rounded-xl text-base shadow-lg shadow-accent/20 relative overflow-hidden group"
+                          className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-bold h-12 rounded-xl text-base shadow-lg shadow-accent/20 relative overflow-hidden group"
                         >
                           <motion.div
                             className="absolute inset-0 bg-white/10"
@@ -332,11 +356,12 @@ ${message}
                                 animate={{ rotate: 360 }}
                                 transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
                               />
-                              Sending...
+                              Opening WhatsApp...
                             </span>
                           ) : (
                             <span className="flex items-center gap-2">
-                              Send Message <Send className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                              Send via WhatsApp
+                              <MessageSquare className="h-4 w-4 group-hover:scale-110 transition-transform" />
                             </span>
                           )}
                         </Button>
@@ -344,8 +369,10 @@ ${message}
                     </MagneticButton>
 
                     <p className="text-xs text-muted-foreground text-center">
-                      We respond within <span className="font-semibold text-foreground">24 business hours</span>
+                      Clicking send will open WhatsApp with your message pre-filled.{" "}
+                      <span className="font-semibold text-foreground">Just tap Send.</span>
                     </p>
+
                   </form>
                 </div>
               </motion.div>
