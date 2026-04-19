@@ -30,34 +30,21 @@ const Contact = () => {
     setLoading(true);
 
     const whatsappMessage =
-`━━━━━━━━━━━━━━━━━━━━━
-🏭 *VIATO INDUSTRIES*
-📬 _New Website Enquiry_
-━━━━━━━━━━━━━━━━━━━━━
+`*[ VIATO INDUSTRIES ]*
+*New Website Enquiry*
+-----------------------------
 
-👤 *Name*
-└ ${formData.name}
+*Name:* ${formData.name}
+*Company:* ${formData.company || "N/A"}
+*Email:* ${formData.email}
+*Phone:* ${formData.phone}
+*Subject:* ${formData.subject || "General Enquiry"}
 
-🏢 *Company*
-└ ${formData.company || "N/A"}
-
-📧 *Email*
-└ ${formData.email}
-
-📞 *Phone*
-└ ${formData.phone}
-
-📌 *Subject*
-└ ${formData.subject || "General Enquiry"}
-
-━━━━━━━━━━━━━━━━━━━━━
-💬 *Message*
-
+-----------------------------
+*Message:*
 ${formData.message}
-
-━━━━━━━━━━━━━━━━━━━━━
-🌐 _Sent from viato.in_`;
-
+-----------------------------
+_Sent from viato.in_`;
     const whatsappNumber = "917743877426";
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
