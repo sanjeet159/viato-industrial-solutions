@@ -29,7 +29,7 @@ const Contact = () => {
       icon: MapPin,
       label: "Address",
       value: "K-217, Waluj MIDC, Aurangabad – 431136,\nMaharashtra, India",
-      href: "https://maps.app.goo.gl/iCD7tSd6Rp9ecY7q6?g_st=aw",
+      href: "https://www.google.com/maps/place/19%C2%B049'48.6%22N+75%C2%B012'21.5%22E/@19.8302234,75.2063552,518m/data=!3m1!1e3!4m4!3m3!8m2!3d19.830155!4d75.205965!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D",
     },
     {
       icon: Phone,
