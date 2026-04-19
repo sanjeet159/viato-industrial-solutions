@@ -114,18 +114,20 @@ const Contact = () => {
               </div>
 
               <AnimateIn delay={0.4}>
-                <div className="rounded-2xl overflow-hidden border border-border mt-8 aspect-video bg-muted">
-                  <iframe
-                    title="Viato Industries Location"
-                    src="<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2254.807468884801!2d75.20635521867543!3d19.830223395424387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDQ5JzQ4LjYiTiA3NcKwMTInMjEuNSJF!5e1!3m2!1sen!2sin!4v1776582610439!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
+                {/* Google Map */}
+<div className="w-full rounded-2xl overflow-hidden border border-border shadow-lg">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2254.807468884801!2d75.20635521867543!3d19.830223395424387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDQ5JzQ4LjYiTiA3NcKwMTInMjEuNSJF!5e1!3m2!1sen!2sin!4v1776582610439!5m2!1sen!2sin"
+    width="100%"
+    height="400"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    title="Viato Industries Location"
+    className="w-full"
+  />
+</div>
               </AnimateIn>
             </div>
 
