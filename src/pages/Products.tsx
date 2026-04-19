@@ -4,7 +4,7 @@ import { AnimateIn, MagneticButton } from "@/components/animations";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import { ArrowRight, TrendingUp, Package, Layers, Boxes, Sparkles } from "lucide-react";
 import { productCategories } from "@/data/products";
 import IndustrialCTA from "@/components/IndustrialCTA";
 
@@ -17,28 +17,98 @@ const Products = () => {
   return (
     <Layout>
 
-      {/* Hero — compact */}
-      <section className="bg-industrial-gradient py-10 md:py-14 relative overflow-hidden grain-overlay">
+      {/* Hero */}
+      <section className="bg-industrial-gradient py-24 md:py-36 relative overflow-hidden grain-overlay">
         <div className="absolute inset-0 hero-mesh" />
+
+        {/* Blueprint grid */}
+        <div
+          className="absolute inset-0 opacity-[0.06] pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(hsl(var(--accent)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--accent)) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+          }}
+        />
+
+        {/* Floating decorative orbs */}
+        <motion.div
+          className="absolute top-16 right-[8%] w-72 h-72 rounded-full bg-accent/10 blur-3xl pointer-events-none"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-10 left-[5%] w-64 h-64 rounded-full bg-primary-foreground/5 blur-3xl pointer-events-none"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Floating product icons (decorative) */}
+        <motion.div
+          className="absolute top-24 right-[14%] hidden lg:block text-accent/30"
+          animate={{ y: [0, -14, 0], rotate: [0, 8, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="h-16 w-16 rounded-2xl bg-primary-foreground/5 backdrop-blur border border-primary-foreground/10 flex items-center justify-center">
+            <Package className="h-8 w-8" />
+          </div>
+        </motion.div>
+        <motion.div
+          className="absolute bottom-20 right-[28%] hidden lg:block text-accent/30"
+          animate={{ y: [0, 12, 0], rotate: [0, -6, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+        >
+          <div className="h-14 w-14 rounded-2xl bg-primary-foreground/5 backdrop-blur border border-primary-foreground/10 flex items-center justify-center">
+            <Layers className="h-7 w-7" />
+          </div>
+        </motion.div>
+        <motion.div
+          className="absolute top-1/2 right-[6%] hidden lg:block text-accent/30"
+          animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+          transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+        >
+          <div className="h-12 w-12 rounded-xl bg-primary-foreground/5 backdrop-blur border border-primary-foreground/10 flex items-center justify-center">
+            <Boxes className="h-6 w-6" />
+          </div>
+        </motion.div>
+
         <div className="container-wide relative z-10">
           <motion.div
-            className="w-full flex flex-col md:flex-row md:items-center md:justify-between gap-4"
-            initial={{ opacity: 0, y: 20 }}
+            className="max-w-3xl"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
           >
-            <div>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 text-accent text-xs font-semibold mb-3 border border-accent/20">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-glow" />
-                Our Products
-              </span>
-              <h1 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground leading-tight">
-                Industrial Products & <span className="text-accent">Equipment</span>
-              </h1>
-            </div>
-            <p className="text-primary-foreground/60 text-sm md:text-base leading-relaxed md:max-w-sm">
-              Complete solutions for Gas Pipeline, Packaging & Material Handling.
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 text-accent text-sm font-semibold mb-6 border border-accent/20">
+              <Sparkles className="h-3.5 w-3.5" />
+              Our Products
+            </span>
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-primary-foreground mb-5 leading-tight">
+              Industrial Products & <span className="text-accent">Equipment</span>
+            </h1>
+            <p className="text-primary-foreground/70 text-lg leading-relaxed max-w-2xl mb-10">
+              Complete solutions for Gas Pipeline, Chemical Products, Packaging & Industrial Consumables — engineered for performance and built for scale.
             </p>
+
+            {/* Stat strip */}
+            <div className="grid grid-cols-3 gap-4 max-w-xl">
+              {[
+                { v: `${productCategories.length}`, l: "Categories" },
+                { v: `${productCategories.reduce((a, c) => a + c.subProducts.length, 0)}+`, l: "Products" },
+                { v: "Pan-India", l: "Delivery" },
+              ].map((s, i) => (
+                <motion.div
+                  key={s.l}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + i * 0.1 }}
+                  className="border-l-2 border-accent/50 pl-4"
+                >
+                  <div className="font-display text-2xl md:text-3xl font-bold text-accent leading-none">{s.v}</div>
+                  <div className="text-[11px] uppercase tracking-wider text-primary-foreground/60 mt-2">{s.l}</div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
