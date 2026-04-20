@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Target, Eye, Award, Users, ShieldCheck, ArrowRight, Star, Car, Pill, Cog, FlaskConical, Train, Shield, Factory, Building, HardHat, Wrench, Heart } from "lucide-react";
 import IndustrialCTA from "@/components/IndustrialCTA";
 import { useRef, useState } from "react";
+import SEO from "@/components/SEO";
 
 const industries = [
   { name: "Automotive", icon: Car },
@@ -38,6 +39,13 @@ const About = () => {
 
   return (
     <Layout>
+
+      <SEO
+  title="About Us – Viato Industries Since 2013"
+  description="Established in 2013 under Shri Balaji Group, Viato Industries delivers complete material handling, gas pipeline and packaging solutions to industries across western India."
+  slug="about"
+  keywords="about Viato Industries, Shri Balaji Group Aurangabad, industrial solutions Maharashtra"
+/>
 
       {/* ══════ HERO ══════ */}
       <section ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden">
