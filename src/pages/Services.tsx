@@ -9,6 +9,7 @@ import IndustrialCTA from "@/components/IndustrialCTA";
 import materialHandlingImg from "@/assets/material-handling.jpg";
 import engineeringImg from "@/assets/engineering-services.jpg";
 import { ArrowRight, CheckCircle, Flame, Wrench, HardHat, Settings } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const servicesList = [
   {
@@ -76,6 +77,14 @@ const servicesList = [
 const Services = () => {
   return (
     <Layout>
+
+      <SEO
+  title="Industrial Services – AMC, Gas Pipeline Installation & Repairs"
+  description="Viato Industries offers gas pipeline installation, breakdown repairs, preventive maintenance, AMC contracts and equipment refurbishing services across India."
+  slug="services"
+  keywords="gas pipeline installation India, forklift AMC service, material handling repair Maharashtra"
+/>
+      
       {/* Hero */}
       <section className="bg-industrial-gradient py-24 md:py-36 relative overflow-hidden grain-overlay">
         <div className="absolute inset-0 hero-mesh" />
