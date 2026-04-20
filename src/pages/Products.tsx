@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Package, Layers, Boxes, Sparkles } from "lucide-react";
 import { productCategories } from "@/data/products";
 import IndustrialCTA from "@/components/IndustrialCTA";
+import SEO from "@/components/SEO";
 
 const Products = () => {
   const [activeSlug, setActiveSlug] = useState(productCategories[0].slug);
@@ -16,6 +17,13 @@ const Products = () => {
 
   return (
     <Layout>
+
+      <SEO
+  title="Industrial Products – Gas Pipeline, Pallet Trucks & Packaging"
+  description="Browse Viato Industries complete product range – gas manifold systems, hydraulic pallet trucks, stackers, PP corrugated boxes, anti spatter chemicals and industrial consumables."
+  slug="products"
+  keywords="gas manifold India, pallet truck manufacturer Aurangabad, PP boxes supplier, industrial products Maharashtra"
+/>
 
       {/* Hero */}
       <section className="bg-industrial-gradient py-24 md:py-36 relative overflow-hidden grain-overlay">
