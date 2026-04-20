@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Phone, Mail, MapPin, Clock, Send, ArrowRight, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import SEO from "@/components/SEO";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -61,6 +62,13 @@ _Sent from viato.in_`;
 
   return (
     <Layout>
+
+      <SEO
+  title="Contact Us – Aurangabad & Pune Office"
+  description="Contact Viato Industries for gas pipeline, material handling and packaging enquiries. Registered office at Waluj MIDC Aurangabad. Call +91 7722090400."
+  slug="contact"
+  keywords="Viato Industries contact number, Aurangabad industrial company, Waluj MIDC supplier"
+/>
 
       {/* ══════ HERO — Compact ══════ */}
       <section className="bg-industrial-gradient py-10 md:py-14 relative overflow-hidden grain-overlay">
