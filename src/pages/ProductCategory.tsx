@@ -7,6 +7,7 @@ import { ArrowRight, ArrowLeft, ChevronRight, Sparkles, Phone } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import IndustrialCTA from "@/components/IndustrialCTA";
 import { useRef, useState } from "react";
+import SEO from "@/components/SEO";
 
 const ProductCategory = () => {
   const { categorySlug } = useParams();
@@ -37,6 +38,13 @@ const ProductCategory = () => {
 
   return (
     <Layout>
+
+      <SEO
+  title={`${category.title} – Viato Industries`}
+  description={`Explore complete range of ${category.title} from Viato Industries. ${category.desc} Available across India.`}
+  slug={`products/${category.slug}`}
+  keywords={`${category.title} India, ${category.title} manufacturer, buy ${category.title} Aurangabad`}
+/>
 
      {/* ══════ HERO — Compact Banner ══════ */}
 <section ref={heroRef} className="relative overflow-hidden">
