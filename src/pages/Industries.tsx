@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Car, Pill, Cog, Factory, Building, FlaskConical, ArrowRight, ChevronRight } from "lucide-react";
 import IndustrialCTA from "@/components/IndustrialCTA";
+import SEO from "@/components/SEO";
 
 const industries = [
   {
@@ -55,6 +56,14 @@ const industries = [
 const Industries = () => {
   return (
     <Layout>
+
+      <SEO
+  title="Industries We Serve – Automotive, Pharma, Steel, EPC & More"
+  description="Viato Industries serves Automotive, EPC, Pharmaceutical, Chemical, Construction, Steel, Railways and Defence industries with complete industrial solutions across India."
+  slug="industries"
+  keywords="industrial solutions automotive India, pharma gas pipeline, steel material handling Maharashtra"
+/>
+      
       <section className="bg-industrial-gradient py-24 md:py-36 relative overflow-hidden grain-overlay">
         <div className="absolute inset-0 hero-mesh" />
         <div className="container-wide relative z-10">
