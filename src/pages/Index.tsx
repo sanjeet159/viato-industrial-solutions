@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import IndustrialCTA from "@/components/IndustrialCTA";
+import SEO from "@/components/SEO";
 import { AnimateIn, StaggerContainer, StaggerItem, AnimatedCounter, MagneticButton } from "@/components/animations";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -81,6 +82,12 @@ const Index = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Complete Material Handling & Gas Pipeline Solutions India"
+        description="Viato Industries – Just Best, Just Legendary. Complete material handling equipment, gas pipeline installation, packaging solutions and industrial services across India since 2013. Serving Automotive, Pharma, Steel and EPC industries."
+        slug=""
+        keywords="material handling equipment India, gas pipeline manufacturer India, packaging solutions Aurangabad, industrial solutions Maharashtra, pallet truck supplier, gas manifold system India"
+      />
 
       {/* ══════════ HERO ══════════ */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden">
@@ -145,15 +152,15 @@ const Index = () => {
 
             {/* Right column — stat cards */}
             <div className="hidden lg:flex items-center justify-center">
-            <motion.div
-            className="grid grid-cols-2 gap-5"
+              <motion.div
+                className="grid grid-cols-2 gap-5"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
                 {[
                   { value: 90, suffix: "+", label: "Projects Completed" },
-                  { value: 50,  suffix: "+", label: "Happy Clients" },
+                  { value: 50, suffix: "+", label: "Happy Clients" },
                   { value: 8,  suffix: "+", label: "Years Experience" },
                   { value: 7,  suffix: "+", label: "Industries Served" },
                 ].map((stat, i) => (
@@ -397,9 +404,9 @@ const Index = () => {
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" staggerDelay={0.1}>
             {[
               { value: 90, suffix: "+", label: "Projects Completed" },
-                  { value: 50,  suffix: "+", label: "Happy Clients" },
-                  { value: 8,  suffix: "+", label: "Years Experience" },
-                  { value: 7,  suffix: "+", label: "Industries Served" },
+              { value: 50, suffix: "+", label: "Happy Clients" },
+              { value: 8,  suffix: "+", label: "Years Experience" },
+              { value: 7,  suffix: "+", label: "Industries Served" },
             ].map((stat) => (
               <StaggerItem key={stat.label}>
                 <div className="p-6">
