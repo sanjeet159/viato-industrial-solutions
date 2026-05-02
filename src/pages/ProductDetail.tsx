@@ -167,6 +167,44 @@ const ProductDetail = () => {
         </div>
       </section>
 
+      {/* Product image gallery (only if images are provided) */}
+      {product.images && product.images.length > 0 && (
+        <section className="py-12 md:py-16 bg-muted/20 border-b border-border/50">
+          <div className="container-wide">
+            <AnimateIn>
+              <div className="mb-8">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest mb-3">
+                  Product Gallery
+                </span>
+                <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
+                  Available Pack Sizes
+                </h2>
+              </div>
+            </AnimateIn>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              {product.images.map((img, i) => (
+                <motion.div
+                  key={img}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.4 }}
+                  className="group relative aspect-square rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10 transition-all"
+                >
+                  <img
+                    src={img}
+                    alt={`${product.name} - view ${i + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Main content */}
       <section className="py-12 md:py-16 bg-background">
         <div className="container-wide">

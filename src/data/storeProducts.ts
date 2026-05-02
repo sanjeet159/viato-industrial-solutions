@@ -27,10 +27,6 @@ import p_WeldingEarthingClamp from "@/assets/store-products/welding-earthing-cla
 import p_WeldingFillerWireRods from "@/assets/store-products/welding-filler-wire-rods.jpg";
 import p_WeldingTungustenElectrodes from "@/assets/store-products/welding-tungusten-electrodes.jpg";
 import p_WeldingWeldingMachines from "@/assets/store-products/welding-welding-machines.jpg";
-import p_WeldingV125AntiSpatter5L from "@/assets/store-products/welding-v125-anti-spatter-5l.jpg";
-import p_WeldingV125AntiSpatter35LDrum from "@/assets/store-products/welding-v125-anti-spatter-35l-drum.jpg";
-import p_WeldingV125AntiSpatter5LFront from "@/assets/store-products/welding-v125-anti-spatter-5l-front.jpg";
-import p_WeldingV125AntiSpatterSpray500ml from "@/assets/store-products/welding-v125-anti-spatter-spray-500ml.jpg";
 import p_CuttingGrindingWheelsCuttingWheelGreen from "@/assets/store-products/cutting-grinding-wheels-cutting-wheel-green.jpg";
 import p_CuttingGrindingWheelsCuttingWheelBlack from "@/assets/store-products/cutting-grinding-wheels-cutting-wheel-black.jpg";
 import p_CuttingGrindingWheelsGrindingWheels from "@/assets/store-products/cutting-grinding-wheels-grinding-wheels.jpg";
@@ -156,10 +152,6 @@ export const storeCategories: StoreCategory[] = [
       { name: "Filler Wire Rods", image: p_WeldingFillerWireRods },
       { name: "Tungusten Electrodes", image: p_WeldingTungustenElectrodes },
       { name: "Welding Machines", image: p_WeldingWeldingMachines },
-      { name: "V-125 Water Base Anti-Spatter Liquid (5L)", image: p_WeldingV125AntiSpatter5L },
-      { name: "V-125 Water Base Anti-Spatter Liquid (5L Front)", image: p_WeldingV125AntiSpatter5LFront },
-      { name: "V-125 Water Base Anti-Spatter Liquid (35L Drum)", image: p_WeldingV125AntiSpatter35LDrum },
-      { name: "V-125 Water Base Anti-Spatter Spray (500ml)", image: p_WeldingV125AntiSpatterSpray500ml },
     ],
   },
   {
