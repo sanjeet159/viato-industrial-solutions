@@ -373,36 +373,42 @@ const Index = () => {
       </section>
 
       {/* ══════════ TESTIMONIALS ══════════ */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background overflow-hidden">
         <div className="container-wide">
           <SectionHeading badge="Testimonials" title="What Our Clients Say" description="Hear from the industry leaders who trust Viato Industries." />
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
-            {testimonials.map((t) => (
-              <StaggerItem key={t.name}>
-                <motion.div
-                  className="p-8 rounded-2xl bg-card border border-border relative group hover:shadow-md transition-shadow duration-300"
-                  whileHover={{ y: -3 }}
-                >
-                  <Quote className="h-8 w-8 text-accent/20 mb-4" />
-                  <p className="text-foreground/80 text-sm leading-relaxed mb-6">"{t.text}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
-                      <span className="font-display font-bold text-accent text-sm">{t.name[0]}</span>
-                    </div>
-                    <div>
-                      <p className="font-display font-semibold text-sm text-foreground">{t.name}</p>
-                      <p className="text-xs text-muted-foreground">{t.role}</p>
-                    </div>
+        </div>
+
+        <div className="relative mt-4">
+          {/* edge fades */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+
+          <div className="flex gap-6 w-max animate-[marquee_45s_linear_infinite] hover:[animation-play-state:paused]">
+            {[...testimonials, ...testimonials].map((t, idx) => (
+              <div
+                key={idx}
+                className="w-[360px] md:w-[420px] shrink-0 p-8 rounded-2xl bg-card border border-border relative hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <Quote className="h-8 w-8 text-accent/20 mb-4" />
+                <p className="text-foreground/80 text-sm leading-relaxed mb-6 min-h-[110px]">"{t.text}"</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <div className="h-12 w-12 rounded-full bg-white border border-border flex items-center justify-center overflow-hidden shrink-0">
+                    <img src={t.logo} alt={t.company} className="h-full w-full object-contain p-1" loading="lazy" />
                   </div>
-                  <div className="flex gap-1 mt-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
-                    ))}
+                  <div className="min-w-0">
+                    <p className="font-display font-semibold text-sm text-foreground truncate">{t.name}</p>
+                    <p className="text-xs text-muted-foreground truncate">{t.role}</p>
+                    <p className="text-xs font-semibold text-primary truncate">{t.company}</p>
                   </div>
-                </motion.div>
-              </StaggerItem>
+                </div>
+                <div className="flex gap-1 mt-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
+                  ))}
+                </div>
+              </div>
             ))}
-          </StaggerContainer>
+          </div>
         </div>
       </section>
 
