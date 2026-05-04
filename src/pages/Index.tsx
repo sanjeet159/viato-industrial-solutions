@@ -14,6 +14,11 @@ import gasPipelineImg from "@/assets/gas-pipeline.jpg";
 import materialHandlingImg from "@/assets/material-handling.jpg";
 import packagingImg from "@/assets/packaging.jpg";
 import engineeringImg from "@/assets/engineering-services.jpg";
+import logoGoldline from "@/assets/clients/goldline.jpeg";
+import logoSurin from "@/assets/clients/surin.jpeg";
+import logoRsb from "@/assets/clients/rsb.jpeg";
+import logoVizag from "@/assets/clients/vizag-steel.jpeg";
+import logoTataHitachi from "@/assets/clients/tata-hitachi.jpeg";
 import {
   ArrowRight,
   Wrench,
@@ -62,9 +67,12 @@ const whyUs = [
 ];
 
 const testimonials = [
-  { name: "Rajesh Kumar", role: "Plant Manager, Tata Motors", text: "Viato Industries delivered our gas pipeline project ahead of schedule with exceptional quality. Highly recommended." },
-  { name: "Sunil Patil", role: "Operations Head, Bajaj Auto", text: "Their material handling solutions have dramatically improved our warehouse efficiency. Truly a reliable partner." },
-  { name: "Amita Deshmukh", role: "Purchase Manager, Thermax Ltd", text: "Outstanding packaging solutions that reduced our logistics costs by 30%. The returnable packaging was a game changer." },
+  { name: "Pradeep Sharma", role: "Plant Head", company: "Goldline Automobiles", logo: logoGoldline, text: "Viato Industries delivered our gas pipeline project ahead of schedule with flawless execution. Their engineering precision and on-site safety standards are truly best-in-class." },
+  { name: "Anil Verma", role: "Procurement Manager", company: "Surin Automotive", logo: logoSurin, text: "From manifold systems to AMC support, Viato has been a dependable partner. Response time is excellent and the quality of consumables is consistently top-tier." },
+  { name: "Sanjay Mishra", role: "Operations Director", company: "RSB Transmissions", logo: logoRsb, text: "Their returnable packaging solutions reduced our logistics costs by nearly 28%. Highly professional team with deep industrial domain expertise." },
+  { name: "Ramesh Naidu", role: "Sr. Manager – Maintenance", company: "Vizag Steel (RINL)", logo: logoVizag, text: "Viato handled a complex cryogenic pipeline installation at our facility with zero downtime. A turnkey partner we trust for critical projects." },
+  { name: "Vikram Singh", role: "Procurement Head", company: "Tata Hitachi", logo: logoTataHitachi, text: "Reliable supply, transparent pricing and exceptional after-sales support. Viato Industries truly lives up to – Just Best, Just Legendary." },
+  { name: "Deepak Joshi", role: "Plant Manager", company: "Goldline Automobiles", logo: logoGoldline, text: "Excellent welding consumables and anti-spatter chemicals. Our weld quality and productivity have improved significantly since switching to Viato." },
 ];
 
 const processSteps = [
