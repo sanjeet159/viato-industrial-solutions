@@ -373,9 +373,19 @@ const Index = () => {
       </section>
 
       {/* ══════════ TESTIMONIALS ══════════ */}
-      <section className="section-padding bg-background overflow-hidden">
+      <section id="testimonials" className="section-padding bg-background overflow-hidden">
         <div className="container-wide">
-          <SectionHeading badge="Testimonials" title="What Our Clients Say" description="Hear from the industry leaders who trust Viato Industries." />
+          <SectionHeading badge="Client Testimonials" title="Trusted by Leading Industrial Companies" description="Real feedback from companies who rely on Viato Industries for industrial supplies, engineering and project support." />
+        </div>
+
+        <div className="container-wide mt-2 mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {[logoGoldline, logoSurin, logoRsb, logoVizag, logoTataHitachi].map((logo, idx) => (
+              <div key={idx} className="h-20 rounded-lg border border-border bg-card flex items-center justify-center p-4 shadow-sm">
+                <img src={logo} alt="Viato Industries client logo" className="max-h-full max-w-full object-contain" loading="lazy" />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="relative mt-4">
@@ -383,16 +393,16 @@ const Index = () => {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
-          <div className="flex gap-6 w-max animate-[marquee_45s_linear_infinite] hover:[animation-play-state:paused]">
+          <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused]">
             {[...testimonials, ...testimonials].map((t, idx) => (
               <div
                 key={idx}
-                className="w-[360px] md:w-[420px] shrink-0 p-8 rounded-2xl bg-card border border-border relative hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="w-[360px] md:w-[420px] shrink-0 p-8 rounded-lg bg-card border border-border relative shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 <Quote className="h-8 w-8 text-accent/20 mb-4" />
                 <p className="text-foreground/80 text-sm leading-relaxed mb-6 min-h-[110px]">"{t.text}"</p>
                 <div className="flex items-center gap-3 pt-4 border-t border-border">
-                  <div className="h-12 w-12 rounded-full bg-white border border-border flex items-center justify-center overflow-hidden shrink-0">
+                  <div className="h-14 w-14 rounded-full bg-background border border-border flex items-center justify-center overflow-hidden shrink-0">
                     <img src={t.logo} alt={t.company} className="h-full w-full object-contain p-1" loading="lazy" />
                   </div>
                   <div className="min-w-0">
