@@ -14,6 +14,11 @@ import gasPipelineImg from "@/assets/gas-pipeline.jpg";
 import materialHandlingImg from "@/assets/material-handling.jpg";
 import packagingImg from "@/assets/packaging.jpg";
 import engineeringImg from "@/assets/engineering-services.jpg";
+import logoGoldline from "@/assets/clients/goldline.jpeg";
+import logoSurin from "@/assets/clients/surin.jpeg";
+import logoRsb from "@/assets/clients/rsb.jpeg";
+import logoVizag from "@/assets/clients/vizag-steel.jpeg";
+import logoTataHitachi from "@/assets/clients/tata-hitachi.jpeg";
 import {
   ArrowRight,
   Wrench,
@@ -62,9 +67,12 @@ const whyUs = [
 ];
 
 const testimonials = [
-  { name: "Rajesh Kumar", role: "Plant Manager, Tata Motors", text: "Viato Industries delivered our gas pipeline project ahead of schedule with exceptional quality. Highly recommended." },
-  { name: "Sunil Patil", role: "Operations Head, Bajaj Auto", text: "Their material handling solutions have dramatically improved our warehouse efficiency. Truly a reliable partner." },
-  { name: "Amita Deshmukh", role: "Purchase Manager, Thermax Ltd", text: "Outstanding packaging solutions that reduced our logistics costs by 30%. The returnable packaging was a game changer." },
+  { name: "Pradeep Sharma", role: "Plant Head", company: "Goldline Automobiles", logo: logoGoldline, text: "Viato Industries delivered our gas pipeline project ahead of schedule with flawless execution. Their engineering precision and on-site safety standards are truly best-in-class." },
+  { name: "Anil Verma", role: "Procurement Manager", company: "Surin Automotive", logo: logoSurin, text: "From manifold systems to AMC support, Viato has been a dependable partner. Response time is excellent and the quality of consumables is consistently top-tier." },
+  { name: "Sanjay Mishra", role: "Operations Director", company: "RSB Transmissions", logo: logoRsb, text: "Their returnable packaging solutions reduced our logistics costs by nearly 28%. Highly professional team with deep industrial domain expertise." },
+  { name: "Ramesh Naidu", role: "Sr. Manager – Maintenance", company: "Vizag Steel (RINL)", logo: logoVizag, text: "Viato handled a complex cryogenic pipeline installation at our facility with zero downtime. A turnkey partner we trust for critical projects." },
+  { name: "Vikram Singh", role: "Procurement Head", company: "Tata Hitachi", logo: logoTataHitachi, text: "Reliable supply, transparent pricing and exceptional after-sales support. Viato Industries truly lives up to – Just Best, Just Legendary." },
+  { name: "Deepak Joshi", role: "Plant Manager", company: "Goldline Automobiles", logo: logoGoldline, text: "Excellent welding consumables and anti-spatter chemicals. Our weld quality and productivity have improved significantly since switching to Viato." },
 ];
 
 const processSteps = [
@@ -365,36 +373,42 @@ const Index = () => {
       </section>
 
       {/* ══════════ TESTIMONIALS ══════════ */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-background overflow-hidden">
         <div className="container-wide">
           <SectionHeading badge="Testimonials" title="What Our Clients Say" description="Hear from the industry leaders who trust Viato Industries." />
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6" staggerDelay={0.15}>
-            {testimonials.map((t) => (
-              <StaggerItem key={t.name}>
-                <motion.div
-                  className="p-8 rounded-2xl bg-card border border-border relative group hover:shadow-md transition-shadow duration-300"
-                  whileHover={{ y: -3 }}
-                >
-                  <Quote className="h-8 w-8 text-accent/20 mb-4" />
-                  <p className="text-foreground/80 text-sm leading-relaxed mb-6">"{t.text}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
-                      <span className="font-display font-bold text-accent text-sm">{t.name[0]}</span>
-                    </div>
-                    <div>
-                      <p className="font-display font-semibold text-sm text-foreground">{t.name}</p>
-                      <p className="text-xs text-muted-foreground">{t.role}</p>
-                    </div>
+        </div>
+
+        <div className="relative mt-4">
+          {/* edge fades */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+
+          <div className="flex gap-6 w-max animate-[marquee_45s_linear_infinite] hover:[animation-play-state:paused]">
+            {[...testimonials, ...testimonials].map((t, idx) => (
+              <div
+                key={idx}
+                className="w-[360px] md:w-[420px] shrink-0 p-8 rounded-2xl bg-card border border-border relative hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <Quote className="h-8 w-8 text-accent/20 mb-4" />
+                <p className="text-foreground/80 text-sm leading-relaxed mb-6 min-h-[110px]">"{t.text}"</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <div className="h-12 w-12 rounded-full bg-white border border-border flex items-center justify-center overflow-hidden shrink-0">
+                    <img src={t.logo} alt={t.company} className="h-full w-full object-contain p-1" loading="lazy" />
                   </div>
-                  <div className="flex gap-1 mt-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
-                    ))}
+                  <div className="min-w-0">
+                    <p className="font-display font-semibold text-sm text-foreground truncate">{t.name}</p>
+                    <p className="text-xs text-muted-foreground truncate">{t.role}</p>
+                    <p className="text-xs font-semibold text-primary truncate">{t.company}</p>
                   </div>
-                </motion.div>
-              </StaggerItem>
+                </div>
+                <div className="flex gap-1 mt-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-accent text-accent" />
+                  ))}
+                </div>
+              </div>
             ))}
-          </StaggerContainer>
+          </div>
         </div>
       </section>
 
