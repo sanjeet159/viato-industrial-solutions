@@ -257,7 +257,7 @@ const ProductCategory = () => {
                       {/* Image with overlay */}
                       <div className="relative h-52 overflow-hidden">
                         <motion.img
-                          src={category.image}
+                          src={sub.images?.[0] || category.image}
                           alt={sub.name}
                           className="w-full h-full object-cover"
                           loading="lazy"
@@ -392,7 +392,7 @@ const ProductCategory = () => {
                 </Link>
               </MagneticButton>
               <Link to="/contact">
-                <Button variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-8 h-12 rounded-full">
+                <Button variant="outline" className="bg-primary-foreground text-primary border-primary-foreground hover:bg-primary-foreground/90 font-semibold px-8 h-12 rounded-full">
                   <Phone className="mr-2 h-4 w-4" /> Contact Us
                 </Button>
               </Link>
