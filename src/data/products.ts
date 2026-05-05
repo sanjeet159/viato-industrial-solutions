@@ -10,6 +10,9 @@ import v125_5l from "@/assets/products/v125-anti-spatter-5l.jpg";
 import v125_5l_front from "@/assets/products/v125-anti-spatter-5l-front.jpg";
 import v125_35l_drum from "@/assets/products/v125-anti-spatter-35l-drum.jpg";
 import v125_spray from "@/assets/products/v125-anti-spatter-spray-500ml.jpg";
+import nozzleGel from "@/assets/products/nozzle-gel-v101.jpg";
+import rustConvertor from "@/assets/products/rust-convertor-v301.jpg";
+import degreasingChem from "@/assets/products/degreasing-chemical-v401.jpg";
 
 export interface SubProduct {
   name: string;
@@ -54,9 +57,9 @@ export const productCategories: ProductCategory[] = [
     image: chemicalImg,
     subProducts: [
       { name: "Water Based Anti Spatter V-125", slug: "anti-spatter-v125", description: "Premium anti-spatter for MIG/MAG welding. Available in 500ml spray bottle, 5L can, and 35L drum.", icon: SprayCan, images: [v125_spray, v125_5l_front, v125_5l, v125_35l_drum] },
-      { name: "Water Based Nozzle Gel V-101", slug: "nozzle-gel-v101", description: "Extends nozzle life & reduces downtime", icon: Droplets },
-      { name: "Rust Convertor V-301", slug: "rust-convertor-v301", description: "Converts rust into protective coating", icon: ShieldCheck },
-      { name: "Degreasing Chemical V-401", slug: "degreasing-chemical-v401", description: "Industrial-strength surface degreaser", icon: Beaker },
+      { name: "Water Based Nozzle Gel V-101", slug: "nozzle-gel-v101", description: "Extends nozzle life & reduces downtime", icon: Droplets, images: [nozzleGel] },
+      { name: "Rust Convertor V-301", slug: "rust-convertor-v301", description: "Converts rust into protective coating", icon: ShieldCheck, images: [rustConvertor] },
+      { name: "Degreasing Chemical V-401", slug: "degreasing-chemical-v401", description: "Industrial-strength surface degreaser", icon: Beaker, images: [degreasingChem] },
     ],
   },
   {
