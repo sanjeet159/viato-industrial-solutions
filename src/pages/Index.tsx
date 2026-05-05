@@ -378,16 +378,6 @@ const Index = () => {
           <SectionHeading badge="Client Testimonials" title="Trusted by Leading Industrial Companies" description="Real feedback from companies who rely on Viato Industries for industrial supplies, engineering and project support." />
         </div>
 
-        <div className="container-wide mt-2 mb-10">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {[logoGoldline, logoSurin, logoRsb, logoVizag, logoTataHitachi].map((logo, idx) => (
-              <div key={idx} className="h-20 rounded-lg border border-border bg-card flex items-center justify-center p-4 shadow-sm">
-                <img src={logo} alt="Viato Industries client logo" className="max-h-full max-w-full object-contain" loading="lazy" />
-              </div>
-            ))}
-          </div>
-        </div>
-
         <div className="relative mt-4">
           {/* edge fades */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
