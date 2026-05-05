@@ -63,7 +63,7 @@ const Store = () => {
                 </Button>
               </Link>
               <Link to="/request-quote">
-                <Button size="lg" variant="outline" className="bg-primary-foreground text-foreground border-primary-foreground hover:bg-primary-foreground/10 font-semibold text-base px-8 h-14 rounded-full transition-none">
+                <Button size="lg" variant="outline" className="bg-primary-foreground text-foreground border-primary-foreground hover:bg-primary-foreground/10 rounded-full font-semibold text-sm transition-none">
                   Request Bulk Quote
                 </Button>
               </Link>
