@@ -55,11 +55,11 @@ export const productCategories: ProductCategory[] = [
     icon: Flame,
     image: gasPipelineImg,
     subProducts: [
-      { name: "Gas Pipeline Systems", slug: "gas-pipeline-systems", description: "Complete industrial gas pipeline installation", icon: PipetteIcon },
-      { name: "Gas Manifold Systems", slug: "gas-manifold-systems", description: "Multi-cylinder manifold configurations", icon: Layers },
-      { name: "Cryogenic Tank Pipeline", slug: "cryogenic-tank-pipeline", description: "Specialized cryogenic gas delivery systems", icon: Zap },
-      { name: "Cylinder Filling Manifold", slug: "cylinder-filling-manifold", description: "High-pressure cylinder filling stations", icon: CircleDot },
-      { name: "Industrial Gas Installation", slug: "industrial-gas-installation", description: "Full-service gas infrastructure setup", icon: Wrench },
+      { name: "Gas Pipeline Systems", slug: "gas-pipeline-systems", description: "Complete industrial gas pipeline installation", icon: PipetteIcon, images: [gasPipelineSystems] },
+      { name: "Gas Manifold Systems", slug: "gas-manifold-systems", description: "Multi-cylinder manifold configurations", icon: Layers, images: [gasManifoldSystems] },
+      { name: "Cryogenic Tank Pipeline", slug: "cryogenic-tank-pipeline", description: "Specialized cryogenic gas delivery systems", icon: Zap, images: [cryogenicTank] },
+      { name: "Cylinder Filling Manifold", slug: "cylinder-filling-manifold", description: "High-pressure cylinder filling stations", icon: CircleDot, images: [cylinderFilling] },
+      { name: "Industrial Gas Installation", slug: "industrial-gas-installation", description: "Full-service gas infrastructure setup", icon: Wrench, images: [gasInstallation] },
     ],
   },
   {
@@ -84,10 +84,10 @@ export const productCategories: ProductCategory[] = [
     icon: Package,
     image: packagingImg,
     subProducts: [
-      { name: "Polypropylene Boxes", slug: "polypropylene-boxes", description: "Lightweight, durable PP containers", icon: Box },
-      { name: "PP Corrugated Crates", slug: "pp-corrugated-crates", description: "Corrugated polypropylene storage crates", icon: Layers },
-      { name: "Returnable Packaging Boxes", slug: "returnable-packaging", description: "Cost-effective reusable packaging", icon: RotateCcw },
-      { name: "Industrial Packaging Boxes", slug: "industrial-packaging", description: "Heavy-duty industrial containers", icon: Warehouse },
+      { name: "Polypropylene Boxes", slug: "polypropylene-boxes", description: "Lightweight, durable PP containers", icon: Box, images: [polypropyleneBoxes] },
+      { name: "PP Corrugated Crates", slug: "pp-corrugated-crates", description: "Corrugated polypropylene storage crates", icon: Layers, images: [ppCorrugated] },
+      { name: "Returnable Packaging Boxes", slug: "returnable-packaging", description: "Cost-effective reusable packaging", icon: RotateCcw, images: [returnablePackaging] },
+      { name: "Industrial Packaging Boxes", slug: "industrial-packaging", description: "Heavy-duty industrial containers", icon: Warehouse, images: [industrialPackaging] },
     ],
   },
   {
@@ -98,10 +98,10 @@ export const productCategories: ProductCategory[] = [
     icon: Wrench,
     image: consumablesImg,
     subProducts: [
-      { name: "Welding Anti Spatter Solution", slug: "welding-anti-spatter", description: "Prevents spatter adhesion during welding", icon: SprayCan },
-      { name: "Nozzle Gel", slug: "nozzle-gel", description: "Protective gel for welding nozzles", icon: Droplets },
-      { name: "Industrial Chemicals", slug: "industrial-chemicals", description: "Broad-spectrum industrial chemical solutions", icon: Beaker },
-      { name: "Cleaning Solutions", slug: "cleaning-solutions", description: "Professional-grade cleaning products", icon: Sparkles },
+      { name: "Welding Anti Spatter Solution", slug: "welding-anti-spatter", description: "Prevents spatter adhesion during welding", icon: SprayCan, images: [weldingAntiSpatter] },
+      { name: "Nozzle Gel", slug: "nozzle-gel", description: "Protective gel for welding nozzles", icon: Droplets, images: [nozzleGelGeneric] },
+      { name: "Industrial Chemicals", slug: "industrial-chemicals", description: "Broad-spectrum industrial chemical solutions", icon: Beaker, images: [industrialChemicals] },
+      { name: "Cleaning Solutions", slug: "cleaning-solutions", description: "Professional-grade cleaning products", icon: Sparkles, images: [cleaningSolutions] },
     ],
   },
 ];
