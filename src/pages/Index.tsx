@@ -72,7 +72,6 @@ const testimonials = [
   { name: "Sanjay Mishra", role: "Operations Director", company: "RSB Transmissions", logo: logoRsb, text: "Their returnable packaging solutions reduced our logistics costs by nearly 28%. Highly professional team with deep industrial domain expertise." },
   { name: "Ramesh Naidu", role: "Sr. Manager – Maintenance", company: "Vizag Steel (RINL)", logo: logoVizag, text: "Viato handled a complex cryogenic pipeline installation at our facility with zero downtime. A turnkey partner we trust for critical projects." },
   { name: "Vikram Singh", role: "Procurement Head", company: "Tata Hitachi", logo: logoTataHitachi, text: "Reliable supply, transparent pricing and exceptional after-sales support. Viato Industries truly lives up to – Just Best, Just Legendary." },
-  { name: "Deepak Joshi", role: "Plant Manager", company: "Goldline Automobiles", logo: logoGoldline, text: "Excellent welding consumables and anti-spatter chemicals. Our weld quality and productivity have improved significantly since switching to Viato." },
 ];
 
 const processSteps = [
