@@ -14,6 +14,20 @@ import nozzleGel from "@/assets/products/nozzle-gel-v101.jpg";
 import rustConvertor from "@/assets/products/rust-convertor-v301.jpg";
 import degreasingChem from "@/assets/products/degreasing-chemical-v401.jpg";
 
+import gasPipelineSystems from "@/assets/products/gas-pipeline-systems.jpg";
+import gasManifoldSystems from "@/assets/products/gas-manifold-systems.jpg";
+import cryogenicTank from "@/assets/products/cryogenic-tank-pipeline.jpg";
+import cylinderFilling from "@/assets/products/cylinder-filling-manifold.jpg";
+import gasInstallation from "@/assets/products/industrial-gas-installation.jpg";
+import polypropyleneBoxes from "@/assets/products/polypropylene-boxes.jpg";
+import ppCorrugated from "@/assets/products/pp-corrugated-crates.jpg";
+import returnablePackaging from "@/assets/products/returnable-packaging.jpg";
+import industrialPackaging from "@/assets/products/industrial-packaging.jpg";
+import weldingAntiSpatter from "@/assets/products/welding-anti-spatter.jpg";
+import nozzleGelGeneric from "@/assets/products/nozzle-gel.jpg";
+import industrialChemicals from "@/assets/products/industrial-chemicals.jpg";
+import cleaningSolutions from "@/assets/products/cleaning-solutions.jpg";
+
 export interface SubProduct {
   name: string;
   slug: string;
