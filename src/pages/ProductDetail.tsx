@@ -214,22 +214,26 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* Product image gallery (only if images are provided) */}
-      {product.images && product.images.length > 0 && (
-        <section className="py-12 md:py-16 bg-muted/20 border-b border-border/50">
+      {/* Product image gallery — only when there are additional shots beyond the hero */}
+      {galleryImages.length > 0 && (
+        <section className="py-14 md:py-20 bg-muted/20 border-b border-border/50">
           <div className="container-wide">
             <AnimateIn>
-              <div className="mb-8">
+              <div className="mb-10 text-center">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest mb-3">
                   Product Gallery
                 </span>
                 <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
-                  Available Pack Sizes
+                  Available Pack Sizes & Variants
                 </h2>
               </div>
             </AnimateIn>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {product.images.map((img, i) => (
+            <div className={`grid gap-4 md:gap-6 ${
+              galleryImages.length === 2 ? "grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto" :
+              galleryImages.length === 3 ? "grid-cols-2 md:grid-cols-3 max-w-5xl mx-auto" :
+              "grid-cols-2 md:grid-cols-4"
+            }`}>
+              {galleryImages.map((img, i) => (
                 <motion.div
                   key={img}
                   initial={{ opacity: 0, y: 20 }}
@@ -244,7 +248,7 @@ const ProductDetail = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </motion.div>
               ))}
             </div>
