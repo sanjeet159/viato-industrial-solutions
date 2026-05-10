@@ -62,16 +62,18 @@ const ProductDetail = () => {
     { id: "applications", label: "Applications" },
   ];
 
+  const heroImage = product.images?.[0];
+  const galleryImages = product.images && product.images.length > 1 ? product.images : [];
+
   return (
     <Layout>
-      {/* Hero — solid gradient, no image */}
+      {/* Hero — split layout with product image */}
       <section className="relative overflow-hidden bg-primary">
-        {/* Decorative elements */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_20%_80%,hsl(var(--accent)/0.08),transparent)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_20%,hsl(var(--accent)/0.05),transparent)]" />
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-accent/5 blur-3xl -translate-y-1/2 translate-x-1/3" />
 
-        <div className="container-wide relative z-10 pt-32 pb-14 md:pt-36 md:pb-16">
+        <div className="container-wide relative z-10 pt-28 pb-16 md:pt-32 md:pb-20">
           {/* Breadcrumb */}
           <motion.nav
             className="flex items-center gap-2 text-sm text-primary-foreground/50 mb-8"
@@ -88,9 +90,9 @@ const ProductDetail = () => {
             <span className="text-primary-foreground/80">{product.name}</span>
           </motion.nav>
 
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div className="max-w-2xl">
-              {/* Category badge */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Left: copy */}
+            <div>
               <motion.span
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/15 border border-accent/20 text-accent text-xs font-bold uppercase tracking-widest mb-5"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -102,7 +104,7 @@ const ProductDetail = () => {
               </motion.span>
 
               <motion.h1
-                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground tracking-tight mb-4"
+                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground tracking-tight mb-5 leading-[1.05]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -111,32 +113,77 @@ const ProductDetail = () => {
               </motion.h1>
 
               <motion.p
-                className="text-primary-foreground/60 text-lg leading-relaxed"
+                className="text-primary-foreground/70 text-lg leading-relaxed mb-8 max-w-xl"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
               >
                 {product.description}
               </motion.p>
+
+              {/* Quick trust strip */}
+              <motion.div
+                className="flex flex-wrap gap-2 mb-8"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+              >
+                {["ISO Certified", "Pan India Delivery", "Bulk Pricing", "Expert Support"].map((t) => (
+                  <span key={t} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-foreground/5 border border-primary-foreground/10 text-primary-foreground/80 text-xs font-medium">
+                    <CheckCircle className="h-3 w-3 text-accent" /> {t}
+                  </span>
+                ))}
+              </motion.div>
+
+              <motion.div
+                className="flex flex-wrap gap-3"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <Link to="/request-quote">
+                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold rounded-xl h-12 px-8 shadow-xl shadow-accent/25">
+                    Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button size="lg" variant="outline" className="rounded-xl h-12 px-6 border-primary-foreground/20 bg-primary-foreground/5 text-primary-foreground hover:bg-primary-foreground/15 hover:text-primary-foreground">
+                    <Phone className="mr-2 h-4 w-4" /> Contact Us
+                  </Button>
+                </Link>
+              </motion.div>
             </div>
 
-            {/* CTA buttons */}
+            {/* Right: hero image / icon panel */}
             <motion.div
-              className="flex flex-wrap gap-3 shrink-0"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              className="relative"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
             >
-              <Link to="/request-quote">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold rounded-xl h-12 px-8 shadow-xl shadow-accent/25">
-                  Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="rounded-xl h-12 px-6 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
-                  <Phone className="mr-2 h-4 w-4" /> Contact Us
-                </Button>
-              </Link>
+              <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 to-transparent rounded-[2rem] blur-2xl" />
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5 shadow-2xl shadow-primary/40">
+                {heroImage ? (
+                  <img src={heroImage} alt={product.name} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-foreground/5 to-accent/10">
+                    <SubIcon className="h-32 w-32 text-accent/40" />
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                {/* Floating badge */}
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-background/95 backdrop-blur-sm shadow-xl">
+                    <div className="h-8 w-8 rounded-lg bg-accent/15 flex items-center justify-center">
+                      <Award className="h-4 w-4 text-accent" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold leading-none">Industrial Grade</p>
+                      <p className="text-xs font-bold text-foreground mt-0.5">Premium Quality</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -167,22 +214,26 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* Product image gallery (only if images are provided) */}
-      {product.images && product.images.length > 0 && (
-        <section className="py-12 md:py-16 bg-muted/20 border-b border-border/50">
+      {/* Product image gallery — only when there are additional shots beyond the hero */}
+      {galleryImages.length > 0 && (
+        <section className="py-14 md:py-20 bg-muted/20 border-b border-border/50">
           <div className="container-wide">
             <AnimateIn>
-              <div className="mb-8">
+              <div className="mb-10 text-center">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest mb-3">
                   Product Gallery
                 </span>
                 <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
-                  Available Pack Sizes
+                  Available Pack Sizes & Variants
                 </h2>
               </div>
             </AnimateIn>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              {product.images.map((img, i) => (
+            <div className={`grid gap-4 md:gap-6 ${
+              galleryImages.length === 2 ? "grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto" :
+              galleryImages.length === 3 ? "grid-cols-2 md:grid-cols-3 max-w-5xl mx-auto" :
+              "grid-cols-2 md:grid-cols-4"
+            }`}>
+              {galleryImages.map((img, i) => (
                 <motion.div
                   key={img}
                   initial={{ opacity: 0, y: 20 }}
@@ -197,7 +248,7 @@ const ProductDetail = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </motion.div>
               ))}
             </div>
