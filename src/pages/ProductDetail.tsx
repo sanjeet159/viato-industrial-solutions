@@ -295,31 +295,42 @@ const ProductDetail = () => {
                         <div className="h-1 w-6 rounded-full bg-accent" />
                         Product Overview
                       </h2>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {product.name} from Viato Industries is engineered to meet the highest industrial standards.
-                        As part of our {category.title.toLowerCase()} range, this product delivers reliable performance,
-                        superior quality, and exceptional value for industrial applications across automotive, pharma,
-                        steel, manufacturing, and chemical sectors.
-                      </p>
+                      {product.overview && product.overview.length > 0 ? (
+                        <div className="space-y-4">
+                          {product.overview.map((para, i) => (
+                            <p key={i} className="text-muted-foreground leading-relaxed">{para}</p>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-muted-foreground leading-relaxed">
+                          {product.name} from Viato Industries is engineered to meet the highest industrial standards.
+                          As part of our {category.title.toLowerCase()} range, this product delivers reliable performance,
+                          superior quality, and exceptional value for industrial applications across automotive, pharma,
+                          steel, manufacturing, and chemical sectors.
+                        </p>
+                      )}
                     </div>
 
                     <div className="rounded-2xl border border-border/50 bg-card p-8">
                       <h2 className="font-display text-xl font-bold text-foreground mb-5 flex items-center gap-2">
                         <div className="h-1 w-6 rounded-full bg-accent" />
-                        Key Benefits
+                        {product.features && product.features.length > 0 ? "Key Features" : "Key Benefits"}
                       </h2>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {benefits.map((b) => {
+                        {(product.features && product.features.length > 0
+                          ? product.features.map((text) => ({ text, icon: CheckCircle }))
+                          : benefits
+                        ).map((b) => {
                           const BIcon = b.icon;
                           return (
                             <div
                               key={b.text}
-                              className="flex items-center gap-3 p-3.5 rounded-xl bg-muted/30 border border-border/30 hover:border-accent/20 transition-colors"
+                              className="flex items-start gap-3 p-3.5 rounded-xl bg-muted/30 border border-border/30 hover:border-accent/20 transition-colors"
                             >
                               <div className="h-8 w-8 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
                                 <BIcon className="h-4 w-4 text-accent" />
                               </div>
-                              <span className="text-sm text-foreground/80">{b.text}</span>
+                              <span className="text-sm text-foreground/80 leading-relaxed">{b.text}</span>
                             </div>
                           );
                         })}
