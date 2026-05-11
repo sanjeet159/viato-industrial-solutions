@@ -1,4 +1,4 @@
-import { Flame, FlaskConical, Package, Wrench, PipetteIcon, Droplets, ShieldCheck, SprayCan, Box, Layers, RotateCcw, Warehouse, Zap, CircleDot, Beaker, Sparkles } from "lucide-react";
+import { Flame, FlaskConical, Package, Wrench, PipetteIcon, Droplets, ShieldCheck, SprayCan, Box, Layers, RotateCcw, Warehouse, Zap, CircleDot, Beaker, Sparkles, Paintbrush, Palette } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import gasPipelineImg from "@/assets/products/gas-pipeline.jpg";
