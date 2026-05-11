@@ -28,6 +28,10 @@ import nozzleGelGeneric from "@/assets/products/nozzle-gel.jpg";
 import industrialChemicals from "@/assets/products/industrial-chemicals.jpg";
 import cleaningSolutions from "@/assets/products/cleaning-solutions.jpg";
 
+import aerosolSprayPaints from "@/assets/products/aerosol-spray-paints.jpg";
+import vmaxGalvaSpray from "@/assets/products/vmax-galva-spray.jpg";
+import vmaxColorSprayRal from "@/assets/products/vmax-color-spray-ral.jpg";
+
 export interface SubProduct {
   name: string;
   slug: string;
