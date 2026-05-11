@@ -1,4 +1,4 @@
-import { Flame, FlaskConical, Package, Wrench, PipetteIcon, Droplets, ShieldCheck, SprayCan, Box, Layers, RotateCcw, Warehouse, Zap, CircleDot, Beaker, Sparkles } from "lucide-react";
+import { Flame, FlaskConical, Package, Wrench, PipetteIcon, Droplets, ShieldCheck, SprayCan, Box, Layers, RotateCcw, Warehouse, Zap, CircleDot, Beaker, Sparkles, Paintbrush, Palette } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import gasPipelineImg from "@/assets/products/gas-pipeline.jpg";
@@ -27,6 +27,10 @@ import weldingAntiSpatter from "@/assets/products/welding-anti-spatter.jpg";
 import nozzleGelGeneric from "@/assets/products/nozzle-gel.jpg";
 import industrialChemicals from "@/assets/products/industrial-chemicals.jpg";
 import cleaningSolutions from "@/assets/products/cleaning-solutions.jpg";
+
+import aerosolSprayPaints from "@/assets/products/aerosol-spray-paints.jpg";
+import vmaxGalvaSpray from "@/assets/products/vmax-galva-spray.jpg";
+import vmaxColorSprayRal from "@/assets/products/vmax-color-spray-ral.jpg";
 
 export interface SubProduct {
   name: string;
@@ -287,17 +291,52 @@ export const productCategories: ProductCategory[] = [
     ],
   },
   {
-    title: "Industrial Consumables",
-    slug: "industrial-consumables",
-    desc: "Essential industrial consumables for welding, rust protection, and facility maintenance operations.",
-    description: "Welding, cleaning & maintenance consumables for industry.",
-    icon: Wrench,
-    image: consumablesImg,
+    title: "Aerosol Spray Paints",
+    slug: "aerosol-spray-paints",
+    desc: "High-performance aerosol spray paints for industrial coating, galvanising and precise RAL colour finishes.",
+    description: "Pressurised aerosol coatings for galvanising and RAL colour finishing.",
+    icon: SprayCan,
+    image: aerosolSprayPaints,
     subProducts: [
-      { name: "Welding Anti Spatter Solution", slug: "welding-anti-spatter", description: "Prevents spatter adhesion during welding", icon: SprayCan, images: [weldingAntiSpatter] },
-      { name: "Nozzle Gel", slug: "nozzle-gel", description: "Protective gel for welding nozzles", icon: Droplets, images: [nozzleGelGeneric] },
-      { name: "Industrial Chemicals", slug: "industrial-chemicals", description: "Broad-spectrum industrial chemical solutions", icon: Beaker, images: [industrialChemicals] },
-      { name: "Cleaning Solutions", slug: "cleaning-solutions", description: "Professional-grade cleaning products", icon: Sparkles, images: [cleaningSolutions] },
+      {
+        name: "V-Max Galva Spray",
+        slug: "vmax-galva-spray",
+        description: "96% zinc-rich aerosol galvanising coating for cathodic protection",
+        icon: Paintbrush,
+        images: [vmaxGalvaSpray],
+        overview: [
+          "V-Max Galva Spray is a one aerosol pack coating that contains 96% zinc in the dry film and provides cathodic protection of ferrous metals.",
+          "It can be used as a unique system as an alternative to hot-dip galvanisation or metallisation, as primer in a duplex system (active + passive) or as a recharging system for hot-dip galvanisation and metallisation surfaces.",
+          "It can be applied by spraying on a clean and rough substrate in a wide range of atmospheric circumstances.",
+        ],
+        features: [
+          "96% zinc content in dry film for cathodic protection of ferrous metals",
+          "Alternative to hot-dip galvanisation or metallisation",
+          "Use as primer in duplex (active + passive) systems",
+          "Ideal for recharging damaged hot-dip galvanised or metallised surfaces",
+          "Spray-applied on clean, rough substrates",
+          "Performs across a wide range of atmospheric conditions",
+        ],
+      },
+      {
+        name: "V-Max Color Spray (RAL)",
+        slug: "vmax-color-spray-ral",
+        description: "High-quality RAL-matched aerosol paint with high-gloss durable acrylic finish",
+        icon: Palette,
+        images: [vmaxColorSprayRal],
+        overview: [
+          "V-Max Color Spray RAL is a high-quality, standardised aerosol paint that matches the European RAL colour management system.",
+          "It is primarily used for precise colour matching in industrial, architectural and DIY projects, featuring durable acrylic formulas that provide a high-gloss finish, excellent adhesion and rust resistance on metal, plastic and wood.",
+        ],
+        features: [
+          "Matched to European RAL colour management system",
+          "Precise colour consistency for industrial & architectural projects",
+          "Durable acrylic formulation with high-gloss finish",
+          "Excellent adhesion on metal, plastic and wood",
+          "Built-in rust resistance for long-lasting protection",
+          "Suitable for industrial, architectural and DIY applications",
+        ],
+      },
     ],
   },
 ];
