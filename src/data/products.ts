@@ -34,6 +34,8 @@ export interface SubProduct {
   description: string;
   icon: LucideIcon;
   images?: string[];
+  overview?: string[];
+  features?: string[];
 }
 
 export interface ProductCategory {
