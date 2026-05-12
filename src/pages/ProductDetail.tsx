@@ -317,6 +317,76 @@ const ProductDetail = () => {
                   </div>
                 )}
 
+                {activeTab === "gallery" && galleryImages.length > 0 && (
+                  <div className="rounded-2xl border border-border/50 bg-card p-6 md:p-8">
+                    <h2 className="font-display text-xl font-bold text-foreground mb-5 flex items-center gap-2">
+                      <div className="h-1 w-6 rounded-full bg-accent" />
+                      Product Gallery
+                    </h2>
+                    <Carousel
+                      setApi={setCarouselApi}
+                      opts={{ loop: true, align: "center" }}
+                      plugins={[autoplayRef.current]}
+                      className="relative"
+                    >
+                      <CarouselContent>
+                        {galleryImages.map((img, i) => (
+                          <CarouselItem key={img}>
+                            <div className="relative aspect-[16/10] md:aspect-[16/9] rounded-2xl overflow-hidden border border-border/50 shadow-xl shadow-primary/10 bg-muted">
+                              <img
+                                src={img}
+                                alt=""
+                                aria-hidden="true"
+                                className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/30 to-accent/10" />
+                              <div className="relative w-full h-full flex items-center justify-center p-4 md:p-6">
+                                <img
+                                  src={img}
+                                  alt={`${product.name} - view ${i + 1}`}
+                                  className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                                  loading={i === 0 ? "eager" : "lazy"}
+                                />
+                              </div>
+                              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 text-xs font-semibold text-foreground">
+                                {i + 1} / {galleryImages.length}
+                              </div>
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                    </Carousel>
+
+                    <div className="mt-5 flex flex-wrap justify-center gap-2 md:gap-3">
+                      {galleryImages.map((img, i) => (
+                        <button
+                          key={img}
+                          onClick={() => carouselApi?.scrollTo(i)}
+                          aria-label={`Go to image ${i + 1}`}
+                          className={`relative w-14 h-14 md:w-16 md:h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                            currentSlide === i
+                              ? "border-accent scale-105 shadow-md shadow-accent/30"
+                              : "border-border/50 opacity-60 hover:opacity-100"
+                          }`}
+                        >
+                          <img src={img} alt="" className="w-full h-full object-contain bg-muted p-1" loading="lazy" />
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="mt-4 flex justify-center gap-1.5">
+                      {galleryImages.map((_, i) => (
+                        <span
+                          key={i}
+                          className={`h-1.5 rounded-full transition-all ${
+                            currentSlide === i ? "w-8 bg-accent" : "w-1.5 bg-border"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {activeTab === "specifications" && (
                   <div className="rounded-2xl border border-border/50 bg-card p-8">
                     <h2 className="font-display text-xl font-bold text-foreground mb-5 flex items-center gap-2">
