@@ -29,6 +29,12 @@ import industrialChemicals from "@/assets/products/industrial-chemicals.jpg";
 import cleaningSolutions from "@/assets/products/cleaning-solutions.jpg";
 
 import aerosolSprayPaints from "@/assets/products/aerosol-spray-paints.jpg";
+import corrugatedBox1 from "@/assets/products/corrugated-box-1.jpeg";
+import corrugatedBox2 from "@/assets/products/corrugated-box-2.jpeg";
+import corrugatedBox3 from "@/assets/products/corrugated-box-3.jpeg";
+import corrugatedBox4 from "@/assets/products/corrugated-box-4.jpeg";
+import corrugatedBox5 from "@/assets/products/corrugated-box-5.jpeg";
+import corrugatedBoxTubes from "@/assets/products/corrugated-box-tubes.jpeg";
 import vmaxGalvaSpray from "@/assets/products/vmax-galva-spray.jpg";
 import vmaxColorSprayRal from "@/assets/products/vmax-color-spray-ral.jpg";
 
@@ -273,7 +279,7 @@ export const productCategories: ProductCategory[] = [
         slug: "pp-corrugated-crates",
         description: "Corrugated polypropylene storage crates",
         icon: Layers,
-        images: [ppCorrugated],
+        images: [corrugatedBox1, corrugatedBox2, corrugatedBox3, corrugatedBox4, corrugatedBox5, corrugatedBoxTubes],
         overview: [
           "A corrugated box is a durable, lightweight shipping container made from corrugated fibreboard — a structure with a wavy, fluted middle layer sandwiched between two flat outer liners.",
           "This rigid, cushioned design offers superior strength and shock absorption compared to standard cardboard, making it the primary choice for transporting, protecting and stacking goods.",
