@@ -295,7 +295,7 @@ const ProductDetail = () => {
                         : "border-border/50 opacity-60 hover:opacity-100"
                     }`}
                   >
-                    <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" />
+                    <img src={img} alt="" className="w-full h-full object-contain bg-muted p-1" loading="lazy" />
                   </button>
                 ))}
               </div>
