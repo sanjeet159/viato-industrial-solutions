@@ -5,7 +5,9 @@ import { AnimateIn, MagneticButton } from "@/components/animations";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Phone, Shield, Truck, Award, Settings, ChevronRight, Factory, Zap, Wrench, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const ProductDetail = () => {
   const { categorySlug, productSlug } = useParams();
