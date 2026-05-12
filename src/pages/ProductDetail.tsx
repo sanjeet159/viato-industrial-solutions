@@ -73,14 +73,15 @@ const ProductDetail = () => {
     { label: "Warranty", value: "As per agreement" },
   ];
 
+  const heroImage = product.images?.[0];
+  const galleryImages = product.images && product.images.length > 1 ? product.images : [];
+
   const tabs = [
     { id: "overview", label: "Overview" },
+    ...(galleryImages.length > 0 ? [{ id: "gallery", label: "Gallery" }] : []),
     { id: "specifications", label: "Specifications" },
     { id: "applications", label: "Applications" },
   ];
-
-  const heroImage = product.images?.[0];
-  const galleryImages = product.images && product.images.length > 1 ? product.images : [];
 
   return (
     <Layout>
@@ -231,90 +232,7 @@ const ProductDetail = () => {
         </div>
       </section>
 
-      {/* Product image gallery — only when there are additional shots beyond the hero */}
-      {galleryImages.length > 0 && (
-        <section className="py-14 md:py-20 bg-muted/20 border-b border-border/50">
-          <div className="container-wide">
-            <AnimateIn>
-              <div className="mb-10 text-center">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest mb-3">
-                  Product Gallery
-                </span>
-                <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">
-                  Available Pack Sizes & Variants
-                </h2>
-              </div>
-            </AnimateIn>
-            <div className="max-w-5xl mx-auto">
-              <Carousel
-                setApi={setCarouselApi}
-                opts={{ loop: true, align: "center" }}
-                plugins={[autoplayRef.current]}
-                className="relative"
-              >
-                <CarouselContent>
-                  {galleryImages.map((img, i) => (
-                    <CarouselItem key={img}>
-                      <div className="relative aspect-[16/10] md:aspect-[16/9] rounded-3xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/10 bg-muted">
-                        {/* Blurred backdrop so nothing gets cropped */}
-                        <img
-                          src={img}
-                          alt=""
-                          aria-hidden="true"
-                          className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/30 to-accent/10" />
-                        {/* Actual image, fully visible */}
-                        <div className="relative w-full h-full flex items-center justify-center p-4 md:p-8">
-                          <img
-                            src={img}
-                            alt={`${product.name} - view ${i + 1}`}
-                            className="max-w-full max-h-full object-contain drop-shadow-2xl"
-                            loading={i === 0 ? "eager" : "lazy"}
-                          />
-                        </div>
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 text-xs font-semibold text-foreground">
-                          {i + 1} / {galleryImages.length}
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-              </Carousel>
-
-              {/* Thumbnail strip */}
-              <div className="mt-6 flex flex-wrap justify-center gap-2 md:gap-3">
-                {galleryImages.map((img, i) => (
-                  <button
-                    key={img}
-                    onClick={() => carouselApi?.scrollTo(i)}
-                    aria-label={`Go to image ${i + 1}`}
-                    className={`relative w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 transition-all ${
-                      currentSlide === i
-                        ? "border-accent scale-105 shadow-lg shadow-accent/30"
-                        : "border-border/50 opacity-60 hover:opacity-100"
-                    }`}
-                  >
-                    <img src={img} alt="" className="w-full h-full object-contain bg-muted p-1" loading="lazy" />
-                  </button>
-                ))}
-              </div>
-
-              {/* Progress dots */}
-              <div className="mt-5 flex justify-center gap-1.5">
-                {galleryImages.map((_, i) => (
-                  <span
-                    key={i}
-                    className={`h-1.5 rounded-full transition-all ${
-                      currentSlide === i ? "w-8 bg-accent" : "w-1.5 bg-border"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Gallery is now rendered inside the tabs below */}
 
       {/* Main content */}
       <section className="py-12 md:py-16 bg-background">
@@ -395,6 +313,76 @@ const ProductDetail = () => {
                           );
                         })}
                       </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeTab === "gallery" && galleryImages.length > 0 && (
+                  <div className="rounded-2xl border border-border/50 bg-card p-6 md:p-8">
+                    <h2 className="font-display text-xl font-bold text-foreground mb-5 flex items-center gap-2">
+                      <div className="h-1 w-6 rounded-full bg-accent" />
+                      Product Gallery
+                    </h2>
+                    <Carousel
+                      setApi={setCarouselApi}
+                      opts={{ loop: true, align: "center" }}
+                      plugins={[autoplayRef.current]}
+                      className="relative"
+                    >
+                      <CarouselContent>
+                        {galleryImages.map((img, i) => (
+                          <CarouselItem key={img}>
+                            <div className="relative aspect-[16/10] md:aspect-[16/9] rounded-2xl overflow-hidden border border-border/50 shadow-xl shadow-primary/10 bg-muted">
+                              <img
+                                src={img}
+                                alt=""
+                                aria-hidden="true"
+                                className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/30 to-accent/10" />
+                              <div className="relative w-full h-full flex items-center justify-center p-4 md:p-6">
+                                <img
+                                  src={img}
+                                  alt={`${product.name} - view ${i + 1}`}
+                                  className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                                  loading={i === 0 ? "eager" : "lazy"}
+                                />
+                              </div>
+                              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 text-xs font-semibold text-foreground">
+                                {i + 1} / {galleryImages.length}
+                              </div>
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                    </Carousel>
+
+                    <div className="mt-5 flex flex-wrap justify-center gap-2 md:gap-3">
+                      {galleryImages.map((img, i) => (
+                        <button
+                          key={img}
+                          onClick={() => carouselApi?.scrollTo(i)}
+                          aria-label={`Go to image ${i + 1}`}
+                          className={`relative w-14 h-14 md:w-16 md:h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                            currentSlide === i
+                              ? "border-accent scale-105 shadow-md shadow-accent/30"
+                              : "border-border/50 opacity-60 hover:opacity-100"
+                          }`}
+                        >
+                          <img src={img} alt="" className="w-full h-full object-contain bg-muted p-1" loading="lazy" />
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="mt-4 flex justify-center gap-1.5">
+                      {galleryImages.map((_, i) => (
+                        <span
+                          key={i}
+                          className={`h-1.5 rounded-full transition-all ${
+                            currentSlide === i ? "w-8 bg-accent" : "w-1.5 bg-border"
+                          }`}
+                        />
+                      ))}
                     </div>
                   </div>
                 )}
