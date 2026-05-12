@@ -73,14 +73,15 @@ const ProductDetail = () => {
     { label: "Warranty", value: "As per agreement" },
   ];
 
+  const heroImage = product.images?.[0];
+  const galleryImages = product.images && product.images.length > 1 ? product.images : [];
+
   const tabs = [
     { id: "overview", label: "Overview" },
+    ...(galleryImages.length > 0 ? [{ id: "gallery", label: "Gallery" }] : []),
     { id: "specifications", label: "Specifications" },
     { id: "applications", label: "Applications" },
   ];
-
-  const heroImage = product.images?.[0];
-  const galleryImages = product.images && product.images.length > 1 ? product.images : [];
 
   return (
     <Layout>
