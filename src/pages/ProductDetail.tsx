@@ -255,14 +255,24 @@ const ProductDetail = () => {
                 <CarouselContent>
                   {galleryImages.map((img, i) => (
                     <CarouselItem key={img}>
-                      <div className="relative aspect-[16/10] md:aspect-[16/9] rounded-3xl overflow-hidden bg-card border border-border/50 shadow-2xl shadow-primary/10">
+                      <div className="relative aspect-[16/10] md:aspect-[16/9] rounded-3xl overflow-hidden border border-border/50 shadow-2xl shadow-primary/10 bg-muted">
+                        {/* Blurred backdrop so nothing gets cropped */}
                         <img
                           src={img}
-                          alt={`${product.name} - view ${i + 1}`}
-                          className="w-full h-full object-cover"
-                          loading={i === 0 ? "eager" : "lazy"}
+                          alt=""
+                          aria-hidden="true"
+                          className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-40"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/30 to-accent/10" />
+                        {/* Actual image, fully visible */}
+                        <div className="relative w-full h-full flex items-center justify-center p-4 md:p-8">
+                          <img
+                            src={img}
+                            alt={`${product.name} - view ${i + 1}`}
+                            className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                            loading={i === 0 ? "eager" : "lazy"}
+                          />
+                        </div>
                         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 text-xs font-semibold text-foreground">
                           {i + 1} / {galleryImages.length}
                         </div>
@@ -285,7 +295,7 @@ const ProductDetail = () => {
                         : "border-border/50 opacity-60 hover:opacity-100"
                     }`}
                   >
-                    <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" />
+                    <img src={img} alt="" className="w-full h-full object-contain bg-muted p-1" loading="lazy" />
                   </button>
                 ))}
               </div>
