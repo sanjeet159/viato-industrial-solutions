@@ -5,13 +5,30 @@ import { AnimateIn, MagneticButton } from "@/components/animations";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Phone, Shield, Truck, Award, Settings, ChevronRight, Factory, Zap, Wrench, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const ProductDetail = () => {
   const { categorySlug, productSlug } = useParams();
   const category = productCategories.find((c) => c.slug === categorySlug);
   const product = category?.subProducts.find((p) => p.slug === productSlug);
   const [activeTab, setActiveTab] = useState("overview");
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const autoplayRef = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
+
+  useEffect(() => {
+    if (!carouselApi) return;
+    setCurrentSlide(carouselApi.selectedScrollSnap());
+    const onSelect = () => setCurrentSlide(carouselApi.selectedScrollSnap());
+    carouselApi.on("select", onSelect);
+    return () => {
+      carouselApi.off("select", onSelect);
+    };
+  }, [carouselApi]);
 
   if (!category || !product) {
     return (
@@ -228,29 +245,62 @@ const ProductDetail = () => {
                 </h2>
               </div>
             </AnimateIn>
-            <div className={`grid gap-4 md:gap-6 ${
-              galleryImages.length === 2 ? "grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto" :
-              galleryImages.length === 3 ? "grid-cols-2 md:grid-cols-3 max-w-5xl mx-auto" :
-              "grid-cols-2 md:grid-cols-4"
-            }`}>
-              {galleryImages.map((img, i) => (
-                <motion.div
-                  key={img}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                  className="group relative aspect-square rounded-2xl overflow-hidden bg-card border border-border/50 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10 transition-all"
-                >
-                  <img
-                    src={img}
-                    alt={`${product.name} - view ${i + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+            <div className="max-w-5xl mx-auto">
+              <Carousel
+                setApi={setCarouselApi}
+                opts={{ loop: true, align: "center" }}
+                plugins={[autoplayRef.current]}
+                className="relative"
+              >
+                <CarouselContent>
+                  {galleryImages.map((img, i) => (
+                    <CarouselItem key={img}>
+                      <div className="relative aspect-[16/10] md:aspect-[16/9] rounded-3xl overflow-hidden bg-card border border-border/50 shadow-2xl shadow-primary/10">
+                        <img
+                          src={img}
+                          alt={`${product.name} - view ${i + 1}`}
+                          className="w-full h-full object-cover"
+                          loading={i === 0 ? "eager" : "lazy"}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 text-xs font-semibold text-foreground">
+                          {i + 1} / {galleryImages.length}
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+
+              {/* Thumbnail strip */}
+              <div className="mt-6 flex flex-wrap justify-center gap-2 md:gap-3">
+                {galleryImages.map((img, i) => (
+                  <button
+                    key={img}
+                    onClick={() => carouselApi?.scrollTo(i)}
+                    aria-label={`Go to image ${i + 1}`}
+                    className={`relative w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 transition-all ${
+                      currentSlide === i
+                        ? "border-accent scale-105 shadow-lg shadow-accent/30"
+                        : "border-border/50 opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <img src={img} alt="" className="w-full h-full object-cover" loading="lazy" />
+                  </button>
+                ))}
+              </div>
+
+              {/* Progress dots */}
+              <div className="mt-5 flex justify-center gap-1.5">
+                {galleryImages.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`h-1.5 rounded-full transition-all ${
+                      currentSlide === i ? "w-8 bg-accent" : "w-1.5 bg-border"
+                    }`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </motion.div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
