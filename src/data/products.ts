@@ -251,7 +251,7 @@ export const productCategories: ProductCategory[] = [
     image: packagingImg,
     subProducts: [
       {
-        name: "Polypropylene Boxes",
+        name: "Polypropylene Boxes (PP)",
         slug: "polypropylene-boxes",
         description: "Lightweight, durable PP containers",
         icon: Box,
@@ -269,7 +269,7 @@ export const productCategories: ProductCategory[] = [
         ],
       },
       {
-        name: "PP Corrugated Crates",
+        name: "Corrugated Box",
         slug: "pp-corrugated-crates",
         description: "Corrugated polypropylene storage crates",
         icon: Layers,
@@ -286,8 +286,6 @@ export const productCategories: ProductCategory[] = [
           "Available in a range of sizes and gauges",
         ],
       },
-      { name: "Returnable Packaging Boxes", slug: "returnable-packaging", description: "Cost-effective reusable packaging", icon: RotateCcw, images: [returnablePackaging] },
-      { name: "Industrial Packaging Boxes", slug: "industrial-packaging", description: "Heavy-duty industrial containers", icon: Warehouse, images: [industrialPackaging] },
     ],
   },
   {
