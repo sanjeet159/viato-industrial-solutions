@@ -14,6 +14,21 @@ const ProductDetail = () => {
   const category = productCategories.find((c) => c.slug === categorySlug);
   const product = category?.subProducts.find((p) => p.slug === productSlug);
   const [activeTab, setActiveTab] = useState("overview");
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const autoplayRef = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
+
+  useEffect(() => {
+    if (!carouselApi) return;
+    setCurrentSlide(carouselApi.selectedScrollSnap());
+    const onSelect = () => setCurrentSlide(carouselApi.selectedScrollSnap());
+    carouselApi.on("select", onSelect);
+    return () => {
+      carouselApi.off("select", onSelect);
+    };
+  }, [carouselApi]);
 
   if (!category || !product) {
     return (
