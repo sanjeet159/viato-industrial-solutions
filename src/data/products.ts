@@ -37,6 +37,15 @@ import corrugatedBox5 from "@/assets/products/corrugated-box-5.jpeg";
 import corrugatedBoxTubes from "@/assets/products/corrugated-box-tubes.jpeg";
 import vmaxGalvaSpray from "@/assets/products/vmax-galva-spray.jpg";
 import vmaxColorSprayRal from "@/assets/products/vmax-color-spray-ral.jpg";
+import ppBox1 from "@/assets/products/pp-box-1.jpeg";
+import ppBox2 from "@/assets/products/pp-box-2.jpeg";
+import ppBox3 from "@/assets/products/pp-box-3.jpeg";
+import ppBox4 from "@/assets/products/pp-box-4.jpeg";
+import ppBox5 from "@/assets/products/pp-box-5.jpeg";
+import ppBox6 from "@/assets/products/pp-box-6.jpeg";
+import ppBox7 from "@/assets/products/pp-box-7.jpeg";
+import ppBox8 from "@/assets/products/pp-box-8.jpeg";
+import ppBox9 from "@/assets/products/pp-box-9.jpeg";
 
 export interface SubProduct {
   name: string;
@@ -261,7 +270,7 @@ export const productCategories: ProductCategory[] = [
         slug: "polypropylene-boxes",
         description: "Lightweight, durable PP containers",
         icon: Box,
-        images: [polypropyleneBoxes],
+        images: [ppBox1, ppBox2, ppBox3, ppBox4, ppBox5, ppBox6, ppBox7, ppBox8, ppBox9, polypropyleneBoxes],
         overview: [
           "Polypropylene (PP) boxes are durable, lightweight and moisture-resistant storage solutions, commonly used for industrial packaging, logistics and home organisation.",
           "Highly resistant to impact and chemicals — popular options include foldable, heavy-duty storage and corrugated designs for versatile, reusable (returnable packaging) or custom-sized applications.",
