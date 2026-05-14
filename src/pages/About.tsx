@@ -42,7 +42,7 @@ const About = () => {
 
       <SEO
   title="About Us – Viato Industries Since 2013"
-  description="Established in 2013 under Shri Balaji Group, Viato Industries delivers complete material handling, gas pipeline and packaging solutions to industries across western India."
+  description="Established in 2013 under Shri Balaji Group, Viato Industries delivers complete gas pipeline, industrial chemicals and packaging solutions to industries across western India."
   slug="about"
   keywords="about Viato Industries, Shri Balaji Group Aurangabad, industrial solutions Maharashtra"
 />
@@ -77,7 +77,7 @@ const About = () => {
             </h1>
 
             <p className="text-primary-foreground/60 text-lg leading-relaxed mb-10 max-w-lg">
-              Complete material handling, gas pipeline & packaging solutions — trusted by industries across western India.
+              Complete gas pipeline, industrial chemicals & packaging solutions — trusted by industries across western India.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -130,7 +130,7 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
             {[
               { num: "01", title: "Who We Are", desc: "Part of Shri Balaji Group, Viato Industries is a trusted name in industrial solutions across western India since 2013." },
-              { num: "02", title: "What We Do", desc: "Gas pipelines, material handling equipment, packaging solutions, industrial chemicals and consumables — end to end." },
+              { num: "02", title: "What We Do", desc: "Gas pipelines, industrial chemicals, packaging solutions, aerosol coatings and consumables — end to end." },
               { num: "03", title: "Our Promise", desc: "Complete solutions that bring peace of mind — letting customers focus on their core business." },
             ].map((item, i) => (
               <motion.div
@@ -290,7 +290,7 @@ const About = () => {
                 icon: Eye,
                 label: "Vision",
                 title: "India's Most\nLegendary Brand",
-                desc: "Recognized for quality, reliability and customer-first approach across material handling, gas pipeline and packaging.",
+                desc: "Recognized for quality, reliability and customer-first approach across gas pipeline, chemicals and packaging.",
                 color: "210 80% 55%",
               },
             ].map((item) => (

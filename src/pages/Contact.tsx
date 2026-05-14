@@ -65,7 +65,7 @@ _Sent from viato.in_`;
 
       <SEO
   title="Contact Us – Aurangabad & Pune Office"
-  description="Contact Viato Industries for gas pipeline, material handling and packaging enquiries. Registered office at Waluj MIDC Aurangabad. Call +91 7722090400."
+  description="Contact Viato Industries for gas pipeline, industrial chemicals and packaging enquiries. Registered office at Waluj MIDC Aurangabad. Call +91 7722090400."
   slug="contact"
   keywords="Viato Industries contact number, Aurangabad industrial company, Waluj MIDC supplier"
 />

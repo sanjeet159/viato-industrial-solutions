@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import gasPipelineImg from "@/assets/gas-pipeline.jpg";
 import IndustrialCTA from "@/components/IndustrialCTA";
-import materialHandlingImg from "@/assets/material-handling.jpg";
+
 import engineeringImg from "@/assets/engineering-services.jpg";
 import { ArrowRight, CheckCircle, Flame, Wrench, HardHat, Settings } from "lucide-react";
 import SEO from "@/components/SEO";
@@ -25,21 +25,6 @@ const servicesList = [
       "Increased operational efficiency",
       "Lower operating costs",
       "Turnkey installation & commissioning",
-    ],
-  },
-  {
-    id: "material-handling",
-    title: "Material Handling Equipment",
-    icon: Wrench,
-    img: materialHandlingImg,
-    desc: "We supply, service, and maintain a complete range of material handling equipment including forklifts, pallet trucks, stackers, reach trucks, and tow trucks. Our comprehensive AMC services and spare parts supply ensure your equipment runs at peak performance.",
-    benefits: [
-      "Wide range of equipment options",
-      "Expert maintenance & repair services",
-      "Annual Maintenance Contracts (AMC)",
-      "Genuine spare parts supply",
-      "Reduced downtime",
-      "Cost-effective solutions",
     ],
   },
   {
@@ -82,7 +67,7 @@ const Services = () => {
   title="Industrial Services – AMC, Gas Pipeline Installation & Repairs"
   description="Viato Industries offers gas pipeline installation, breakdown repairs, preventive maintenance, AMC contracts and equipment refurbishing services across India."
   slug="services"
-  keywords="gas pipeline installation India, forklift AMC service, material handling repair Maharashtra"
+  keywords="gas pipeline installation India, AMC service Maharashtra, industrial engineering services"
 />
       
       {/* Hero */}
@@ -104,7 +89,7 @@ const Services = () => {
               <span className="text-accent">Services</span>
             </h1>
             <p className="text-primary-foreground/70 text-lg leading-relaxed">
-              From gas pipeline installation to material handling — we deliver end-to-end industrial solutions with precision and reliability.
+              From gas pipeline installation to engineering & AMC — we deliver end-to-end industrial solutions with precision and reliability.
             </p>
           </motion.div>
         </div>

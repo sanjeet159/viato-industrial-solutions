@@ -151,7 +151,7 @@ const RequestQuote = () => {
                           <SelectItem value="chemical-products">Chemical Products</SelectItem>
                           <SelectItem value="packaging-solutions">Packaging Solutions</SelectItem>
                           <SelectItem value="industrial-consumables">Industrial Consumables</SelectItem>
-                          <SelectItem value="material-handling">Material Handling Equipment</SelectItem>
+                          <SelectItem value="aerosol-spray-paints">Aerosol Spray Paints</SelectItem>
                           <SelectItem value="engineering">Engineering Services</SelectItem>
                           <SelectItem value="maintenance">Maintenance & AMC</SelectItem>
                           <SelectItem value="other">Other</SelectItem>
