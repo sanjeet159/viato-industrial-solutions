@@ -107,7 +107,7 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/10 mt-14 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs opacity-50">
           <p>© {new Date().getFullYear()} Viato Industries. All rights reserved.</p>
           <p>
-            Crafted by{" "}
+            Designed & Developed by{" "}
             <a
               href="https://sanjeetfolio.framer.website/"
               target="_blank"
