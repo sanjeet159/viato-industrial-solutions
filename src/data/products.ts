@@ -14,7 +14,13 @@ import nozzleGel from "@/assets/products/nozzle-gel-v101.jpg";
 import rustConvertor from "@/assets/products/rust-convertor-v301.jpg";
 import degreasingChem from "@/assets/products/degreasing-chemical-v401.jpg";
 
-import gasPipelineSystems from "@/assets/products/gas-pipeline-systems.jpg";
+import gasPipelineSystems from "@/assets/products/gas-pipeline-real-1.jpeg";
+import gasPipelineReal2 from "@/assets/products/gas-pipeline-real-2.jpeg";
+import gasPipelineReal3 from "@/assets/products/gas-pipeline-real-3.jpeg";
+import gasPipelineReal4 from "@/assets/products/gas-pipeline-real-4.jpeg";
+import gasPipelineReal5 from "@/assets/products/gas-pipeline-real-5.jpeg";
+import gasPipelineReal6 from "@/assets/products/gas-pipeline-real-6.jpeg";
+import gasPipelineReal7 from "@/assets/products/gas-pipeline-real-7.jpeg";
 import gasManifoldSystems from "@/assets/products/gas-manifold-systems.jpg";
 import cryogenicTank from "@/assets/products/cryogenic-tank-pipeline.jpg";
 import cylinderFilling from "@/assets/products/cylinder-filling-manifold.jpg";
@@ -102,7 +108,7 @@ export const productCategories: ProductCategory[] = [
         slug: "gas-pipeline-systems",
         description: "Complete industrial gas pipeline installation",
         icon: PipetteIcon,
-        images: [gasPipelineSystems, gasPipelineSystems2, gasPipelineSystems3],
+        images: [gasPipelineSystems, gasPipelineReal2, gasPipelineReal3, gasPipelineReal4, gasPipelineReal5, gasPipelineReal6, gasPipelineReal7],
         overview: [
           "High-pressure pigtails, hose assemblies and CGA fittings engineered for safe, leak-proof gas distribution across industrial facilities.",
           "Stainless steel corrugated hoses with pre-assembled cylinder valve adaptors, designed for working pressures up to 300 bar in compliance with ISO 10380.",
