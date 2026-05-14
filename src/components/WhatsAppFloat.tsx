@@ -6,7 +6,7 @@ const WhatsAppFloat = () => {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
 
-  const phoneNumber = "917743877426";
+  const phoneNumber = "919834731352";
 
   const sendMessage = () => {
     const text = message.trim() || "Hello! I have an enquiry about your products.";
