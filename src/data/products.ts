@@ -102,7 +102,7 @@ export const productCategories: ProductCategory[] = [
         slug: "gas-pipeline-systems",
         description: "Complete industrial gas pipeline installation",
         icon: PipetteIcon,
-        images: [gasPipelineSystems],
+        images: [gasPipelineSystems, gasPipelineSystems2, gasPipelineSystems3],
         overview: [
           "High-pressure pigtails, hose assemblies and CGA fittings engineered for safe, leak-proof gas distribution across industrial facilities.",
           "Stainless steel corrugated hoses with pre-assembled cylinder valve adaptors, designed for working pressures up to 300 bar in compliance with ISO 10380.",
@@ -121,7 +121,7 @@ export const productCategories: ProductCategory[] = [
         slug: "gas-manifold-systems",
         description: "Multi-cylinder manifold configurations",
         icon: Layers,
-        images: [gasManifoldSystems],
+        images: [gasManifoldSystems, gasManifoldSystems2, gasManifoldSystems3],
         overview: [
           "Gas manifold systems are essential components in the efficient and safe distribution of gases from a central supply to multiple points of use. They consist of valves, regulators and piping that control the flow of gases, ensuring a stable and reliable supply to end-users.",
           "VIATO is the indigenous manufacturer of a complete range of industrial gas cylinder manifolds, designed and tested in compliance with industry standards using best-quality materials.",
@@ -141,7 +141,7 @@ export const productCategories: ProductCategory[] = [
         slug: "cryogenic-tank-pipeline",
         description: "Specialized cryogenic gas delivery systems",
         icon: Zap,
-        images: [cryogenicTank],
+        images: [cryogenicTank, cryogenicTank2, cryogenicTank3],
         overview: [
           "End-to-end Cryogenic Storage Tank Installation Service delivered by our highly qualified professionals using premium-grade tools and advanced technology, executed within scheduled timeframes.",
           "Our Cryogenic Liquid Pipeline Installation services use the latest equipment and machines and can be fully customised to client requirements, valued for promptness, cost-effectiveness and on-time delivery for critical deadlines.",
@@ -159,7 +159,7 @@ export const productCategories: ProductCategory[] = [
         slug: "cylinder-filling-manifold",
         description: "High-pressure cylinder filling stations",
         icon: CircleDot,
-        images: [cylinderFilling],
+        images: [cylinderFilling, cylinderFilling2, cylinderFilling3],
         overview: [
           "VIATO is the indigenous manufacturer of a complete range of Industrial and Medical Gas Cylinder Filling Stations, including mobile filling stations and advanced filling station configurations.",
           "Filling panels and manifolds are specially designed for efficient gas filling, manufactured and supplied in full compliance with industry standards and stringently tested on standard quality parameters prior to installation.",
@@ -177,7 +177,7 @@ export const productCategories: ProductCategory[] = [
         slug: "industrial-gas-installation",
         description: "Cylinder Quad & Skid Manifold systems",
         icon: Wrench,
-        images: [gasInstallation],
+        images: [gasInstallation, gasInstallation2, gasInstallation3],
         overview: [
           "VIATO is the indigenous manufacturer of a complete range of Industrial Gas Cylinder Quads, including mobile vehicle-mounted Skid Banks, specially designed for safe storage and transport of gases.",
           "Manifold cylinder pallet/bundle is a modular design — a portable assembly designed to be routinely lifted, consisting of a frame and 20/16/12/9 high-pressure gas cylinders stacked and connected to a common manifold by cylinder valves, fittings and pressure gauge, allowing cylinders to be filled, transported and emptied without disassembly.",
@@ -227,7 +227,7 @@ export const productCategories: ProductCategory[] = [
         slug: "nozzle-gel-v101",
         description: "Extends nozzle life & reduces downtime",
         icon: Droplets,
-        images: [nozzleGel],
+        images: [nozzleGel, nozzleGel2, nozzleGel3],
         overview: [
           "Viato's Water Based V-101 nozzle tip dip extends the life of welding consumables by protecting them during the welding operation.",
           "Spatter forming inside the nozzle will not adhere and can be easily removed. Tip dip can also be brushed onto parts as needed.",
@@ -245,7 +245,7 @@ export const productCategories: ProductCategory[] = [
         slug: "rust-convertor-v301",
         description: "Converts rust into protective coating",
         icon: ShieldCheck,
-        images: [rustConvertor],
+        images: [rustConvertor, rustConvertor2, rustConvertor3],
         overview: [
           "A water-based chemical rust converter — typically containing phosphoric or tannic acid — that transforms iron oxide (rust) into a stable phosphate protective layer (iron phosphate or tannate).",
           "Acts as both a rust inhibitor and a protective primer, sealing metal surfaces to prevent future corrosion without requiring extensive surface grinding.",
@@ -263,7 +263,7 @@ export const productCategories: ProductCategory[] = [
         slug: "degreasing-chemical-v401",
         description: "Industrial-strength neutral pH degreaser & washing chemical",
         icon: Beaker,
-        images: [degreasingChem],
+        images: [degreasingChem, degreasingChem2, degreasingChem3],
         overview: [
           "Neutral pH degreasers are specialised, safe-to-handle industrial cleaners with a pH between 6.0 and 8.0, designed to remove oil and grease without damaging delicate surfaces such as MS, CS (HR/CR), aluminium, brass, copper or painted finishes.",
           "Industrial cleaning / washing chemicals are heavy-duty formulations designed to remove stubborn grease, oils, soot and carbon deposits from machinery, surfaces and production equipment.",
@@ -337,7 +337,7 @@ export const productCategories: ProductCategory[] = [
         slug: "vmax-galva-spray",
         description: "96% zinc-rich aerosol galvanising coating for cathodic protection",
         icon: Paintbrush,
-        images: [vmaxGalvaSpray],
+        images: [vmaxGalvaSpray, vmaxGalvaSpray2, vmaxGalvaSpray3],
         overview: [
           "V-Max Galva Spray is a one aerosol pack coating that contains 96% zinc in the dry film and provides cathodic protection of ferrous metals.",
           "It can be used as a unique system as an alternative to hot-dip galvanisation or metallisation, as primer in a duplex system (active + passive) or as a recharging system for hot-dip galvanisation and metallisation surfaces.",
@@ -357,7 +357,7 @@ export const productCategories: ProductCategory[] = [
         slug: "vmax-color-spray-ral",
         description: "High-quality RAL-matched aerosol paint with high-gloss durable acrylic finish",
         icon: Palette,
-        images: [vmaxColorSprayRal],
+        images: [vmaxColorSprayRal, vmaxColorSprayRal2, vmaxColorSprayRal3],
         overview: [
           "V-Max Color Spray RAL is a high-quality, standardised aerosol paint that matches the European RAL colour management system.",
           "It is primarily used for precise colour matching in industrial, architectural and DIY projects, featuring durable acrylic formulas that provide a high-gloss finish, excellent adhesion and rust resistance on metal, plastic and wood.",
