@@ -6,10 +6,9 @@ import chemicalImg from "@/assets/products/chemical-products.jpg";
 import packagingImg from "@/assets/products/packaging-solutions.jpg";
 import consumablesImg from "@/assets/products/industrial-consumables.jpg";
 
-import v125_5l from "@/assets/products/v125-anti-spatter-5l.jpg";
-import v125_5l_front from "@/assets/products/v125-anti-spatter-5l-front.jpg";
-import v125_35l_drum from "@/assets/products/v125-anti-spatter-35l-drum.jpg";
-import v125_spray from "@/assets/products/v125-anti-spatter-spray-500ml.jpg";
+import v125_5l from "@/assets/products/v125-real-5l.png";
+import v125_35l_drum from "@/assets/products/v125-real-35l.png";
+import v125_spray from "@/assets/products/v125-real-spray.png";
 import nozzleGel from "@/assets/products/nozzle-gel-v101.jpg";
 import rustConvertor from "@/assets/products/rust-convertor-v301.jpg";
 import degreasingChem from "@/assets/products/degreasing-chemical-v401.jpg";
@@ -225,7 +224,7 @@ export const productCategories: ProductCategory[] = [
         slug: "anti-spatter-v125",
         description: "Premium anti-spatter for MIG/MAG welding. Available in 500ml spray bottle, 5L can, and 35L drum.",
         icon: SprayCan,
-        images: [v125_spray, v125_5l_front, v125_5l, v125_35l_drum],
+        images: [v125_spray, v125_5l, v125_35l_drum],
         overview: [
           "Viato water-based anti-spatter V-125 is a non-flammable, silicone-free solution designed to prevent welding spatter from adhering to metal surfaces, tips and nozzles.",
           "It enables easy, cleaner post-weld clean-up, improves welding efficiency and is safe for applications requiring subsequent painting or galvanising.",
