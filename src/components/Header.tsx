@@ -559,75 +559,31 @@ const Header = () => {
                   </div>
                 ) : item.hasMega === "store" ? (
                   <div key={item.path}>
-                    <button
-                      onClick={() => setMobileStoreOpen(!mobileStoreOpen)}
-                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                    <Link
+                      to="/store"
+                      onClick={() => setMobileOpen(false)}
+                      className={`block px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                         isActive(item.path) ? "text-accent bg-accent/10" : "text-foreground hover:bg-muted"
                       }`}
                     >
                       {item.label}
-                      <motion.span animate={{ rotate: mobileStoreOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                        <ChevronDown className="h-4 w-4" />
-                      </motion.span>
-                    </button>
-                    <AnimatePresence>
-                      {mobileStoreOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="pl-2 py-2 space-y-1">
-                            {storeCategories.map((cat) => {
-                              const Icon = cat.icon;
-                              return (
-                                <div key={cat.slug}>
-                                  <button
-                                    onClick={() => setMobileExpandedStoreCat(mobileExpandedStoreCat === cat.slug ? null : cat.slug)}
-                                    className="w-full flex items-center gap-2 justify-between px-3 py-2 text-sm font-semibold text-foreground/80 hover:bg-muted rounded-lg"
-                                  >
-                                    <span className="flex items-center gap-2">
-                                      <Icon className="h-4 w-4 text-accent" />
-                                      {cat.name}
-                                    </span>
-                                    <motion.span animate={{ rotate: mobileExpandedStoreCat === cat.slug ? 180 : 0 }} transition={{ duration: 0.2 }}>
-                                      <ChevronDown className="h-3.5 w-3.5" />
-                                    </motion.span>
-                                  </button>
-                                  <AnimatePresence>
-                                    {mobileExpandedStoreCat === cat.slug && (
-                                      <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="overflow-hidden"
-                                      >
-                                        <div className="pl-8 py-1 space-y-0.5">
-                                          {cat.products.map((product) => (
-                                            <Link
-                                              key={product.name}
-                                              to="/store"
-                                              onClick={() => setMobileOpen(false)}
-                                              className="flex items-center gap-2 py-2 px-2 text-sm text-muted-foreground hover:text-accent rounded-lg hover:bg-accent/5 transition-colors"
-                                            >
-                                              <Icon className="h-3.5 w-3.5" />
-                                              {product.name}
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      </motion.div>
-                                    )}
-                                  </AnimatePresence>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    </Link>
+                    <div className="pl-2 py-1 space-y-0.5">
+                      {storeCategories.map((cat) => {
+                        const Icon = cat.icon;
+                        return (
+                          <Link
+                            key={cat.slug}
+                            to={`/store?category=${cat.slug}`}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-muted hover:text-accent rounded-lg transition-colors"
+                          >
+                            <Icon className="h-4 w-4 text-accent" />
+                            {cat.name}
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
                 ) : (
                   <Link
