@@ -31,7 +31,12 @@ import gasManifoldReal7 from "@/assets/products/gas-manifold-real-7.jpeg";
 import gasManifoldReal8 from "@/assets/products/gas-manifold-real-8.jpeg";
 import gasManifoldReal9 from "@/assets/products/gas-manifold-real-9.jpeg";
 import cryogenicTank from "@/assets/products/cryogenic-tank-pipeline.jpg";
-import cylinderFilling from "@/assets/products/cylinder-filling-manifold.jpg";
+import cylinderFilling from "@/assets/products/cylinder-filling-real-1.png";
+import cylinderFillingReal2 from "@/assets/products/cylinder-filling-real-2.png";
+import cylinderFillingReal3 from "@/assets/products/cylinder-filling-real-3.png";
+import cylinderFillingReal4 from "@/assets/products/cylinder-filling-real-4.png";
+import cylinderFillingReal5 from "@/assets/products/cylinder-filling-real-5.png";
+import cylinderFillingReal6 from "@/assets/products/cylinder-filling-real-6.png";
 import gasInstallation from "@/assets/products/industrial-gas-installation.jpg";
 import polypropyleneBoxes from "@/assets/products/polypropylene-boxes.jpg";
 import ppCorrugated from "@/assets/products/pp-corrugated-crates.jpg";
@@ -173,7 +178,7 @@ export const productCategories: ProductCategory[] = [
         slug: "cylinder-filling-manifold",
         description: "High-pressure cylinder filling stations",
         icon: CircleDot,
-        images: [cylinderFilling, cylinderFilling2, cylinderFilling3],
+        images: [cylinderFilling, cylinderFillingReal2, cylinderFillingReal3, cylinderFillingReal4, cylinderFillingReal5, cylinderFillingReal6],
         overview: [
           "VIATO is the indigenous manufacturer of a complete range of Industrial and Medical Gas Cylinder Filling Stations, including mobile filling stations and advanced filling station configurations.",
           "Filling panels and manifolds are specially designed for efficient gas filling, manufactured and supplied in full compliance with industry standards and stringently tested on standard quality parameters prior to installation.",
