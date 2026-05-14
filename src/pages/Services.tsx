@@ -8,7 +8,7 @@ import gasPipelineImg from "@/assets/gas-pipeline.jpg";
 import IndustrialCTA from "@/components/IndustrialCTA";
 
 import engineeringImg from "@/assets/engineering-services.jpg";
-import { ArrowRight, CheckCircle, Flame, Wrench, HardHat, Settings } from "lucide-react";
+import { ArrowRight, CheckCircle, Flame, HardHat, Settings } from "lucide-react";
 import SEO from "@/components/SEO";
 
 const servicesList = [
