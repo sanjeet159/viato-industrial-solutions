@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { useState, useMemo, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { AnimateIn, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -9,9 +9,14 @@ import { ArrowRight, Search, ShoppingBag, X, Grid3X3, List } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion";
 
 const Store = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(searchParams.get("category"));
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+
+  useEffect(() => {
+    setActiveCategory(searchParams.get("category"));
+  }, [searchParams]);
 
   const filteredCategories = useMemo(
     () =>
