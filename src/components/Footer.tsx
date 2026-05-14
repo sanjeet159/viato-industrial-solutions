@@ -106,7 +106,17 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/10 mt-14 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs opacity-50">
           <p>© {new Date().getFullYear()} Viato Industries. All rights reserved.</p>
-          <p>Complete Industrial Solutions — Gas, Chemicals & Packaging</p>
+          <p>
+            Crafted by{" "}
+            <a
+              href="https://sanjeetfolio.framer.website/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:opacity-100 hover:text-accent transition-colors"
+            >
+              Sanjeet
+            </a>
+          </p>
         </div>
       </div>
     </footer>
