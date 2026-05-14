@@ -21,7 +21,15 @@ import gasPipelineReal4 from "@/assets/products/gas-pipeline-real-4.jpeg";
 import gasPipelineReal5 from "@/assets/products/gas-pipeline-real-5.jpeg";
 import gasPipelineReal6 from "@/assets/products/gas-pipeline-real-6.jpeg";
 import gasPipelineReal7 from "@/assets/products/gas-pipeline-real-7.jpeg";
-import gasManifoldSystems from "@/assets/products/gas-manifold-systems.jpg";
+import gasManifoldSystems from "@/assets/products/gas-manifold-real-1.jpeg";
+import gasManifoldReal2 from "@/assets/products/gas-manifold-real-2.jpeg";
+import gasManifoldReal3 from "@/assets/products/gas-manifold-real-3.jpeg";
+import gasManifoldReal4 from "@/assets/products/gas-manifold-real-4.jpeg";
+import gasManifoldReal5 from "@/assets/products/gas-manifold-real-5.jpeg";
+import gasManifoldReal6 from "@/assets/products/gas-manifold-real-6.jpeg";
+import gasManifoldReal7 from "@/assets/products/gas-manifold-real-7.jpeg";
+import gasManifoldReal8 from "@/assets/products/gas-manifold-real-8.jpeg";
+import gasManifoldReal9 from "@/assets/products/gas-manifold-real-9.jpeg";
 import cryogenicTank from "@/assets/products/cryogenic-tank-pipeline.jpg";
 import cylinderFilling from "@/assets/products/cylinder-filling-manifold.jpg";
 import gasInstallation from "@/assets/products/industrial-gas-installation.jpg";
@@ -127,7 +135,7 @@ export const productCategories: ProductCategory[] = [
         slug: "gas-manifold-systems",
         description: "Multi-cylinder manifold configurations",
         icon: Layers,
-        images: [gasManifoldSystems, gasManifoldSystems2, gasManifoldSystems3],
+        images: [gasManifoldSystems, gasManifoldReal2, gasManifoldReal3, gasManifoldReal4, gasManifoldReal5, gasManifoldReal6, gasManifoldReal7, gasManifoldReal8, gasManifoldReal9],
         overview: [
           "Gas manifold systems are essential components in the efficient and safe distribution of gases from a central supply to multiple points of use. They consist of valves, regulators and piping that control the flow of gases, ensuring a stable and reliable supply to end-users.",
           "VIATO is the indigenous manufacturer of a complete range of industrial gas cylinder manifolds, designed and tested in compliance with industry standards using best-quality materials.",
