@@ -47,6 +47,27 @@ import ppBox7 from "@/assets/products/pp-box-7.jpeg";
 import ppBox8 from "@/assets/products/pp-box-8.jpeg";
 import ppBox9 from "@/assets/products/pp-box-9.jpeg";
 
+import gasPipelineSystems2 from "@/assets/products/gas-pipeline-systems-2.jpg";
+import gasPipelineSystems3 from "@/assets/products/gas-pipeline-systems-3.jpg";
+import gasManifoldSystems2 from "@/assets/products/gas-manifold-systems-2.jpg";
+import gasManifoldSystems3 from "@/assets/products/gas-manifold-systems-3.jpg";
+import cryogenicTank2 from "@/assets/products/cryogenic-tank-pipeline-2.jpg";
+import cryogenicTank3 from "@/assets/products/cryogenic-tank-pipeline-3.jpg";
+import cylinderFilling2 from "@/assets/products/cylinder-filling-manifold-2.jpg";
+import cylinderFilling3 from "@/assets/products/cylinder-filling-manifold-3.jpg";
+import gasInstallation2 from "@/assets/products/industrial-gas-installation-2.jpg";
+import gasInstallation3 from "@/assets/products/industrial-gas-installation-3.jpg";
+import nozzleGel2 from "@/assets/products/nozzle-gel-v101-2.jpg";
+import nozzleGel3 from "@/assets/products/nozzle-gel-v101-3.jpg";
+import rustConvertor2 from "@/assets/products/rust-convertor-v301-2.jpg";
+import rustConvertor3 from "@/assets/products/rust-convertor-v301-3.jpg";
+import degreasingChem2 from "@/assets/products/degreasing-chemical-v401-2.jpg";
+import degreasingChem3 from "@/assets/products/degreasing-chemical-v401-3.jpg";
+import vmaxGalvaSpray2 from "@/assets/products/vmax-galva-spray-2.jpg";
+import vmaxGalvaSpray3 from "@/assets/products/vmax-galva-spray-3.jpg";
+import vmaxColorSprayRal2 from "@/assets/products/vmax-color-spray-ral-2.jpg";
+import vmaxColorSprayRal3 from "@/assets/products/vmax-color-spray-ral-3.jpg";
+
 export interface SubProduct {
   name: string;
   slug: string;
