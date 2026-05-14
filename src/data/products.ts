@@ -9,7 +9,7 @@ import consumablesImg from "@/assets/products/industrial-consumables.jpg";
 import v125_5l from "@/assets/products/v125-real-5l.png";
 import v125_35l_drum from "@/assets/products/v125-real-35l.png";
 import v125_spray from "@/assets/products/v125-real-spray.png";
-import nozzleGel from "@/assets/products/nozzle-gel-v101.jpg";
+import nozzleGel from "@/assets/products/nozzle-gel-v101-real.png";
 import rustConvertor from "@/assets/products/rust-convertor-v301.jpg";
 import degreasingChem from "@/assets/products/degreasing-chemical-v401.jpg";
 
