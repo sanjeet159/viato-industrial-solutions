@@ -184,27 +184,6 @@ _Sent from viato.in_`;
                 </motion.a>
               </AnimateIn>
 
-              {/* Pune branch */}
-              <AnimateIn delay={0.1}>
-                <motion.div
-                  className="p-6 rounded-2xl bg-card border border-border/50 hover:border-accent/30 transition-all group relative overflow-hidden"
-                  whileHover={{ y: -3 }}
-                >
-                  <div className="absolute top-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                  <div className="flex items-start gap-4">
-                    <div className="h-11 w-11 rounded-xl bg-accent/10 group-hover:bg-accent/20 flex items-center justify-center shrink-0 transition-colors">
-                      <MapPin className="h-5 w-5 text-accent" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-widest text-accent mb-1">Pune Branch</p>
-                      <p className="font-bold text-foreground text-sm">Phoenix Properties</p>
-                      <p className="text-muted-foreground text-sm">At. Post – Shikrapur, Pune</p>
-                      <p className="text-muted-foreground text-xs mt-1">Mr. Bharat Gundhale · +91 98347 31352</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimateIn>
-
               {/* Map */}
               <AnimateIn delay={0.2}>
                 <motion.div
