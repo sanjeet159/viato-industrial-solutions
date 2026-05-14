@@ -9,7 +9,7 @@ import consumablesImg from "@/assets/products/industrial-consumables.jpg";
 import v125_5l from "@/assets/products/v125-real-5l.png";
 import v125_35l_drum from "@/assets/products/v125-real-35l.png";
 import v125_spray from "@/assets/products/v125-real-spray.png";
-import nozzleGel from "@/assets/products/nozzle-gel-v101.jpg";
+import nozzleGel from "@/assets/products/nozzle-gel-v101-real.png";
 import rustConvertor from "@/assets/products/rust-convertor-v301.jpg";
 import degreasingChem from "@/assets/products/degreasing-chemical-v401.jpg";
 
@@ -75,8 +75,8 @@ import cylinderFilling2 from "@/assets/products/cylinder-filling-manifold-2.jpg"
 import cylinderFilling3 from "@/assets/products/cylinder-filling-manifold-3.jpg";
 import gasInstallation2 from "@/assets/products/industrial-gas-installation-2.jpg";
 import gasInstallation3 from "@/assets/products/industrial-gas-installation-3.jpg";
-import nozzleGel2 from "@/assets/products/nozzle-gel-v101-2.jpg";
-import nozzleGel3 from "@/assets/products/nozzle-gel-v101-3.jpg";
+import nozzleGel2 from "@/assets/products/nozzle-gel-v101-real-2.jpg";
+import nozzleGel3 from "@/assets/products/nozzle-gel-v101-real-3.jpg";
 import rustConvertor2 from "@/assets/products/rust-convertor-v301-2.jpg";
 import rustConvertor3 from "@/assets/products/rust-convertor-v301-3.jpg";
 import degreasingChem2 from "@/assets/products/degreasing-chemical-v401-2.jpg";
