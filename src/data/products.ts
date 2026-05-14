@@ -54,7 +54,7 @@ import corrugatedBox4 from "@/assets/products/corrugated-box-4.jpeg";
 import corrugatedBox5 from "@/assets/products/corrugated-box-5.jpeg";
 import corrugatedBoxTubes from "@/assets/products/corrugated-box-tubes.jpeg";
 import vmaxGalvaSpray from "@/assets/products/vmax-galva-real-1.jpg";
-import vmaxColorSprayRal from "@/assets/products/vmax-color-spray-ral.jpg";
+import vmaxColorSprayRal from "@/assets/products/vmax-color-real-1.jpg";
 import ppBox1 from "@/assets/products/pp-box-1.jpeg";
 import ppBox2 from "@/assets/products/pp-box-2.jpeg";
 import ppBox3 from "@/assets/products/pp-box-3.jpeg";
@@ -83,8 +83,8 @@ import degreasingChem2 from "@/assets/products/degreasing-v401-real-2.jpg";
 import degreasingChem3 from "@/assets/products/degreasing-v401-real-3.jpg";
 import vmaxGalvaSpray2 from "@/assets/products/vmax-galva-real-2.jpg";
 import vmaxGalvaSpray3 from "@/assets/products/vmax-galva-real-3.jpg";
-import vmaxColorSprayRal2 from "@/assets/products/vmax-color-spray-ral-2.jpg";
-import vmaxColorSprayRal3 from "@/assets/products/vmax-color-spray-ral-3.jpg";
+import vmaxColorSprayRal2 from "@/assets/products/vmax-color-real-2.jpg";
+import vmaxColorSprayRal3 from "@/assets/products/vmax-color-real-3.jpg";
 
 export interface SubProduct {
   name: string;
