@@ -21,7 +21,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm opacity-70 leading-relaxed">
-              Complete Material Handling & Packaging Solution. Your trusted partner for industrial gas pipeline systems, material handling equipment, and engineering services.
+              Complete Industrial Solutions Partner. Your trusted source for gas pipeline systems, industrial chemicals, packaging and engineering services.
             </p>
           </AnimateIn>
 
@@ -101,7 +101,7 @@ const Footer = () => {
 
         <div className="border-t border-primary-foreground/10 mt-14 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs opacity-50">
           <p>© {new Date().getFullYear()} Viato Industries. All rights reserved.</p>
-          <p>Complete Material Handling & Packaging Solution</p>
+          <p>Complete Industrial Solutions — Gas, Chemicals & Packaging</p>
         </div>
       </div>
     </footer>

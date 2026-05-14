@@ -11,7 +11,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import heroImg from "@/assets/hero-industrial-new.jpg";
 import gasPipelineImg from "@/assets/gas-pipeline.jpg";
-import materialHandlingImg from "@/assets/material-handling.jpg";
+import chemicalImg from "@/assets/products/chemical-products.jpg";
 import packagingImg from "@/assets/packaging.jpg";
 import engineeringImg from "@/assets/engineering-services.jpg";
 import logoGoldline from "@/assets/clients/goldline.jpeg";
@@ -54,7 +54,7 @@ const industries = [
 
 const services = [
   { title: "Gas Pipeline Systems", desc: "Complete industrial gas pipeline installation including Oxygen, Nitrogen, Argon, CO2, LPG & compressed air systems.", icon: Flame, img: gasPipelineImg, link: "/services", tag: "Most Popular" },
-  { title: "Material Handling", desc: "Forklifts, pallet trucks, stackers, reach trucks with maintenance, repair and AMC services.", icon: Wrench, img: materialHandlingImg, link: "/services", tag: "Full Range" },
+  { title: "Chemical Products", desc: "Anti-spatter sprays, nozzle gels, rust converters and degreasing chemicals for welding & maintenance.", icon: FlaskConical, img: chemicalImg, link: "/products/chemical-products", tag: "High Performance" },
   { title: "Packaging Solutions", desc: "PP boxes, corrugated packaging, returnable solutions and industrial packaging materials.", icon: Package, img: packagingImg, link: "/products", tag: "Sustainable" },
   { title: "Engineering Services", desc: "Installation, commissioning, maintenance, safety inspection, certification and industrial consultancy.", icon: HardHat, img: engineeringImg, link: "/services", tag: "End-to-End" },
 ];
@@ -90,10 +90,10 @@ const Index = () => {
   return (
     <Layout>
       <SEO
-        title="Complete Material Handling & Gas Pipeline Solutions India"
-        description="Viato Industries – Just Best, Just Legendary. Complete material handling equipment, gas pipeline installation, packaging solutions and industrial services across India since 2013. Serving Automotive, Pharma, Steel and EPC industries."
+        title="Industrial Gas Pipeline, Chemicals & Packaging Solutions India"
+        description="Viato Industries – Just Best, Just Legendary. Gas pipeline installation, industrial chemicals, packaging solutions and engineering services across India since 2013. Serving Automotive, Pharma, Steel and EPC industries."
         slug=""
-        keywords="material handling equipment India, gas pipeline manufacturer India, packaging solutions Aurangabad, industrial solutions Maharashtra, pallet truck supplier, gas manifold system India"
+        keywords="industrial chemicals India, gas pipeline manufacturer India, packaging solutions Aurangabad, anti-spatter spray, gas manifold system India"
       />
 
       {/* ══════════ HERO ══════════ */}
@@ -230,7 +230,7 @@ const Index = () => {
           <SectionHeading
             badge="Our Services"
             title="Industrial Solutions You Can Count On"
-            description="From gas pipeline systems to material handling equipment, we deliver comprehensive industrial solutions with excellence."
+            description="From gas pipeline systems to industrial chemicals, we deliver comprehensive industrial solutions with excellence."
           />
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" staggerDelay={0.15}>
             {services.map((s) => (
@@ -437,7 +437,7 @@ const Index = () => {
       {/* ══════════ CTA ══════════ */}
       <IndustrialCTA
         title="Ready to Optimize Your Industrial Operations?"
-        description="Contact us today for a free consultation and discover how Viato Industries can transform your facility — across gas, packaging, material handling and engineering."
+        description="Contact us today for a free consultation and discover how Viato Industries can transform your facility — across gas, packaging, chemicals and engineering."
       />
 
     </Layout>

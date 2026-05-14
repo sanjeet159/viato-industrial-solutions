@@ -66,7 +66,7 @@ const WhatsAppFloat = () => {
                 <ul className="mt-2 space-y-1">
                   {[
                     "Gas Pipeline Systems",
-                    "Material Handling Equipment",
+                    "Chemical Products",
                     "Packaging Solutions",
                     "Get a Quote",
                   ].map((item) => (

@@ -12,29 +12,29 @@ const industries = [
   {
     name: "Automotive",
     icon: Car,
-    desc: "Gas pipeline systems, material handling equipment, and packaging solutions for automotive OEMs and Tier-1 suppliers.",
-    services: ["Gas Pipeline Installation", "Forklift Supply & Maintenance", "Returnable Packaging", "Engineering Services"],
+    desc: "Gas pipeline systems, industrial chemicals, and packaging solutions for automotive OEMs and Tier-1 suppliers.",
+    services: ["Gas Pipeline Installation", "Anti-Spatter & Chemicals", "Returnable Packaging", "Engineering Services"],
     color: "from-accent/10 to-accent/5",
   },
   {
     name: "Pharmaceutical",
     icon: Pill,
-    desc: "Clean gas pipeline systems, specialized material handling, and compliant packaging solutions for pharma manufacturing.",
-    services: ["SS Gas Pipelines", "Clean Room Equipment", "Pharma-grade Packaging", "Safety Certification"],
+    desc: "Clean gas pipeline systems, specialised industrial chemicals, and compliant packaging solutions for pharma manufacturing.",
+    services: ["SS Gas Pipelines", "Cleaning Chemicals", "Pharma-grade Packaging", "Safety Certification"],
     color: "from-industrial-light/10 to-industrial/5",
   },
   {
     name: "Steel & Metals",
     icon: Cog,
-    desc: "Heavy-duty gas supply systems, industrial gas pipelines, and robust material handling solutions for steel plants.",
-    services: ["Industrial Gas Pipelines", "Heavy-duty Forklifts", "Cryogenic Systems", "Maintenance & AMC"],
+    desc: "Heavy-duty gas supply systems, industrial gas pipelines, and high-performance chemicals for steel plants.",
+    services: ["Industrial Gas Pipelines", "Anti-Spatter & Galva Spray", "Cryogenic Systems", "Maintenance & AMC"],
     color: "from-accent/10 to-accent/5",
   },
   {
     name: "Manufacturing",
     icon: Factory,
     desc: "Complete turnkey solutions for general manufacturing facilities — from gas supply to warehouse management.",
-    services: ["Turnkey Gas Systems", "Warehouse Equipment", "Packaging Solutions", "Consultancy"],
+    services: ["Turnkey Gas Systems", "Industrial Chemicals", "Packaging Solutions", "Consultancy"],
     color: "from-industrial-light/10 to-industrial/5",
   },
   {
@@ -48,7 +48,7 @@ const industries = [
     name: "Chemical",
     icon: FlaskConical,
     desc: "Specialized gas handling systems, corrosion-resistant pipelines, and safety-compliant equipment for chemical plants.",
-    services: ["Corrosion-resistant Pipelines", "Safety Systems", "Material Handling", "Inspection Services"],
+    services: ["Corrosion-resistant Pipelines", "Safety Systems", "Specialty Chemicals", "Inspection Services"],
     color: "from-industrial-light/10 to-industrial/5",
   },
 ];
@@ -61,7 +61,7 @@ const Industries = () => {
   title="Industries We Serve – Automotive, Pharma, Steel, EPC & More"
   description="Viato Industries serves Automotive, EPC, Pharmaceutical, Chemical, Construction, Steel, Railways and Defence industries with complete industrial solutions across India."
   slug="industries"
-  keywords="industrial solutions automotive India, pharma gas pipeline, steel material handling Maharashtra"
+  keywords="industrial solutions automotive India, pharma gas pipeline, steel industry chemicals Maharashtra"
 />
       
       <section className="bg-industrial-gradient py-24 md:py-36 relative overflow-hidden grain-overlay">
