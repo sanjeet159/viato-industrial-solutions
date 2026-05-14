@@ -79,10 +79,14 @@ const Header = () => {
       >
         <div className="container mx-auto max-w-7xl px-4 flex items-center justify-between py-2 text-xs text-primary-foreground">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1.5">
+            <a href="tel:+919834731352" className="flex items-center gap-1.5 hover:text-accent transition-colors">
               <Phone className="h-3 w-3" />
+              <span>+91 98347 31352</span>
+            </a>
+            <span className="hidden sm:inline opacity-40">|</span>
+            <a href="tel:+917722090400" className="hidden sm:flex items-center gap-1.5 hover:text-accent transition-colors">
               <span>+91 77220 90400</span>
-            </div>
+            </a>
             <span className="hidden sm:inline opacity-40">|</span>
             <span className="hidden sm:inline">Waluj MIDC, Aurangabad, Maharashtra</span>
           </div>

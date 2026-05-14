@@ -80,10 +80,15 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="tel:+917722090400" className="flex items-center gap-3 hover:opacity-100 hover:text-accent transition-all">
+                <a href="tel:+919834731352" className="flex items-center gap-3 hover:opacity-100 hover:text-accent transition-all">
                   <div className="h-8 w-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center shrink-0">
                     <Phone className="h-4 w-4" />
                   </div>
+                  <span>+91 98347 31352</span>
+                </a>
+              </li>
+              <li>
+                <a href="tel:+917722090400" className="flex items-center gap-3 hover:opacity-100 hover:text-accent transition-all pl-11 text-sm opacity-80">
                   <span>+91 77220 90400</span>
                 </a>
               </li>

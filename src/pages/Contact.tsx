@@ -46,7 +46,7 @@ const Contact = () => {
 ${formData.message}
 -----------------------------
 _Sent from viato.in_`;
-    const whatsappNumber = "917743877426";
+    const whatsappNumber = "919834731352";
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
     setTimeout(() => {
@@ -65,7 +65,7 @@ _Sent from viato.in_`;
 
       <SEO
   title="Contact Us – Aurangabad & Pune Office"
-  description="Contact Viato Industries for gas pipeline, industrial chemicals and packaging enquiries. Registered office at Waluj MIDC Aurangabad. Call +91 7722090400."
+  description="Contact Viato Industries for gas pipeline, industrial chemicals and packaging enquiries. Registered office at Waluj MIDC Aurangabad. Call +91 9834731352."
   slug="contact"
   keywords="Viato Industries contact number, Aurangabad industrial company, Waluj MIDC supplier"
 />
@@ -102,7 +102,8 @@ _Sent from viato.in_`;
         <div className="container-wide py-0">
           <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
             {[
-              { icon: Phone, label: "Call Us", value: "+91 77220 90400", href: "tel:+917722090400", color: "28 90% 52%" },
+              { icon: Phone, label: "Call Us", value: "+91 98347 31352", href: "tel:+919834731352", color: "28 90% 52%" },
+              { icon: Phone, label: "Alternate", value: "+91 77220 90400", href: "tel:+917722090400", color: "28 90% 52%" },
               { icon: Mail, label: "Email Us", value: "viatoindustries@gmail.com", href: "mailto:viatoindustries@gmail.com", color: "210 80% 55%" },
               { icon: Clock, label: "Working Hours", value: "Mon – Sat: 9AM – 6PM", href: null, color: "150 60% 45%" },
             ].map((item, i) => (
@@ -208,7 +209,7 @@ _Sent from viato.in_`;
               {/* WhatsApp CTA */}
               <AnimateIn delay={0.3}>
                 <motion.a
-                  href="https://wa.me/917743877426"
+                  href="https://wa.me/919834731352"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-5 rounded-2xl border border-green-500/20 bg-green-500/5 hover:bg-green-500/10 hover:border-green-500/40 transition-all group"
@@ -293,7 +294,7 @@ _Sent from viato.in_`;
                         <Input
                           id="phone"
                           type="tel"
-                          placeholder="+91 77220 90400"
+                          placeholder="+91 98347 31352"
                           required
                           value={formData.phone}
                           onChange={handleChange}
