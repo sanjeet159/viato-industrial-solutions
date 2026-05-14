@@ -84,10 +84,6 @@ const Header = () => {
               <span>+91 98347 31352</span>
             </a>
             <span className="hidden sm:inline opacity-40">|</span>
-            <a href="tel:+917722090400" className="hidden sm:flex items-center gap-1.5 hover:text-accent transition-colors">
-              <span>+91 77220 90400</span>
-            </a>
-            <span className="hidden sm:inline opacity-40">|</span>
             <span className="hidden sm:inline">Waluj MIDC, Aurangabad, Maharashtra</span>
           </div>
           <Link
