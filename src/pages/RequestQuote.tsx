@@ -19,15 +19,39 @@ const RequestQuote = () => {
   const prefilledCategory = searchParams.get("category") ?? "";
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [service, setService] = useState<string>(prefilledCategory || "");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = (data.get("name") as string) || "";
+    const company = (data.get("company") as string) || "";
+    const email = (data.get("email") as string) || "";
+    const phone = (data.get("phone") as string) || "";
+    
+    const requirements = (data.get("requirements") as string) || "";
+
+    const message =
+      `*New Quote Request — Viato Industries*\n\n` +
+      `*Name:* ${name}\n` +
+      `*Company:* ${company}\n` +
+      `*Email:* ${email}\n` +
+      `*Phone:* ${phone}\n` +
+      (service ? `*Service/Product:* ${service}\n` : "") +
+      (prefilledProduct ? `*Product:* ${prefilledProduct}\n` : "") +
+      `\n*Requirements:*\n${requirements}`;
+
+    const waUrl = `https://wa.me/919834731352?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, "_blank");
+
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-      toast({ title: "Quote Request Received!", description: "Our team will contact you within 24 hours." });
-    }, 1000);
+      toast({ title: "Quote Request Sent!", description: "Your request has been forwarded to our team on WhatsApp." });
+    }, 600);
   };
 
   return (
@@ -123,26 +147,26 @@ const RequestQuote = () => {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <Label htmlFor="name" className="text-sm font-semibold">Full Name *</Label>
-                        <Input id="name" placeholder="Your name" required className="h-12 rounded-xl" />
+                        <Input id="name" name="name" placeholder="Your name" required className="h-12 rounded-xl" />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="company" className="text-sm font-semibold">Company Name *</Label>
-                        <Input id="company" placeholder="Your company" required className="h-12 rounded-xl" />
+                        <Input id="company" name="company" placeholder="Your company" required className="h-12 rounded-xl" />
                       </div>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <Label htmlFor="email" className="text-sm font-semibold">Email *</Label>
-                        <Input id="email" type="email" placeholder="you@company.com" required className="h-12 rounded-xl" />
+                        <Input id="email" name="email" type="email" placeholder="you@company.com" required className="h-12 rounded-xl" />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="phone" className="text-sm font-semibold">Phone *</Label>
-                        <Input id="phone" type="tel" placeholder="+91 98347 31352" required className="h-12 rounded-xl" />
+                        <Input id="phone" name="phone" type="tel" placeholder="+91 98347 31352" required className="h-12 rounded-xl" />
                       </div>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="service" className="text-sm font-semibold">Service/Product Interest</Label>
-                      <Select defaultValue={prefilledCategory || undefined}>
+                      <Select value={service} onValueChange={setService}>
                         <SelectTrigger className="h-12 rounded-xl">
                           <SelectValue placeholder="Select a service or product" />
                         </SelectTrigger>
@@ -162,6 +186,7 @@ const RequestQuote = () => {
                       <Label htmlFor="requirements" className="text-sm font-semibold">Requirements *</Label>
                       <Textarea
                         id="requirements"
+                        name="requirements"
                         defaultValue={
                           prefilledProduct
                             ? `I'd like a quote for: ${prefilledProduct}\n\nQuantity: \nSpecifications: \nTimeline: `
