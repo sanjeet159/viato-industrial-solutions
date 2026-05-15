@@ -58,8 +58,8 @@ const Industries = () => {
     <Layout>
 
       <SEO
-  title="Industries We Serve – Automotive, Pharma, Steel, EPC & More"
-  description="Viato Industries serves Automotive, EPC, Pharmaceutical, Chemical, Construction, Steel, Railways and Defence industries with complete industrial solutions across India."
+  title="Industries We Serve — Automotive, Pharma, Steel & EPC"
+  description="Serving Automotive, EPC, Pharma, Chemical, Construction, Steel, Railways and Defence industries with complete industrial solutions across India."
   slug="industries"
   keywords="industrial solutions automotive India, pharma gas pipeline, steel industry chemicals Maharashtra"
 />

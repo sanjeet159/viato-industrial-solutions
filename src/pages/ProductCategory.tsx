@@ -40,8 +40,8 @@ const ProductCategory = () => {
     <Layout>
 
       <SEO
-  title={`${category.title} – Viato Industries`}
-  description={`Explore complete range of ${category.title} from Viato Industries. ${category.desc} Available across India.`}
+  title={category.title}
+  description={`Explore our ${category.title} range. ${category.desc}`.slice(0, 160)}
   slug={`products/${category.slug}`}
   keywords={`${category.title} India, ${category.title} manufacturer, buy ${category.title} Aurangabad`}
 />

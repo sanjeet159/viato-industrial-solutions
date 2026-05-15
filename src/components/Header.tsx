@@ -101,7 +101,7 @@ const Header = () => {
         <Link to="/" className="flex items-center gap-2.5 group">
         <img
         src="/logo.png"
-        alt="Viato Industries Logo"
+        alt="Viato Industries"
         className="h-14 w-auto object-contain"
         />
         </Link>

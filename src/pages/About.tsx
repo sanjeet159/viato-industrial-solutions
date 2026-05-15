@@ -41,8 +41,8 @@ const About = () => {
     <Layout>
 
       <SEO
-  title="About Us – Viato Industries Since 2013"
-  description="Established in 2013 under Shri Balaji Group, Viato Industries delivers complete gas pipeline, industrial chemicals and packaging solutions to industries across western India."
+  title="About Viato Industries — Since 2013"
+  description="Established in 2013 under Shri Balaji Group, Viato Industries delivers gas pipeline, industrial chemicals and packaging solutions across western India."
   slug="about"
   keywords="about Viato Industries, Shri Balaji Group Aurangabad, industrial solutions Maharashtra"
 />
@@ -71,9 +71,9 @@ const About = () => {
             </motion.span>
 
             <h1 className="font-display text-5xl md:text-7xl font-bold text-primary-foreground leading-[1.05] mb-6">
-              Just Best,{" "}
+              About{" "}
               <br />
-              <span className="text-accent">Just Legendary</span>
+              <span className="text-accent">Viato Industries</span>
             </h1>
 
             <p className="text-primary-foreground/60 text-lg leading-relaxed mb-10 max-w-lg">
@@ -142,7 +142,7 @@ const About = () => {
                 transition={{ delay: i * 0.15, duration: 0.5 }}
               >
                 <span className="font-display text-4xl font-bold text-accent/20 block mb-2">{item.num}</span>
-                <h3 className="font-display font-bold text-primary-foreground text-lg mb-2">{item.title}</h3>
+                <h2 className="font-display font-bold text-primary-foreground text-lg mb-2">{item.title}</h2>
                 <p className="text-primary-foreground/50 text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}

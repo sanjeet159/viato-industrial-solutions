@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { productCategories } from "@/data/products";
 import { AnimateIn, MagneticButton } from "@/components/animations";
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Phone, Shield, Truck, Award, Settings, ChevronRight, Factory, Zap, Wrench, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -85,6 +86,23 @@ const ProductDetail = () => {
 
   return (
     <Layout>
+      <SEO
+        title={product.name}
+        description={(product.description || `${product.name} from Viato Industries — industrial-grade ${category.title.toLowerCase()} for factories across India.`).slice(0, 160)}
+        slug={`products/${category.slug}/${product.slug}`}
+        ogType="product"
+        ogImage={heroImage ? (heroImage.startsWith("http") ? heroImage : `https://viato-industrial-solutions.lovable.app${heroImage}`) : undefined}
+      >
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: product.name,
+          description: product.description || `${product.name} from Viato Industries`,
+          category: category.title,
+          brand: { "@type": "Brand", name: "Viato Industries" },
+          ...(heroImage ? { image: heroImage.startsWith("http") ? heroImage : `https://viato-industrial-solutions.lovable.app${heroImage}` } : {}),
+        })}</script>
+      </SEO>
       {/* Hero — split layout with product image */}
       <section className="relative overflow-hidden bg-primary">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_20%_80%,hsl(var(--accent)/0.08),transparent)]" />

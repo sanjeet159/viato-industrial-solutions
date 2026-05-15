@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import SEO from "@/components/SEO";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, ArrowRight, Shield, Clock, Headphones, Package } from "lucide-react";
@@ -56,6 +57,11 @@ const RequestQuote = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Request a Quote — Viato Industries"
+        description="Send Viato Industries your industrial requirements — gas pipeline, chemicals, packaging or services — and get a quote within 24 hours."
+        slug="request-quote"
+      />
       <section className="bg-industrial-gradient py-24 md:py-36 relative overflow-hidden grain-overlay">
         <div className="absolute inset-0 hero-mesh" />
         <div className="container-wide relative z-10">
@@ -167,7 +173,7 @@ const RequestQuote = () => {
                     <div className="space-y-2">
                       <Label htmlFor="service" className="text-sm font-semibold">Service/Product Interest</Label>
                       <Select value={service} onValueChange={setService}>
-                        <SelectTrigger className="h-12 rounded-xl">
+                        <SelectTrigger id="service" aria-label="Service or product interest" className="h-12 rounded-xl">
                           <SelectValue placeholder="Select a service or product" />
                         </SelectTrigger>
                         <SelectContent>
