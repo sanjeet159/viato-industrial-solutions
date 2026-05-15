@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import { AnimateIn, StaggerContainer, StaggerItem } from "@/components/animations";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { storeCategories } from "@/data/storeProducts";
 import { ArrowRight, Search, ShoppingBag, X, Grid3X3, List } from "lucide-react";
@@ -39,6 +40,12 @@ const Store = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Industrial Store — Browse Products & Supplies"
+        description={`Browse ${totalProducts}+ industrial products across ${storeCategories.length} categories at Viato Industries' offline store in Aurangabad.`}
+        slug="store"
+        keywords="industrial store Aurangabad, buy industrial supplies, Viato store catalog"
+      />
       {/* Hero */}
       <section className="bg-industrial-gradient grain-overlay relative pt-32 pb-16">
         <div className="hero-mesh absolute inset-0" />
