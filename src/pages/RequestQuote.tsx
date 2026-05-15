@@ -165,7 +165,7 @@ const RequestQuote = () => {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="service" className="text-sm font-semibold">Service/Product Interest</Label>
-                      <Select defaultValue={prefilledCategory || undefined}>
+                      <Select value={service} onValueChange={setService}>
                         <SelectTrigger className="h-12 rounded-xl">
                           <SelectValue placeholder="Select a service or product" />
                         </SelectTrigger>
