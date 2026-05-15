@@ -19,6 +19,7 @@ const RequestQuote = () => {
   const prefilledCategory = searchParams.get("category") ?? "";
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [service, setService] = useState<string>(prefilledCategory || "");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
