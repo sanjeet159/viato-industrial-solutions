@@ -64,11 +64,34 @@ _Sent from viato.in_`;
     <Layout>
 
       <SEO
-  title="Contact Us – Aurangabad & Pune Office"
-  description="Contact Viato Industries for gas pipeline, industrial chemicals and packaging enquiries. Registered office at Waluj MIDC Aurangabad. Call +91 9834731352."
-  slug="contact"
-  keywords="Viato Industries contact number, Aurangabad industrial company, Waluj MIDC supplier"
-/>
+        title="Contact Us — Aurangabad & Pune Office"
+        description="Reach Viato Industries for gas pipeline, chemicals and packaging enquiries. Office at Waluj MIDC, Aurangabad. Call +91 98347 31352."
+        slug="contact"
+        keywords="Viato Industries contact number, Aurangabad industrial company, Waluj MIDC supplier"
+      >
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Viato Industries",
+          url: "https://viato-industrial-solutions.lovable.app/contact",
+          telephone: ["+919834731352", "+917722090400"],
+          email: "viatoindustries@gmail.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "K-217, Waluj MIDC",
+            addressLocality: "Aurangabad",
+            addressRegion: "Maharashtra",
+            postalCode: "431136",
+            addressCountry: "IN",
+          },
+          openingHoursSpecification: [{
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            opens: "09:00",
+            closes: "18:00",
+          }],
+        })}</script>
+      </SEO>
 
       {/* ══════ HERO — Compact ══════ */}
       <section className="bg-industrial-gradient py-10 md:py-14 relative overflow-hidden grain-overlay">
