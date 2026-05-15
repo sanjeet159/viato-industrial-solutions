@@ -31,7 +31,7 @@ const RequestQuote = () => {
     const company = (data.get("company") as string) || "";
     const email = (data.get("email") as string) || "";
     const phone = (data.get("phone") as string) || "";
-    const service = (form.querySelector('textarea[name="requirements"]') ? "" : "");
+    
     const requirements = (data.get("requirements") as string) || "";
 
     const message =
