@@ -186,6 +186,7 @@ const RequestQuote = () => {
                       <Label htmlFor="requirements" className="text-sm font-semibold">Requirements *</Label>
                       <Textarea
                         id="requirements"
+                        name="requirements"
                         defaultValue={
                           prefilledProduct
                             ? `I'd like a quote for: ${prefilledProduct}\n\nQuantity: \nSpecifications: \nTimeline: `
