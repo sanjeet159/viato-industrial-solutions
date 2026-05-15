@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState, ReactNode } from "react";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 // Scroll-triggered fade/slide in
 export const AnimateIn = ({
@@ -14,13 +16,13 @@ export const AnimateIn = ({
   direction?: "up" | "down" | "left" | "right" | "none";
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   const directionMap = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { y: 0, x: 40 },
-    right: { y: 0, x: -40 },
+    up: { y: 24, x: 0 },
+    down: { y: -24, x: 0 },
+    left: { y: 0, x: 24 },
+    right: { y: 0, x: -24 },
     none: { y: 0, x: 0 },
   };
 
@@ -39,10 +41,11 @@ export const AnimateIn = ({
           : { opacity: 0, y: directionMap[direction].y, x: directionMap[direction].x }
       }
       transition={{
-        duration: 0.7,
+        duration: 0.5,
         delay,
-        ease: [0.21, 0.47, 0.32, 0.98],
+        ease: EASE,
       }}
+      style={{ willChange: "transform, opacity" }}
     >
       {children}
     </motion.div>
@@ -53,7 +56,7 @@ export const AnimateIn = ({
 export const StaggerContainer = ({
   children,
   className = "",
-  staggerDelay = 0.1,
+  staggerDelay = 0.07,
 }: {
   children: ReactNode;
   className?: string;
@@ -92,14 +95,14 @@ export const StaggerItem = ({
   <motion.div
     className={className}
     variants={{
-      hidden: { opacity: 0, y: 30, scale: 0.95 },
+      hidden: { opacity: 0, y: 20 },
       visible: {
         opacity: 1,
         y: 0,
-        scale: 1,
-        transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] },
+        transition: { duration: 0.45, ease: EASE },
       },
     }}
+    style={{ willChange: "transform, opacity" }}
   >
     {children}
   </motion.div>
@@ -118,7 +121,7 @@ export const AnimatedCounter = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { duration: 2000, bounce: 0 });
+  const springValue = useSpring(motionValue, { duration: 1600, bounce: 0 });
   const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
@@ -141,7 +144,7 @@ export const AnimatedCounter = ({
   );
 };
 
-// Parallax wrapper
+// Parallax wrapper — uses framer-motion's scroll values (no React re-renders)
 export const Parallax = ({
   children,
   className = "",
@@ -152,24 +155,17 @@ export const Parallax = ({
   speed?: number;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (ref.current) {
-        const rect = ref.current.getBoundingClientRect();
-        const center = rect.top + rect.height / 2;
-        const windowCenter = window.innerHeight / 2;
-        setOffset((center - windowCenter) * speed * 0.1);
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [speed]);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const range = 80 * speed;
+  const y = useTransform(scrollYProgress, [0, 1], [range, -range]);
+  const smoothY = useSpring(y, { stiffness: 120, damping: 20, mass: 0.4 });
 
   return (
     <div ref={ref} className={className}>
-      <motion.div style={{ y: offset }}>{children}</motion.div>
+      <motion.div style={{ y: smoothY, willChange: "transform" }}>{children}</motion.div>
     </div>
   );
 };
@@ -191,8 +187,8 @@ export const MagneticButton = ({
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    x.set((e.clientX - centerX) * 0.15);
-    y.set((e.clientY - centerY) * 0.15);
+    x.set((e.clientX - centerX) * 0.12);
+    y.set((e.clientY - centerY) * 0.12);
   };
 
   const handleLeave = () => {
@@ -200,8 +196,8 @@ export const MagneticButton = ({
     y.set(0);
   };
 
-  const springX = useSpring(x, { stiffness: 150, damping: 15 });
-  const springY = useSpring(y, { stiffness: 150, damping: 15 });
+  const springX = useSpring(x, { stiffness: 200, damping: 18, mass: 0.4 });
+  const springY = useSpring(y, { stiffness: 200, damping: 18, mass: 0.4 });
 
   return (
     <motion.div
@@ -209,7 +205,7 @@ export const MagneticButton = ({
       className={className}
       onMouseMove={handleMouse}
       onMouseLeave={handleLeave}
-      style={{ x: springX, y: springY }}
+      style={{ x: springX, y: springY, willChange: "transform" }}
     >
       {children}
     </motion.div>
