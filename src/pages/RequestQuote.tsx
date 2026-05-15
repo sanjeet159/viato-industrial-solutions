@@ -23,11 +23,34 @@ const RequestQuote = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = (data.get("name") as string) || "";
+    const company = (data.get("company") as string) || "";
+    const email = (data.get("email") as string) || "";
+    const phone = (data.get("phone") as string) || "";
+    const service = (form.querySelector('input[name="service"]') as HTMLInputElement)?.value || prefilledCategory || "";
+    const requirements = (data.get("requirements") as string) || "";
+
+    const message =
+      `*New Quote Request — Viato Industries*\n\n` +
+      `*Name:* ${name}\n` +
+      `*Company:* ${company}\n` +
+      `*Email:* ${email}\n` +
+      `*Phone:* ${phone}\n` +
+      (service ? `*Service/Product:* ${service}\n` : "") +
+      (prefilledProduct ? `*Product:* ${prefilledProduct}\n` : "") +
+      `\n*Requirements:*\n${requirements}`;
+
+    const waUrl = `https://wa.me/919834731352?text=${encodeURIComponent(message)}`;
+    window.open(waUrl, "_blank");
+
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-      toast({ title: "Quote Request Received!", description: "Our team will contact you within 24 hours." });
-    }, 1000);
+      toast({ title: "Quote Request Sent!", description: "Your request has been forwarded to our team on WhatsApp." });
+    }, 600);
   };
 
   return (
