@@ -19,8 +19,8 @@ const Products = () => {
     <Layout>
 
       <SEO
-  title="Industrial Products – Gas Pipeline, Pallet Trucks & Packaging"
-  description="Browse Viato Industries complete product range – gas manifold systems, hydraulic pallet trucks, stackers, PP corrugated boxes, anti spatter chemicals and industrial consumables."
+  title="Industrial Products — Gas, Chemicals & Packaging"
+  description="Browse our range — gas manifold systems, pallet trucks, PP corrugated boxes, anti-spatter chemicals, aerosol paints and industrial consumables."
   slug="products"
   keywords="gas manifold India, pallet truck manufacturer Aurangabad, PP boxes supplier, industrial products Maharashtra"
 />

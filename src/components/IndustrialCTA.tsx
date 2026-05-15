@@ -259,6 +259,7 @@ const IndustrialCTA = ({
                   <motion.button
                     key={ind.label}
                     type="button"
+                    aria-label={`View ${ind.label} solutions`}
                     onMouseEnter={() => setHoveredIndustry(ind.label)}
                     onMouseLeave={() => setHoveredIndustry(null)}
                     whileHover={{ scale: 1.25 }}

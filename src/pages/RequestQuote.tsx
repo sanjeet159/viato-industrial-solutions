@@ -167,7 +167,7 @@ const RequestQuote = () => {
                     <div className="space-y-2">
                       <Label htmlFor="service" className="text-sm font-semibold">Service/Product Interest</Label>
                       <Select value={service} onValueChange={setService}>
-                        <SelectTrigger className="h-12 rounded-xl">
+                        <SelectTrigger id="service" aria-label="Service or product interest" className="h-12 rounded-xl">
                           <SelectValue placeholder="Select a service or product" />
                         </SelectTrigger>
                         <SelectContent>

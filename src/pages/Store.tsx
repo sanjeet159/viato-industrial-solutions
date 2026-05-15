@@ -92,7 +92,7 @@ const Store = () => {
                   className="w-full pl-10 pr-9 py-2 rounded-full border border-border bg-card text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent/50 transition-all"
                 />
                 {search && (
-                  <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
+                  <button type="button" aria-label="Clear search" onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
                     <X className="h-3.5 w-3.5" />
                   </button>
                 )}
@@ -129,12 +129,18 @@ const Store = () => {
             {/* View toggle */}
             <div className="hidden sm:flex items-center gap-1 border border-border rounded-lg p-0.5 bg-muted/50">
               <button
+                type="button"
+                aria-label="Grid view"
+                aria-pressed={viewMode === "grid"}
                 onClick={() => setViewMode("grid")}
                 className={`p-1.5 rounded-md transition-all ${viewMode === "grid" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"}`}
               >
                 <Grid3X3 className="h-4 w-4" />
               </button>
               <button
+                type="button"
+                aria-label="List view"
+                aria-pressed={viewMode === "list"}
                 onClick={() => setViewMode("list")}
                 className={`p-1.5 rounded-md transition-all ${viewMode === "list" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"}`}
               >

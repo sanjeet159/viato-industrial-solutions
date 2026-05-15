@@ -90,10 +90,10 @@ const Index = () => {
   return (
     <Layout>
       <SEO
-        title="Industrial Gas Pipeline, Chemicals & Packaging Solutions India"
-        description="Viato Industries – Just Best, Just Legendary. Gas pipeline installation, industrial chemicals, packaging solutions and engineering services across India since 2013. Serving Automotive, Pharma, Steel and EPC industries."
+        title="Industrial Gas, Chemicals & Packaging Solutions"
+        description="Gas pipeline systems, industrial chemicals, packaging and engineering services from Viato Industries — trusted by factories across India since 2013."
         slug=""
-        keywords="industrial chemicals India, gas pipeline manufacturer India, packaging solutions Aurangabad, anti-spatter spray, gas manifold system India"
+        keywords="industrial chemicals India, gas pipeline manufacturer, packaging solutions Aurangabad, anti-spatter spray, gas manifold system"
       />
 
       {/* ══════════ HERO ══════════ */}
@@ -235,7 +235,7 @@ const Index = () => {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" staggerDelay={0.15}>
             {services.map((s) => (
               <StaggerItem key={s.title}>
-                <Link to={s.link} className="group relative overflow-hidden rounded-2xl border border-border bg-card hover:shadow-lg transition-all duration-300 block">
+                <Link to={s.link} aria-label={`Learn more about ${s.title}`} className="group relative overflow-hidden rounded-2xl border border-border bg-card hover:shadow-lg transition-all duration-300 block">
                   <div className="aspect-[16/9] overflow-hidden relative">
                     <motion.img src={s.img} alt={s.title} className="w-full h-full object-cover" whileHover={{ scale: 1.05 }} transition={{ duration: 0.5 }} />
                     <div className="absolute inset-0 bg-foreground/40" />
@@ -250,7 +250,7 @@ const Index = () => {
                     </div>
                     <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
                     <span className="inline-flex items-center gap-1.5 mt-5 text-accent text-sm font-semibold group-hover:gap-3 transition-all">
-                      Learn More <ArrowRight className="h-4 w-4" />
+                      Learn more<span className="sr-only"> about {s.title}</span> <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
                 </Link>

@@ -1,0 +1,18 @@
+# Viato Industries
+
+> Industrial gas pipeline systems, chemicals, packaging and engineering services for factories across India. Established 2013, part of Shri Balaji Group, based in Aurangabad, Maharashtra.
+
+## Pages
+
+- [Home](/): Overview of Viato Industries' industrial solutions.
+- [About](/about): Company background, mission and history since 2013.
+- [Services](/services): Gas pipeline installation, AMC, repairs and engineering services.
+- [Products](/products): Full product catalog across all categories.
+- [Gas Manifold & Pipeline](/products/gas-pipeline): Gas distribution, manifold and cryogenic pipeline systems.
+- [Chemical Products](/products/chemical-products): Anti-spatter, nozzle gel, rust convertor, degreaser.
+- [Packaging Solutions](/products/packaging-solutions): PP corrugated boxes and crates.
+- [Aerosol Spray Paints](/products/aerosol-spray-paints): VMax galva and RAL color sprays.
+- [Store](/store): Browse and enquire on stocked products.
+- [Industries](/industries): Sectors served — Automotive, Pharma, Steel, EPC and more.
+- [Contact](/contact): Office address, phone and enquiry form.
+- [Request Quote](/request-quote): Send a quote request for any product or service.

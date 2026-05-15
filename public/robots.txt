@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://viato-industrial-solutions.lovable.app/sitemap.xml
