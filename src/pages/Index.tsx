@@ -11,7 +11,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import heroImg from "@/assets/hero-industrial-new.jpg";
 import gasPipelineImg from "@/assets/gas-pipeline.jpg";
-import chemicalImg from "@/assets/products/chemical-products.jpg";
+import chemicalImg from "@/assets/products/chemical-products-banner.jpg";
 import packagingImg from "@/assets/packaging.jpg";
 import engineeringImg from "@/assets/engineering-services.jpg";
 import logoGoldline from "@/assets/clients/goldline.jpeg";
